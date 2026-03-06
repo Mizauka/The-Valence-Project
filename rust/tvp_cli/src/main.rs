@@ -61,6 +61,10 @@ enum Commands {
         #[arg(long)]
         substance: String,
 
+        /// alias: compound name/id
+        #[arg(long)]
+        compound: Option<String>,
+
         /// route name/id
         #[arg(long)]
         route: String,
@@ -95,6 +99,10 @@ enum EffectCmd {
     Curve {
         #[arg(long)]
         substance: String,
+
+        /// alias: compound name/id
+        #[arg(long)]
+        compound: Option<String>,
 
         #[arg(long)]
         route: String,
@@ -155,6 +163,8 @@ enum PkCmd {
         #[arg(long)]
         substance: String,
         #[arg(long)]
+        compound: Option<String>,
+        #[arg(long)]
         route: String,
         #[arg(long)]
         dose: f64,
@@ -178,6 +188,8 @@ enum PkCmd {
     Repeat {
         #[arg(long)]
         substance: String,
+            #[arg(long)]
+            compound: Option<String>,
         #[arg(long)]
         route: String,
         #[arg(long)]
@@ -208,6 +220,8 @@ enum PkCmd {
     SteadyState {
         #[arg(long)]
         substance: String,
+            #[arg(long)]
+            compound: Option<String>,
         #[arg(long)]
         route: String,
         #[arg(long)]
@@ -236,6 +250,8 @@ enum PkCmd {
     Validate {
         #[arg(long)]
         substance: String,
+            #[arg(long)]
+            compound: Option<String>,
         #[arg(long)]
         route: String,
         #[arg(long)]
@@ -272,6 +288,7 @@ fn main() -> Result<()> {
             kind,
             events,
             substance,
+            compound,
             route,
             total_h,
             steps,
@@ -286,6 +303,7 @@ fn main() -> Result<()> {
             &kind,
             events,
             &substance,
+            compound.as_deref(),
             &route,
             total_h,
             steps,
@@ -304,6 +322,7 @@ fn cmd_simulate(
     kind: &str,
     events_path: std::path::PathBuf,
     substance: &str,
+    compound: Option<&str>,
     route: &str,
     total_h: f64,
     steps: usize,
@@ -314,7 +333,8 @@ fn cmd_simulate(
     estimate_ke_from_total: bool,
 ) -> Result<()> {
     let kind_lc = kind.to_ascii_lowercase();
-    let (s, r, l3) = resolve_substance_route(db, substance, route)?;
+    let subject_name = compound.unwrap_or(substance);
+    let (s, r, l3) = resolve_substance_route(db, subject_name, route)?;
 
     let text = std::fs::read_to_string(&events_path)
         .with_context(|| format!("failed to read {}", events_path.display()))?;
@@ -384,11 +404,16 @@ fn cmd_simulate(
 
         let (_timeline, result) = effect::simulate_timeline(&sim_events, durations, grid)?;
 
+        let events_obj = serde_json::json!({
+            "meta": {"type": "effect", "total_h": total_h, "steps": steps},
+            "events": out_events_json
+        });
+
         let mut env = schema::envelope::Envelope::new(
             "tvp_engine.effect",
             "simulate",
             db_dir.to_string(),
-            out_events_json,
+            events_obj,
             result,
         );
         env.subject_kind = Some("substance");
@@ -454,14 +479,19 @@ fn cmd_simulate(
             None
         };
 
+        let events_obj = serde_json::json!({
+            "meta": {"type": "pk", "dt_minutes": dt_minutes, "total_hours": total_h},
+            "events": input_events
+                .iter()
+                .map(|e| serde_json::json!({"time_h": e.time_h, "dose": e.dose}))
+                .collect::<Vec<_>>()
+        });
+
         let mut env = schema::envelope::Envelope::new(
             "tvp_engine.pk",
             "simulate",
             db_dir.to_string(),
-            input_events
-                .iter()
-                .map(|e| serde_json::json!({"time_h": e.time_h, "dose": e.dose}))
-                .collect::<Vec<_>>(),
+            events_obj,
             serde_json::json!({
                 "params": {
                     "ka_per_hour": base_curve.params.ka_per_hour,
@@ -490,6 +520,7 @@ fn cmd_effect(db_dir: &str, db: &Database, cmd: EffectCmd) -> Result<()> {
     match cmd {
         EffectCmd::Curve {
             substance,
+            compound,
             route,
             dose,
             t0_h,
@@ -499,7 +530,8 @@ fn cmd_effect(db_dir: &str, db: &Database, cmd: EffectCmd) -> Result<()> {
             steps,
             common_dose,
         } => {
-            let (s, r, l3) = resolve_substance_route(db, &substance, &route)?;
+            let subject_name = compound.as_deref().unwrap_or(&substance);
+            let (s, r, l3) = resolve_substance_route(db, subject_name, &route)?;
             let l3 = l3.with_context(|| {
                 format!(
                     "找不到 L3 配置：substance={} route={}（无法构建 effect timeline durations）",
@@ -548,11 +580,9 @@ fn cmd_effect(db_dir: &str, db: &Database, cmd: EffectCmd) -> Result<()> {
 
             let (_timeline, result) = effect::simulate_timeline(&[event], durations, grid)?;
 
-            let mut env = schema::envelope::Envelope::new(
-                "tvp_engine.effect",
-                "curve",
-                db_dir.to_string(),
-                vec![serde_json::json!({
+            let events_obj = serde_json::json!({
+                "meta": {"type": "curve", "dose_units": l3.dose_units, "total_h": total_h, "steps": steps},
+                "events": [serde_json::json!({
                     "t0_h": t0_h,
                     "t1_h": t1_h,
                     "dose": dose,
@@ -560,7 +590,14 @@ fn cmd_effect(db_dir: &str, db: &Database, cmd: EffectCmd) -> Result<()> {
                     "common_dose": common,
                     "height": height,
                     "horizontal_weight": horizontal_weight
-                })],
+                })]
+            });
+
+            let mut env = schema::envelope::Envelope::new(
+                "tvp_engine.effect",
+                "curve",
+                db_dir.to_string(),
+                events_obj,
                 result,
             );
             env.subject_kind = Some("substance");
@@ -655,6 +692,7 @@ fn cmd_pk(db: &Database, cmd: PkCmd) -> Result<()> {
     match cmd {
         PkCmd::Curve {
             substance,
+            compound,
             route,
             dose,
             dt_minutes,
@@ -665,7 +703,8 @@ fn cmd_pk(db: &Database, cmd: PkCmd) -> Result<()> {
             estimate_ke_from_total,
             max_points,
         } => {
-            let (s, r, l3) = resolve_substance_route(db, &substance, &route)?;
+            let subject_name = compound.as_deref().unwrap_or(&substance);
+            let (s, r, l3) = resolve_substance_route(db, subject_name, &route)?;
             let opts = BuildPkOptions {
                 override_ka_per_hour: ka_per_hour,
                 override_ke_per_hour: ke_per_hour,
@@ -686,21 +725,23 @@ fn cmd_pk(db: &Database, cmd: PkCmd) -> Result<()> {
                 warnings.push("ke 来源未知".to_string());
             }
 
-            let mut env = schema::envelope::Envelope::new(
-                "tvp_engine.pk",
-                "curve",
-                db.root.to_string_lossy().to_string(),
-                vec![serde_json::json!({
-                    "dose": dose,
-                    "dt_minutes": dt_minutes,
-                    "total_hours": total_hours,
+            let events_obj = serde_json::json!({
+                "meta": {"type": "pk_curve", "dose": dose, "dt_minutes": dt_minutes, "total_hours": total_hours},
+                "events": [serde_json::json!({
                     "overrides": {
                         "ka_per_hour": ka_per_hour,
                         "ke_per_hour": ke_per_hour,
                         "half_life_hours": half_life_hours,
                         "estimate_ke_from_total": estimate_ke_from_total
                     }
-                })],
+                })]
+            });
+
+            let mut env = schema::envelope::Envelope::new(
+                "tvp_engine.pk",
+                "curve",
+                db.root.to_string_lossy().to_string(),
+                events_obj,
                 serde_json::json!({
                     "params": {
                         "ka_per_hour": curve.params.ka_per_hour,
@@ -728,6 +769,7 @@ fn cmd_pk(db: &Database, cmd: PkCmd) -> Result<()> {
         }
         PkCmd::Repeat {
             substance,
+            compound,
             route,
             dose,
             tau_hours,
@@ -740,7 +782,8 @@ fn cmd_pk(db: &Database, cmd: PkCmd) -> Result<()> {
             estimate_ke_from_total,
             max_points,
         } => {
-            let (s, r, l3) = resolve_substance_route(db, &substance, &route)?;
+            let subject_name = compound.as_deref().unwrap_or(&substance);
+            let (s, r, l3) = resolve_substance_route(db, subject_name, &route)?;
             let opts = BuildPkOptions {
                 override_ka_per_hour: ka_per_hour,
                 override_ke_per_hour: ke_per_hour,
@@ -796,6 +839,7 @@ fn cmd_pk(db: &Database, cmd: PkCmd) -> Result<()> {
         }
         PkCmd::SteadyState {
             substance,
+            compound,
             route,
             dose,
             tau_hours,
@@ -807,7 +851,8 @@ fn cmd_pk(db: &Database, cmd: PkCmd) -> Result<()> {
             estimate_ke_from_total,
             max_points,
         } => {
-            let (s, r, l3) = resolve_substance_route(db, &substance, &route)?;
+            let subject_name = compound.as_deref().unwrap_or(&substance);
+            let (s, r, l3) = resolve_substance_route(db, subject_name, &route)?;
             let opts = BuildPkOptions {
                 override_ka_per_hour: ka_per_hour,
                 override_ke_per_hour: ke_per_hour,
@@ -859,6 +904,7 @@ fn cmd_pk(db: &Database, cmd: PkCmd) -> Result<()> {
         }
         PkCmd::Validate {
             substance,
+            compound,
             route,
             dose,
             dt_minutes,
@@ -868,7 +914,8 @@ fn cmd_pk(db: &Database, cmd: PkCmd) -> Result<()> {
             half_life_hours,
             estimate_ke_from_total,
         } => {
-            let (s, r, l3) = resolve_substance_route(db, &substance, &route)?;
+            let subject_name = compound.as_deref().unwrap_or(&substance);
+            let (s, r, l3) = resolve_substance_route(db, subject_name, &route)?;
             let l3 = l3.with_context(|| {
                 format!(
                     "找不到 L3 配置：substance={} route={}（无法做 peak 区间验证）",

@@ -33,12 +33,24 @@ enum Cmd {
 
         #[arg(long, default_value_t = 70.0)]
         body_weight_kg: f64,
+
+        /// optional: compound name/id (alias for --compound)
+        #[arg(long)]
+        substance: Option<String>,
+        /// optional: compound name/id
+        #[arg(long)]
+        compound: Option<String>,
+        /// optional: route name/id
+        #[arg(long)]
+        route: Option<String>,
     },
 
     /// Load HRT 3-layer config (L1/L2/L3), build events, and run a curve.
     Curve {
         #[arg(long, help = "compound 名称或 id（例如 estradiol / cpa）")]
         compound: String,
+        #[arg(long, help = "alias: substance 名称或 id（可选）")]
+        substance: Option<String>,
 
         #[arg(long, help = "route 名称或 id（例如 oral / patch / sublingual / injection）")]
         route: String,
@@ -69,6 +81,9 @@ fn main() -> Result<()> {
         Cmd::Simulate {
             events,
             body_weight_kg,
+            substance,
+            compound,
+            route,
         } => {
             let events_path = events;
             let text = std::fs::read_to_string(&events_path)
@@ -79,7 +94,18 @@ fn main() -> Result<()> {
             let sim = run_simulation(&parsed_events, body_weight_kg)
                 .context("simulation returned null")?;
 
-            // Unified envelope.
+            // Unified envelope with meta/events shape.
+            let events_obj = serde_json::json!({
+                "meta": {
+                    "events_path": events_path.to_string_lossy(),
+                    "body_weight_kg": body_weight_kg,
+                    "provided_compound": compound,
+                    "provided_substance": substance,
+                    "provided_route": route
+                },
+                "events": parsed_events
+            });
+
             let mut env = schema::envelope::Envelope::<
                 serde_json::Value,
                 serde_json::Value,
@@ -90,11 +116,7 @@ fn main() -> Result<()> {
                 "tvp_hrt_engine.sim",
                 "simulate",
                 db_dir.to_string(),
-                serde_json::json!({
-                    "events_path": events_path,
-                    "body_weight_kg": body_weight_kg,
-                    "events": parsed_events
-                }),
+                events_obj,
                 sim,
             );
             env.subject_kind = Some("compound");
@@ -104,6 +126,7 @@ fn main() -> Result<()> {
 
         Cmd::Curve {
             compound,
+            substance,
             route,
             dose,
             body_weight_kg,
@@ -114,9 +137,10 @@ fn main() -> Result<()> {
             let db = HrtDatabase::load_from_assets_dir(&db_dir)
                 .with_context(|| format!("加载 HRT 数据库失败：{}", db_dir))?;
 
+            let compound_name = if let Some(sup) = &substance { sup.as_str() } else { &compound };
             let c = db
-                .compound_by_name_or_id(&compound)
-                .with_context(|| format!("找不到 compound：{}", compound))?;
+                .compound_by_name_or_id(compound_name)
+                .with_context(|| format!("找不到 compound：{}", compound_name))?;
             let r = db
                 .route_by_id_or_name(&route)
                 .with_context(|| format!("找不到 route：{}", route))?;
@@ -300,17 +324,16 @@ fn main() -> Result<()> {
             let sim = run_simulation_with_grid(&events, body_weight_kg, grid)
                 .context("simulation returned null")?;
 
+            let events_obj = serde_json::json!({
+                "meta": {"t0_h": t0_h, "total_h": total_h, "steps": steps, "body_weight_kg": body_weight_kg},
+                "events": events
+            });
+
             let mut env = schema::envelope::Envelope::new(
                 "tvp_hrt_engine.sim",
                 "curve",
                 db_dir.to_string(),
-                serde_json::json!({
-                    "t0_h": t0_h,
-                    "total_h": total_h,
-                    "steps": steps,
-                    "body_weight_kg": body_weight_kg,
-                    "events": events
-                }),
+                events_obj,
                 sim,
             );
             env.subject_kind = Some("compound");
