@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "5-mapb",
+  "name": "5-MAPB",
+  "common_names": [
+    "5-MAPB"
+  ],
+  "url": "https://psychonautwiki.org/wiki/5-MAPB",
+  "categories": [
+    "entactogen",
+    "psychedelic",
+    "stimulant",
+    "research-chemical",
+    "habit-forming"
+  ],
+  "summary": "An empathogen structurally similar to MDMA. Typically more visual than MDMA. Often reported to be much less stimulating and more relaxing than most other stimulating empathogens. Less psychedelic than 6-APB. Much longer lasting than MDMA.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "MAOI",
+      "SNRIs",
+      "Serotonin releasers",
+      "SSRIs",
+      "5-Hydroxytryptophan"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dopamine",
+      "stimulant"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "methamphetamine",
+  "substance_name": "Methamphetamine",
+  "route_id": "rectal",
+  "route_name": "rectal",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 10.0,
+  "strong_min": 30.0,
+  "heavy_min": 40.0,
+  "onset": {
+    "min": 5.0,
+    "max": 15.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 3.0,
+    "max": 5.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 3.0,
+    "max": 5.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 6.0,
+    "max": 10.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 12.0,
+    "max": 24.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

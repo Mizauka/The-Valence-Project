@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "id": "cpa",
+  "name": "Cyproterone Acetate",
+  "distribution_volume_l_per_kg": 14.0,
+  "notes": "Oyama baseline: Vd ~14.0 L/kg for CPA (used for ng/mL conversion).",
+  "legacy": {}
+}

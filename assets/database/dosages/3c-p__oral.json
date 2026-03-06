@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "3c-p",
+  "substance_name": "3C-P",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": null,
+  "common_min": null,
+  "strong_min": null,
+  "heavy_min": null,
+  "onset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 4.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 10.0,
+    "max": 16.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "benzydamine",
+  "substance_name": "Benzydamine",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 150.0,
+  "common_min": 500.0,
+  "strong_min": 1000.0,
+  "heavy_min": 2000.0,
+  "onset": {
+    "min": 20.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 3.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 5.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 24.0,
+    "max": 72.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

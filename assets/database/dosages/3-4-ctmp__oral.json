@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "3-4-ctmp",
+  "substance_name": "3,4-CTMP",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 2.0,
+  "common_min": 4.0,
+  "strong_min": 6.0,
+  "heavy_min": 8.0,
+  "onset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 6.0,
+    "max": 18.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 24.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

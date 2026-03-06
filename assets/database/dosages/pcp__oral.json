@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "pcp",
+  "substance_name": "PCP",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 1.0,
+  "common_min": 5.0,
+  "strong_min": 10.0,
+  "heavy_min": 15.0,
+  "onset": {
+    "min": 30.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 40.0,
+    "max": 120.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 4.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 4.0,
+    "max": 48.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

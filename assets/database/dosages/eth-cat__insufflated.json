@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "eth-cat",
+  "substance_name": "ETH-CAT",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 35.0,
+  "strong_min": 70.0,
+  "heavy_min": 100.0,
+  "onset": {
+    "min": 1.0,
+    "max": 5.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 15.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 60.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "total": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "methoxetamine",
+  "substance_name": "Methoxetamine",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 20.0,
+  "strong_min": 35.0,
+  "heavy_min": 60.0,
+  "onset": {
+    "min": 5.0,
+    "max": 20.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 30.0,
+    "max": 75.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 1.5,
+    "units": "hours"
+  },
+  "total": {
+    "min": 3.0,
+    "max": 5.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 4.0,
+    "max": 48.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

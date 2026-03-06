@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "amphetamine",
+  "substance_name": "Amphetamine",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 4.0,
+  "common_min": 15.0,
+  "strong_min": 30.0,
+  "heavy_min": 50.0,
+  "onset": {
+    "min": 1.0,
+    "max": 5.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 30.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.5,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

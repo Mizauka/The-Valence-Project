@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "psilocybin-mushrooms",
+  "substance_name": "Psilocybin mushrooms",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg Psilocybin",
+  "threshold": null,
+  "light_min": 2.5,
+  "common_min": 10.0,
+  "strong_min": 25.0,
+  "heavy_min": 50.0,
+  "onset": {
+    "min": 20.0,
+    "max": 45.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 1.0,
+    "max": 1.5,
+    "units": "hours"
+  },
+  "peak": {
+    "min": 2.0,
+    "max": 2.5,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 2.5,
+    "max": 3.5,
+    "units": "hours"
+  },
+  "total": {
+    "min": 6.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 4.0,
+    "max": 24.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

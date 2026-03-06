@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "clonazepam",
+  "substance_name": "Clonazepam",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 0.1,
+  "common_min": 0.5,
+  "strong_min": 1.0,
+  "heavy_min": 2.0,
+  "onset": {
+    "min": 20.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 8.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 8.0,
+    "max": 48.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

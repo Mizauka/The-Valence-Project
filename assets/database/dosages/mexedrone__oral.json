@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "substance_id": "mexedrone",
+  "substance_name": "Mexedrone",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 150.0,
+  "strong_min": 250.0,
+  "heavy_min": 350.0,
+  "onset": null,
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

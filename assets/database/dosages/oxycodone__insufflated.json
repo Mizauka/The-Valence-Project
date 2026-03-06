@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "oxycodone",
+  "substance_name": "Oxycodone",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 1.0,
+  "common_min": 7.5,
+  "strong_min": 15.0,
+  "heavy_min": 25.0,
+  "onset": {
+    "min": 2.0,
+    "max": 5.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 3.0,
+    "max": 5.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

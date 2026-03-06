@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "myristicin",
+  "name": "Myristicin",
+  "common_names": [
+    "Nutmeg"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Myristicin",
+  "categories": [
+    "deliriant"
+  ],
+  "summary": null,
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Opioids",
+      "Dextromethorphan",
+      "Diphenhydramine"
+    ],
+    "unsafe": [
+      "Stimulants",
+      "Alcohol",
+      "Serotonin releasers"
+    ],
+    "uncertain": [
+      "Benzodiazepines",
+      "Depressant"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "is not known to be addictive",
+    "crossTolerances": [],
+    "isApproved": true,
+    "toxicities": [
+      "is neurotoxic",
+      "can be fatal in extremely high doses"
+    ]
+  }
+}

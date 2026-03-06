@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "mxipr",
+  "name": "MXiPr",
+  "common_names": [
+    "MXiPR",
+    "MXiP"
+  ],
+  "url": "https://psychonautwiki.org/wiki/MXiPr",
+  "categories": [
+    "dissociative"
+  ],
+  "summary": null,
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Stimulants",
+      "Depressant"
+    ],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dissociative"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "toxic dosage is unknown"
+    ]
+  }
+}

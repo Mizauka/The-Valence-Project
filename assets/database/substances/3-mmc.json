@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "3-mmc",
+  "name": "3-MMC",
+  "common_names": [
+    "3-MMC",
+    "Metaphedrone"
+  ],
+  "url": "https://psychonautwiki.org/wiki/3-MMC",
+  "categories": [
+    "entactogen",
+    "stimulant",
+    "habit-forming"
+  ],
+  "summary": "A euphoric stimulant similar to mephedrone but said to lack much of the \"magic.\" Never gained the same popularity. Slightly less potent.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "SNRIs",
+      "MAOI",
+      "Serotonin releasers",
+      "SSRIs",
+      "5-Hydroxytryptophan"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "extremely addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dopamine",
+      "stimulant"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": []
+  }
+}

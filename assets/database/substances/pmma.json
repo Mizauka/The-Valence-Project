@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "pmma",
+  "name": "PMMA",
+  "common_names": [
+    "PMMA"
+  ],
+  "url": "https://psychonautwiki.org/wiki/PMMA",
+  "categories": [
+    "entactogen"
+  ],
+  "summary": null,
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "crossTolerances": [],
+    "isApproved": true,
+    "toxicities": [
+      "can be considered extremely toxic when compared to other substances such as Methamphetamine or MDMA",
+      "Ingestion of PMMA has been associated with severe tachycardia (abnormally high heart rate), seizures, hyperthermia, and death"
+    ]
+  }
+}

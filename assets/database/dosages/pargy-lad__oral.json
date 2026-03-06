@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "pargy-lad",
+  "substance_name": "PARGY-LAD",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "µg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 275.0,
+  "strong_min": 500.0,
+  "heavy_min": 700.0,
+  "onset": {
+    "min": 30.0,
+    "max": 45.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 6.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

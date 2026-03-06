@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "mxipr",
+  "substance_name": "MXiPr",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 20.0,
+  "strong_min": 40.0,
+  "heavy_min": 60.0,
+  "onset": {
+    "min": 20.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 2.0,
+    "max": 5.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 4.0,
+    "max": 48.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

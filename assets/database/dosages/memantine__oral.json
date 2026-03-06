@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "memantine",
+  "substance_name": "Memantine",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 10.0,
+  "common_min": 70.0,
+  "strong_min": 110.0,
+  "heavy_min": 170.0,
+  "onset": {
+    "min": 30.0,
+    "max": 180.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "peak": {
+    "min": 3.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 5.0,
+    "max": 24.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 18.0,
+    "max": 36.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 8.0,
+    "max": 24.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

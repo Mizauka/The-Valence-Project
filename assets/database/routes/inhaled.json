@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "id": "inhaled",
+  "name": "inhaled",
+  "default_ka_per_hour": 6.0,
+  "default_f": 1.0,
+  "equation": "bateman_first_order",
+  "is_placeholder": true,
+  "source": "psychonautwiki-journal-android:Substances.json (no PK params)"
+}

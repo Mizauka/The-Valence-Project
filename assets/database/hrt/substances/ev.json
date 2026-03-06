@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "id": "ev",
+  "name": "Estradiol Valerate (EV)",
+  "distribution_volume_l_per_kg": 2.0,
+  "notes": "Oyama baseline: EV is modeled as ester dose in mg, converted to E2-equivalent via toE2Factor and formationFraction.",
+  "legacy": { "oyama": { "ester": "EV" } }
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "6-apdb",
+  "name": "6-APDB",
+  "common_names": [
+    "6-APDB"
+  ],
+  "url": "https://psychonautwiki.org/wiki/6-APDB",
+  "categories": [
+    "entactogen",
+    "stimulant",
+    "psychedelic",
+    "research-chemical",
+    "habit-forming"
+  ],
+  "summary": "A stimulant and entactogen related to MDMA and an analogue of MDA. Reported as being fairly psychedlic at higher doses. It is a triple monoamine reuptake inhibitor. Potent full agonist of serotonin 2B receptors.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "MAOI",
+      "SNRIs",
+      "Serotonin releasers",
+      "SSRIs",
+      "5-Hydroxytryptophan"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dopamine",
+      "stimulant"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "with prolonged and repeated use",
+      "half": "21-30 days",
+      "zero": "2-3 months"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "datura",
+  "name": "Datura",
+  "common_names": [
+    "Datura",
+    "Jimson Weed"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Datura",
+  "categories": [
+    "deliriant",
+    "depressant",
+    "tentative"
+  ],
+  "summary": "A family of plants containing various Tropane alkaloids. Produces long-lasting deliriant effects including very realistic and often unpleasant hallucinations along with short-term amnesia. Datura plants are toxic to humans, and potency varies greatly from plant-to-plant, making the drug extremely difficult to dose safely. Not typically regarded as recreational.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "addictionPotential": "mildly addictive with a high potential for adverse side effects such as psychosis",
+    "crossTolerances": [],
+    "isApproved": true,
+    "tolerance": {
+      "full": "with repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "toxic dosage is unknown"
+    ]
+  }
+}

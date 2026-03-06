@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "methaqualone",
+  "name": "Methaqualone",
+  "common_names": [
+    "Methaqualone",
+    "Quaaludes",
+    "Ludes",
+    "Mandrax",
+    "Sopor",
+    "Quack",
+    "Vitamin Q",
+    "Soaper"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Methaqualone",
+  "categories": [
+    "depressant",
+    "habit-forming"
+  ],
+  "summary": "A pharmaceutical depressant and sedative phased out due to the better safety profile of benzodiazepines, part of the Qualone group of substances. Now very rare, except in South Africa.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Depressant",
+      "Dissociatives"
+    ],
+    "unsafe": [],
+    "uncertain": [
+      "Stimulants"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "extremely addictive",
+    "crossTolerances": [
+      "GABA|gabaergic",
+      "depressants"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "within a couple of days of repeated administration",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "doses of over 300mg can be dangerous for first time users",
+      "safe at appropriate dosages"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "o-pce",
+  "substance_name": "O-PCE",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 1.0,
+  "common_min": 5.0,
+  "strong_min": 15.0,
+  "heavy_min": 25.0,
+  "onset": {
+    "min": 20.0,
+    "max": 40.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 4.0,
+    "max": 48.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "3-fma",
+  "name": "3-FMA",
+  "common_names": [
+    "3-FMA"
+  ],
+  "url": "https://psychonautwiki.org/wiki/3-FMA",
+  "categories": [
+    "entactogen",
+    "stimulant",
+    "research-chemical",
+    "habit-forming"
+  ],
+  "summary": "Stimulant drug in the amphetamine family",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Tramadol",
+      "ΑMT",
+      "MAOI"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "PCP",
+      "25x-NBOMe",
+      "2C-T-x",
+      "5-MeO-xxT",
+      "DOx"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "GHB",
+      "GBL",
+      "Opioids",
+      "Cocaine",
+      "Cannabis",
+      "Caffeine",
+      "Ketamine",
+      "Methoxetamine",
+      "Psychedelics"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dopamine",
+      "serotonin|serotonergic",
+      "stimulant"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 10 days"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

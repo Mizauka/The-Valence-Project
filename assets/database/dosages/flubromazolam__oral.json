@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "substance_id": "flubromazolam",
+  "substance_name": "Flubromazolam",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "µg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 150.0,
+  "strong_min": 250.0,
+  "heavy_min": 400.0,
+  "onset": null,
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 12.0,
+    "max": 18.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

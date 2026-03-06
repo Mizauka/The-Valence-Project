@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "2c-t-21",
+  "substance_name": "2C-T-21",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 10.0,
+  "strong_min": 12.0,
+  "heavy_min": 15.0,
+  "onset": {
+    "min": 90.0,
+    "max": 120.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 3.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 10.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

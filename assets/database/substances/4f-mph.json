@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "4f-mph",
+  "name": "4F-MPH",
+  "common_names": [
+    "4F-MPH",
+    "4-FMPH"
+  ],
+  "url": "https://psychonautwiki.org/wiki/4F-MPH",
+  "categories": [
+    "stimulant"
+  ],
+  "summary": null,
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "MAOI"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "crossTolerances": [],
+    "isApproved": true,
+    "toxicities": []
+  }
+}

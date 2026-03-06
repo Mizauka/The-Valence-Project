@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "theanine",
+  "substance_name": "Theanine",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 175.0,
+  "strong_min": 300.0,
+  "heavy_min": 500.0,
+  "onset": {
+    "min": 30.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 1.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "offset": null,
+  "total": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

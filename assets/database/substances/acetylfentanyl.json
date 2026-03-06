@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "acetylfentanyl",
+  "name": "Acetylfentanyl",
+  "common_names": [
+    "Acetylfentanyl"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Acetylfentanyl",
+  "categories": [
+    "opioid",
+    "research-chemical",
+    "habit-forming",
+    "depressant"
+  ],
+  "summary": "Acetyl-Fentanyl is an opioid analgesic substance that is an analogue of Fentanyl. It's potency is roughly ~6.67 times that of Morphine. Making it ~15 times less potent than its parent compound Fentanyl.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "SNRIs",
+      "Alcohol",
+      "Benzodiazepines",
+      "Dextromethorphan",
+      "GHB",
+      "GBL",
+      "Ketamine",
+      "Methoxetamine",
+      "Tramadol",
+      "Grapefruit",
+      "MAOI",
+      "Serotonin releasers",
+      "SSRIs",
+      "5-Hydroxytryptophan"
+    ],
+    "unsafe": [],
+    "uncertain": [
+      "MAOI",
+      "Nitrous",
+      "PCP",
+      "Stimulants"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "extremely addictive with a high potential for abuse",
+    "crossTolerances": [
+      "opioids"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "potentially fatal at heavy dosages",
+      "potentially lethal when mixed with depressants like alcohol or benzodiazepines",
+      "unintentionally spilling a very small amount of acetylfentanyl on one's skin could result in a fatal overdose."
+    ]
+  }
+}

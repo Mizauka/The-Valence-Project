@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "substance_id": "ketamine",
+  "substance_name": "Ketamine",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 30.0,
+  "strong_min": 75.0,
+  "heavy_min": 150.0,
+  "onset": {
+    "min": 1.0,
+    "max": 3.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 5.0,
+    "max": 15.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 15.0,
+    "max": 45.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "total": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "legacy": {
+    "bioavailability": {
+      "max": 45
+    }
+  }
+}

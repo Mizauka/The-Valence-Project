@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "3-mmc",
+  "substance_name": "3-MMC",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 25.0,
+  "common_min": 150.0,
+  "strong_min": 250.0,
+  "heavy_min": 350.0,
+  "onset": {
+    "min": 10.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 1.5,
+    "units": "hours"
+  },
+  "total": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

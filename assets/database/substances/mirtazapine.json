@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "mirtazapine",
+  "name": "Mirtazapine",
+  "common_names": [
+    "Avanza",
+    "Axit",
+    "Mirtaz",
+    "Mirtazon",
+    "Remeron",
+    "Zispin"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Mirtazapine",
+  "categories": [
+    "deliriant",
+    "depressant",
+    "antidepressant"
+  ],
+  "summary": null,
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": [
+      "Antidepressants"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "not habit-forming",
+    "crossTolerances": [],
+    "isApproved": true,
+    "tolerance": {
+      "full": "almost immediately after ingestion",
+      "half": "3 days",
+      "zero": "7 days"
+    },
+    "toxicities": []
+  }
+}

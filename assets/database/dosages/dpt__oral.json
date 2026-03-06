@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "dpt",
+  "substance_name": "DPT",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 150.0,
+  "strong_min": 250.0,
+  "heavy_min": 350.0,
+  "onset": {
+    "min": 20.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

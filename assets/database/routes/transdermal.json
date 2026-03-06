@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "id": "transdermal",
+  "name": "transdermal",
+  "default_ka_per_hour": 0.022,
+  "default_f": 0.05,
+  "equation": "bateman_first_order",
+  "is_placeholder": true,
+  "source": "psychonautwiki-journal-android:Substances.json (no PK params); Oyama-s-HRT-Tracker logic.ts (gel k1=0.022 h^-1, F~0.05 default). Patch is zero-order; this is a fallback." 
+}

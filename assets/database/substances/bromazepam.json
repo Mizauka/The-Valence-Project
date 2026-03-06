@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "bromazepam",
+  "name": "Bromazepam",
+  "common_names": [
+    "Bromazepam",
+    "Brozam",
+    "Lectopam",
+    "Lexomil",
+    "Lexotan",
+    "Lexilium",
+    "Lexaurin",
+    "Brazepam",
+    "Rekotnil",
+    "Bromaze",
+    "Somalium",
+    "Lexatin",
+    "Calmepam",
+    "Zepam",
+    "Lexotanil"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Bromazepam",
+  "categories": [
+    "benzodiazepine",
+    "habit-forming",
+    "depressant"
+  ],
+  "summary": "A benzodiazepine drug with a medium-long duration, developed by Roche in the 1960s. Has primarily anxiolytic properties. May cause lowered inhibitions and amnesia in high doses.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Depressant",
+      "Dissociatives",
+      "Stimulants"
+    ],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "crossTolerances": [],
+    "isApproved": false,
+    "toxicities": [
+      "low toxicity",
+      "potentially lethal when mixed with depressants like alcohol or opioids"
+    ]
+  }
+}

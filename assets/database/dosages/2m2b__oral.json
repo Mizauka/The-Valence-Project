@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "2m2b",
+  "substance_name": "2M2B",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mL",
+  "threshold": null,
+  "light_min": 0.5,
+  "common_min": 5.0,
+  "strong_min": 10.0,
+  "heavy_min": 15.0,
+  "onset": null,
+  "comeup": null,
+  "peak": {
+    "min": 6.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 8.0,
+    "max": 14.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

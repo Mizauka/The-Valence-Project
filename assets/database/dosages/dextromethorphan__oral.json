@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "dextromethorphan",
+  "substance_name": "Dextromethorphan",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 75.0,
+  "common_min": 200.0,
+  "strong_min": 400.0,
+  "heavy_min": 700.0,
+  "onset": {
+    "min": 30.0,
+    "max": 120.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 60.0,
+    "max": 120.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 8.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 4.0,
+    "max": 24.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

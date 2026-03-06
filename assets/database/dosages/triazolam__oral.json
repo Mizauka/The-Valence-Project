@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "triazolam",
+  "substance_name": "Triazolam",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 0.125,
+  "common_min": 0.25,
+  "strong_min": 0.5,
+  "heavy_min": 0.75,
+  "onset": {
+    "min": 20.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 1.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

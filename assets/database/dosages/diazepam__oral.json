@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "substance_id": "diazepam",
+  "substance_name": "Diazepam",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 1.0,
+  "common_min": 5.0,
+  "strong_min": 15.0,
+  "heavy_min": 30.0,
+  "onset": {
+    "min": 20.0,
+    "max": 40.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 60.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "offset": null,
+  "total": {
+    "min": 4.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 12.0,
+    "max": 36.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

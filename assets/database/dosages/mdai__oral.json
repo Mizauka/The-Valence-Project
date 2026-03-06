@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "substance_id": "mdai",
+  "substance_name": "MDAI",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 40.0,
+  "common_min": 100.0,
+  "strong_min": 175.0,
+  "heavy_min": 300.0,
+  "onset": {
+    "min": 20.0,
+    "max": 40.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 2.0,
+    "max": 2.5,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": null,
+  "afterglow": null,
+  "legacy": {}
+}

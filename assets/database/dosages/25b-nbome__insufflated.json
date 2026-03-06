@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "substance_id": "25b-nbome",
+  "substance_name": "25B-NBOMe",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "µg",
+  "threshold": null,
+  "light_min": 25.0,
+  "common_min": 200.0,
+  "strong_min": 350.0,
+  "heavy_min": 500.0,
+  "onset": null,
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": null,
+  "afterglow": null,
+  "legacy": {}
+}

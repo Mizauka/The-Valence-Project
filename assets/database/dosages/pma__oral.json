@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "substance_id": "pma",
+  "substance_name": "PMA",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 10.0,
+  "common_min": 40.0,
+  "strong_min": 60.0,
+  "heavy_min": null,
+  "onset": null,
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": null,
+  "afterglow": null,
+  "legacy": {}
+}

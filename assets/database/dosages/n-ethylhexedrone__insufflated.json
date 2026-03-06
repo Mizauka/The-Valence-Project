@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "n-ethylhexedrone",
+  "substance_name": "N-Ethylhexedrone",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 30.0,
+  "strong_min": 40.0,
+  "heavy_min": 50.0,
+  "onset": {
+    "min": 2.0,
+    "max": 8.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 30.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 2.0,
+    "max": 5.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 1.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "4-meo-pcp",
+  "name": "4-MeO-PCP",
+  "common_names": [
+    "4-MeO-PCP",
+    "Methoxydine"
+  ],
+  "url": "https://psychonautwiki.org/wiki/4-MeO-PCP",
+  "categories": [
+    "dissociative",
+    "research-chemical",
+    "habit-forming"
+  ],
+  "summary": "An arylcyclohexamine dissociative anaesthetic related to PCP. First discovered in the 1960s by Parke-Davis, it was introduced to the RC market in 2008. Reported to be less potent than PCP. It is not commonly seen, but has seen some increase in popularity with the inavailability of other dissociatives.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Stimulants",
+      "Depressant"
+    ],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dissociative"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

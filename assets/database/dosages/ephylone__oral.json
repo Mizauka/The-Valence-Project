@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "ephylone",
+  "substance_name": "Ephylone",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 20.0,
+  "strong_min": 40.0,
+  "heavy_min": 80.0,
+  "onset": {
+    "min": 15.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 4.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 6.0,
+    "max": 24.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

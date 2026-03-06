@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "caffeine",
+  "substance_name": "Caffeine",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 10.0,
+  "common_min": 50.0,
+  "strong_min": 150.0,
+  "heavy_min": 500.0,
+  "onset": {
+    "min": 5.0,
+    "max": 10.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 10.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 6.0,
+    "max": 10.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 2.0,
+    "max": 5.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

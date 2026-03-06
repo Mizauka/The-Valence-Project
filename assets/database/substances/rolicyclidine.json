@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "rolicyclidine",
+  "name": "Rolicyclidine",
+  "common_names": [
+    "PCPy"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Rolicyclidine",
+  "categories": [
+    "dissociative",
+    "research-chemical",
+    "habit-forming",
+    "tentative"
+  ],
+  "summary": "Rolicyclidine, also known as PCPy, is a dissociative with effects similar to PCP. While this dissociative anesthetic has hallucinogenic and sedative effects, it is said to be much less stimulating than PCP. In this sense it is more similar to opioids, or other central nervous system depressants.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "2C-T-x",
+      "ΑMT",
+      "5-MeO-xxT",
+      "GHB",
+      "GBL",
+      "Tramadol",
+      "MAOI",
+      "Opioids"
+    ],
+    "unsafe": [
+      "DOx",
+      "Substituted amphetamines",
+      "MDMA",
+      "Cocaine",
+      "Alcohol",
+      "Benzodiazepines",
+      "SSRIs",
+      "Dextromethorphan"
+    ],
+    "uncertain": [
+      "Methoxetamine",
+      "Caffeine"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "highly addictive with a high potential for adverse side effects such as psychosis",
+    "crossTolerances": [
+      "dissociative|dissociatives"
+    ],
+    "isApproved": false,
+    "tolerance": {
+      "full": "with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": []
+  }
+}

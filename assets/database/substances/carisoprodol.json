@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "carisoprodol",
+  "name": "Carisoprodol",
+  "common_names": [
+    "Carisoprodol",
+    "Soma"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Carisoprodol",
+  "categories": [
+    "depressant",
+    "habit-forming"
+  ],
+  "summary": "A skeletal muscle relaxant drug also known as Soma, carisoprodol has limited recreational value, however its main metabolite meprobamate has some moderate tranquilising properties. Sometimes found in concoctions with codeine or caffeine.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Depressant",
+      "Dissociatives"
+    ],
+    "unsafe": [],
+    "uncertain": [
+      "Stimulants"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "extremely physically and psychologically addictive",
+    "crossTolerances": [],
+    "isApproved": true,
+    "toxicities": [
+      "moderate toxicity",
+      "potentially lethal when mixed with depressants like alcohol or opioids"
+    ]
+  }
+}

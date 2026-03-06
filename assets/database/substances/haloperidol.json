@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "haloperidol",
+  "name": "Haloperidol",
+  "common_names": [
+    "Haldol"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Haloperidol",
+  "categories": [
+    "antipsychotic"
+  ],
+  "summary": null,
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "crossTolerances": [],
+    "isApproved": true,
+    "toxicities": [
+      "can have serious side effects at higher dosages",
+      "risk of having severe extrapyramidal symptoms and muscle rigidity"
+    ]
+  }
+}

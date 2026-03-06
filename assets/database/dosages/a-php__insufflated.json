@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "a-php",
+  "substance_name": "A-PHP",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 0.5,
+  "common_min": 5.0,
+  "strong_min": 15.0,
+  "heavy_min": 25.0,
+  "onset": {
+    "min": 10.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 20.0,
+    "max": 45.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 30.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "total": {
+    "min": 2.0,
+    "max": 5.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

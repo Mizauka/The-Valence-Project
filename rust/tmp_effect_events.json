@@ -1,0 +1,4 @@
+[
+  {"t0_h": 0.0, "t1_h": null, "dose": 225.0, "horizontal_weight": 0.5, "common_dose": 412.5},
+  {"t0_h": 2.0, "t1_h": 3.0, "dose": 150.0, "horizontal_weight": 0.5, "common_dose": 412.5}
+]

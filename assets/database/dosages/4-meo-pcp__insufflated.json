@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "substance_id": "4-meo-pcp",
+  "substance_name": "4-MeO-PCP",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 15.0,
+  "common_min": 75.0,
+  "strong_min": 150.0,
+  "heavy_min": 150.0,
+  "onset": {
+    "min": 5.0,
+    "max": 15.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 15.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "offset": null,
+  "total": {
+    "min": 12.0,
+    "max": 18.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

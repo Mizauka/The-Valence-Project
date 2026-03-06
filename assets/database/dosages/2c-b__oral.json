@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "2c-b",
+  "substance_name": "2C-B",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 15.0,
+  "strong_min": 25.0,
+  "heavy_min": 45.0,
+  "onset": {
+    "min": 20.0,
+    "max": 40.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 60.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 60.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 2.5,
+    "max": 3.5,
+    "units": "hours"
+  },
+  "total": {
+    "min": 5.0,
+    "max": 7.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

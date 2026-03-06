@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "4-meo-pcp",
+  "substance_name": "4-MeO-PCP",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 25.0,
+  "common_min": 100.0,
+  "strong_min": 170.0,
+  "heavy_min": 250.0,
+  "onset": {
+    "min": 45.0,
+    "max": 120.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "peak": {
+    "min": 3.0,
+    "max": 7.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 6.0,
+    "max": 10.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 12.0,
+    "max": 20.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

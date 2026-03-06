@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "diclazepam",
+  "substance_name": "Diclazepam",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 0.5,
+  "common_min": 1.0,
+  "strong_min": 3.0,
+  "heavy_min": 4.0,
+  "onset": {
+    "min": 10.0,
+    "max": 45.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 8.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

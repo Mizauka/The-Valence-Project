@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "rolicyclidine",
+  "substance_name": "Rolicyclidine",
+  "route_id": "smoked",
+  "route_name": "smoked",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 1.0,
+  "common_min": 4.0,
+  "strong_min": 8.0,
+  "heavy_min": 12.0,
+  "onset": {
+    "min": 2.0,
+    "max": 20.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 20.0,
+    "max": 40.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 4.0,
+    "max": 48.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

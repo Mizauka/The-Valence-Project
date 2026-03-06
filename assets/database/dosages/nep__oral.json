@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "substance_id": "nep",
+  "substance_name": "NEP",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 10.0,
+  "common_min": 25.0,
+  "strong_min": 40.0,
+  "heavy_min": 60.0,
+  "onset": null,
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

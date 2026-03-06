@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "5-meo-mipt",
+  "substance_name": "5-MeO-MiPT",
+  "route_id": "smoked",
+  "route_name": "smoked",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 10.0,
+  "strong_min": 15.0,
+  "heavy_min": 20.0,
+  "onset": {
+    "min": 20.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 5.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 1.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

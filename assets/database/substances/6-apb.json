@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "6-apb",
+  "name": "6-APB",
+  "common_names": [
+    "6-APB",
+    "Benzofury"
+  ],
+  "url": "https://psychonautwiki.org/wiki/6-APB",
+  "categories": [
+    "psychedelic",
+    "entactogen",
+    "stimulant",
+    "research-chemical",
+    "habit-forming"
+  ],
+  "summary": "A stimulant, empathogen and analog of MDA. Typically more visual than MDMA or MDA, as well as having a much longer onset and duration. Users often report a slightly more psychedelic headspace as well. Commonly sold as an alternative to MDMA and MDA.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "MAOI",
+      "SNRIs",
+      "Serotonin releasers",
+      "SSRIs",
+      "5-Hydroxytryptophan"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dopamine",
+      "stimulant"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "with prolonged and repeated use",
+      "half": "3-4 weeks",
+      "zero": "6-8 weeks"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

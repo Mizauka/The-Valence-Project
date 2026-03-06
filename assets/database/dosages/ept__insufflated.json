@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "ept",
+  "substance_name": "EPT",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 20.0,
+  "common_min": 40.0,
+  "strong_min": 80.0,
+  "heavy_min": 110.0,
+  "onset": {
+    "min": 5.0,
+    "max": 20.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 1.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

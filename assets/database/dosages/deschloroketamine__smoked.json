@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "substance_id": "deschloroketamine",
+  "substance_name": "Deschloroketamine",
+  "route_id": "smoked",
+  "route_name": "smoked",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 10.0,
+  "strong_min": 20.0,
+  "heavy_min": 40.0,
+  "onset": null,
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 30.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "citicoline",
+  "substance_name": "Citicoline",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 250.0,
+  "strong_min": 1000.0,
+  "heavy_min": 2000.0,
+  "onset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "comeup": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "peak": {
+    "min": 2.5,
+    "max": 3.5,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 30.0,
+    "max": 40.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 58.0,
+    "max": 74.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 40.0,
+    "max": 60.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

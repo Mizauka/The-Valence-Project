@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "25n-nbome",
+  "substance_name": "25N-NBOMe",
+  "route_id": "sublingual",
+  "route_name": "sublingual",
+  "dose_units": "µg",
+  "threshold": null,
+  "light_min": 100.0,
+  "common_min": 300.0,
+  "strong_min": 800.0,
+  "heavy_min": 1300.0,
+  "onset": {
+    "min": 45.0,
+    "max": 75.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 5.0,
+    "max": 10.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 5.0,
+    "max": 10.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

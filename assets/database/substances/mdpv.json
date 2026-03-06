@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "mdpv",
+  "name": "MDPV",
+  "common_names": [
+    "MDPV",
+    "Bath Salts",
+    "NRG-1"
+  ],
+  "url": "https://psychonautwiki.org/wiki/MDPV",
+  "categories": [
+    "entactogen",
+    "stimulant",
+    "research-chemical",
+    "habit-forming"
+  ],
+  "summary": "MDPV is a potent, and extremely compulsive synthetic euphoric stimulant, which shares some empathogenic effects with MDMA. Has a reputation for causing psychosis. MDPV has been found in products sold as \"bath salts\", \"plant food/fertilizer\", and in some \"ecstasy.\"",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "MAOI"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "crossTolerances": [],
+    "isApproved": true,
+    "toxicities": []
+  }
+}

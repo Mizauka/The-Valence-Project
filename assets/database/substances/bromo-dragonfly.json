@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "bromo-dragonfly",
+  "name": "Bromo-DragonFLY",
+  "common_names": [
+    "Bromo-DragonFLY",
+    "DOB-DragonFLY",
+    "B-DFLY",
+    "Dragonfly"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Bromo-DragonFLY",
+  "categories": [
+    "psychedelic",
+    "research-chemical"
+  ],
+  "summary": "A psychedelic phenethylamine and benzofuran that is very potent and has a long duration. Was briefly sold as \"2C-B-FLY\" in 2005/6 and has lead to multiple deaths.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Lithium"
+    ],
+    "unsafe": [
+      "Tramadol"
+    ],
+    "uncertain": [
+      "Cannabis",
+      "Stimulants"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "not habit-forming",
+    "crossTolerances": [
+      "psychedelic"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "almost immediately after ingestion",
+      "half": "6 days",
+      "zero": "14 days"
+    },
+    "toxicities": [
+      "extreme vasoconstrictive effects",
+      "one can easily overdose if this substance is not measured correctly",
+      "toxic dose is unknown"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "id": "sublingual",
+  "name": "sublingual",
+  "default_ka_per_hour": 1.8,
+  "default_f": 1.0,
+  "equation": "bateman_first_order",
+  "is_placeholder": true,
+  "source": "psychonautwiki-journal-android:Substances.json (no PK params); Oyama-s-HRT-Tracker logic.ts (OralPK.kAbsSL=1.8 h^-1). Note: true sublingual model is dual-branch; this is a fallback." 
+}

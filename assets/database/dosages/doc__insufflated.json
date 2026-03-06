@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "doc",
+  "substance_name": "DOC",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 0.25,
+  "common_min": 1.0,
+  "strong_min": 2.0,
+  "heavy_min": 3.5,
+  "onset": {
+    "min": 1.0,
+    "max": 5.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 10.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 2.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 2.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "total": null,
+  "afterglow": {
+    "min": 2.0,
+    "max": 24.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "nicotine",
+  "substance_name": "Nicotine",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 0.2,
+  "common_min": 3.0,
+  "strong_min": 5.0,
+  "heavy_min": 7.0,
+  "onset": {
+    "min": 20.0,
+    "max": 40.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 60.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 60.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 2.5,
+    "max": 3.5,
+    "units": "hours"
+  },
+  "total": {
+    "min": 5.0,
+    "max": 7.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

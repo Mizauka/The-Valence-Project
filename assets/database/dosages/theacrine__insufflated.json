@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "theacrine",
+  "substance_name": "Theacrine",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 25.0,
+  "common_min": 25.0,
+  "strong_min": 100.0,
+  "heavy_min": null,
+  "onset": {
+    "min": 5.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 1.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

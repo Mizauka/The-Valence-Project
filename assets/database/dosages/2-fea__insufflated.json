@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "2-fea",
+  "substance_name": "2-FEA",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 15.0,
+  "common_min": 30.0,
+  "strong_min": 40.0,
+  "heavy_min": 60.0,
+  "onset": {
+    "min": 5.0,
+    "max": 15.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 5.0,
+    "max": 10.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "total": {
+    "min": 1.0,
+    "max": 2.5,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 1.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

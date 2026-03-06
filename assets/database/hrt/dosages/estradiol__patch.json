@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "compound_id": "estradiol",
+  "compound_name": "Estradiol",
+  "route_id": "patch",
+  "route_name": "Patch",
+  "dose_units": "ug/day",
+  "model": {
+    "type": "ZeroOrderPatch",
+    "rate_mg_per_hour": 0.0041666666667,
+    "k3_per_hour": 0.41,
+    "wear_hours": 24.0
+  },
+  "total": { "min": 24.0, "max": 96.0, "units": "hours" },
+  "legacy": {
+    "oyama": {
+      "route": "patchApply",
+      "ester": "E2",
+      "releaseRateUGPerDay": 100
+    }
+  }
+}

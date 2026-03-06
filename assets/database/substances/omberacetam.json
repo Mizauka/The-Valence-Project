@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "omberacetam",
+  "name": "Omberacetam",
+  "common_names": [
+    "Noopept",
+    "Ноопепт",
+    "GVS-111",
+    "Omberacetam"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Omberacetam",
+  "categories": [
+    "nootropic"
+  ],
+  "summary": null,
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "addictionPotential": "non-addictive with a low potential for abuse",
+    "crossTolerances": [
+      "racetam",
+      "nootropic"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops over several weeks of prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

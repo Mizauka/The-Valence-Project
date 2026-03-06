@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "met",
+  "substance_name": "MET",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 20.0,
+  "strong_min": 25.0,
+  "heavy_min": 35.0,
+  "onset": {
+    "min": 2.0,
+    "max": 5.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 20.0,
+    "max": 40.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 1.0,
+    "max": 1.5,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 2.5,
+    "units": "hours"
+  },
+  "total": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 4.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

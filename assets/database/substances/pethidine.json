@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "pethidine",
+  "name": "Pethidine",
+  "common_names": [
+    "Pethidine",
+    "Meperidine",
+    "Demerol",
+    "Dolantin",
+    "Dolcontral"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Pethidine",
+  "categories": [
+    "opioid",
+    "habit-forming",
+    "depressant"
+  ],
+  "summary": "A phenylpiperidine opioid first synthesised by Otto Eisleb in 1939, better known by the names meperidine and pethidine. An analgesic, once widely prescribed it has since declined in usage due to the discovery of a toxic metabolite - norpethidine. Also reacts dangerously with many drugs.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "SNRIs",
+      "Alcohol",
+      "Benzodiazepines",
+      "Dextromethorphan",
+      "GHB",
+      "GBL",
+      "Ketamine",
+      "Methoxetamine",
+      "Tramadol",
+      "Grapefruit",
+      "MAOI",
+      "Serotonin releasers",
+      "SSRIs",
+      "5-Hydroxytryptophan"
+    ],
+    "unsafe": [],
+    "uncertain": [
+      "MAOI",
+      "Nitrous",
+      "PCP",
+      "Stimulants"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "extremely addictive with a high potential for abuse",
+    "crossTolerances": [
+      "opioids"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "high toxicity",
+      "potentially lethal when mixed with depressants like alcohol or benzodiazepines"
+    ]
+  }
+}

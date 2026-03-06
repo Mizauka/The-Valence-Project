@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "pyrazolam",
+  "substance_name": "Pyrazolam",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 0.5,
+  "common_min": 0.75,
+  "strong_min": 1.5,
+  "heavy_min": 3.0,
+  "onset": {
+    "min": 10.0,
+    "max": 15.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 5.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

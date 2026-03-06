@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "eth-lad",
+  "name": "ETH-LAD",
+  "common_names": [
+    "ETH-LAD"
+  ],
+  "url": "https://psychonautwiki.org/wiki/ETH-LAD",
+  "categories": [
+    "psychedelic",
+    "research-chemical"
+  ],
+  "summary": "A psychedelic drug and slightly more potent analogue of LSD, first synthesised by Alexander Shulgin - sometimes described as being less 'abrasive' than LSD. Less common than the associated AL-LAD, though has seen some popularity since its release on the Internet research chemical scene in 2015.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Lithium"
+    ],
+    "unsafe": [
+      "Tramadol"
+    ],
+    "uncertain": [
+      "Cannabis",
+      "Stimulants"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "not habit-forming",
+    "crossTolerances": [
+      "psychedelic"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "almost immediately after ingestion",
+      "half": "5-7 days",
+      "zero": "14 days"
+    },
+    "toxicities": [
+      "toxic dose is unknown"
+    ]
+  }
+}

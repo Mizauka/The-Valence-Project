@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "5f-akb48",
+  "name": "5F-AKB48",
+  "common_names": [
+    "5F-AKB48",
+    "5F-APINACA"
+  ],
+  "url": "https://psychonautwiki.org/wiki/5F-AKB48",
+  "categories": [
+    "cannabinoid",
+    "research-chemical",
+    "tentative",
+    "habit-forming"
+  ],
+  "summary": "A synthetic cannabanoid that is a Indazole. Produces subjective effects somehwat similar to that of Cannabis, yet with a very short duration. Analogue of STS-135, in which the core indole structure is subbed with an indazole base.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Lithium"
+    ],
+    "unsafe": [],
+    "uncertain": [
+      "2C-T-x",
+      "2C-x",
+      "5-MeO-xxT",
+      "Substituted amphetamines",
+      "ΑMT",
+      "Cocaine",
+      "DMT",
+      "DOx",
+      "LSD",
+      "Mescaline",
+      "Psilocybin mushrooms",
+      "25x-NBOMe"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "cannabinoids"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

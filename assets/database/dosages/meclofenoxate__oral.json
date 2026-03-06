@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "substance_id": "meclofenoxate",
+  "substance_name": "Meclofenoxate",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 400.0,
+  "strong_min": 800.0,
+  "heavy_min": 600.0,
+  "onset": null,
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": null,
+  "afterglow": null,
+  "legacy": {}
+}

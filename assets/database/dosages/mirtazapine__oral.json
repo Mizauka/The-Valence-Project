@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "substance_id": "mirtazapine",
+  "substance_name": "Mirtazapine",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 3.5,
+  "common_min": 130.0,
+  "strong_min": 190.0,
+  "heavy_min": 250.0,
+  "onset": {
+    "min": 15.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 90.0,
+    "max": 180.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 2.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 14.0,
+    "max": 24.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

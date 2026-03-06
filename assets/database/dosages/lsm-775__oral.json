@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "lsm-775",
+  "substance_name": "LSM-775",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "µg",
+  "threshold": null,
+  "light_min": 250.0,
+  "common_min": 750.0,
+  "strong_min": 1250.0,
+  "heavy_min": 1500.0,
+  "onset": {
+    "min": 10.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 6.0,
+    "max": 10.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

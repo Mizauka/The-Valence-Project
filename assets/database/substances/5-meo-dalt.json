@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "5-meo-dalt",
+  "name": "5-MeO-DALT",
+  "common_names": [
+    "5-MeO-DALT",
+    "Foxtrot"
+  ],
+  "url": "https://psychonautwiki.org/wiki/5-MeO-DALT",
+  "categories": [
+    "psychedelic",
+    "research-chemical"
+  ],
+  "summary": "A strange drug with an unknown mechanism of action. Some psychedelic effects alongside some effects non-characteristic of psychedelics like appetite enhancement. Reported as having rapid, intense and short acting entheogenic effects.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "ΑMT",
+      "MAOI",
+      "PCP"
+    ],
+    "unsafe": [
+      "Substituted amphetamines",
+      "Cocaine",
+      "Dextromethorphan",
+      "Tramadol"
+    ],
+    "uncertain": [
+      "2C-T-X",
+      "2C-X",
+      "Cannabis",
+      "DOx",
+      "MDMA",
+      "Mescaline",
+      "25x-NBOMe"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "not habit-forming",
+    "crossTolerances": [
+      "psychedelic"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "almost immediately after ingestion",
+      "half": "3 days",
+      "zero": "7 days"
+    },
+    "toxicities": [
+      "toxic dose is unknown"
+    ]
+  }
+}

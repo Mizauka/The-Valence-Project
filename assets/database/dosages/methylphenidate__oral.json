@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "methylphenidate",
+  "substance_name": "Methylphenidate",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 20.0,
+  "strong_min": 40.0,
+  "heavy_min": 60.0,
+  "onset": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 20.0,
+    "max": 45.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 60.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 45.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "total": {
+    "min": 2.5,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

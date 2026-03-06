@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "sufentanil",
+  "substance_name": "Sufentanil",
+  "route_id": "intravenous",
+  "route_name": "intravenous",
+  "dose_units": "µg",
+  "threshold": null,
+  "light_min": 0.1,
+  "common_min": 5.0,
+  "strong_min": 10.0,
+  "heavy_min": 25.0,
+  "onset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 5.0,
+    "max": 10.0,
+    "units": "minutes"
+  },
+  "offset": null,
+  "total": null,
+  "afterglow": null,
+  "legacy": {}
+}

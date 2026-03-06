@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "diphenidine",
+  "name": "Diphenidine",
+  "common_names": [
+    "Diphenidine"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Diphenidine",
+  "categories": [
+    "dissociative",
+    "research-chemical",
+    "habit-forming",
+    "tentative"
+  ],
+  "summary": "A dissociative anaesthetic related to ephenidine with similar qualities to PCP and ketamine. Has seen some popularity as a recreational RC. Dosage curve has been reported as particularly steep, so care should be taken.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Stimulants",
+      "Depressant"
+    ],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dissociative"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

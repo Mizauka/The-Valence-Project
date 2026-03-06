@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "temazepam",
+  "substance_name": "Temazepam",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 2.0,
+  "common_min": 10.0,
+  "strong_min": 30.0,
+  "heavy_min": 40.0,
+  "onset": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 7.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 3.5,
+    "max": 18.4,
+    "units": "hours"
+  },
+  "legacy": {}
+}

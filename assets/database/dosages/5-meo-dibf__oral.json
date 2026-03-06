@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "5-meo-dibf",
+  "substance_name": "5-MeO-DiBF",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 20.0,
+  "common_min": 80.0,
+  "strong_min": 110.0,
+  "heavy_min": 140.0,
+  "onset": null,
+  "comeup": null,
+  "peak": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "offset": null,
+  "total": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

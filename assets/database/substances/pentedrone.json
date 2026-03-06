@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "pentedrone",
+  "name": "Pentedrone",
+  "common_names": [
+    "Pentedrone",
+    "Drone"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Pentedrone",
+  "categories": [
+    "stimulant",
+    "research-chemical",
+    "habit-forming"
+  ],
+  "summary": "A potent NDRI cathinone-type stimulant with more-ish effects but not thought to be especially enjoyable.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "MAOI"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dopamine",
+      "stimulant"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "pregabalin",
+  "name": "Pregabalin",
+  "common_names": [
+    "Pregabalin",
+    "Lyrica",
+    "Nervalin"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Pregabalin",
+  "categories": [
+    "depressant",
+    "habit-forming",
+    "common"
+  ],
+  "summary": "Pregabalin (Lyrica) is a GABA derivative that is used to treat neuropathic pain and seizures, as well as anxiety.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": [
+      "Oxycodone",
+      "SSRIs",
+      "MDMA"
+    ]
+  },
+  "legacy": {
+    "crossTolerances": [],
+    "isApproved": true,
+    "tolerance": {
+      "full": "within several months of continuous use",
+      "zero": "7 - 14 days"
+    },
+    "toxicities": [
+      "low toxicity"
+    ]
+  }
+}

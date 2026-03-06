@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "fentanyl",
+  "substance_name": "Fentanyl",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "µg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 25.0,
+  "strong_min": 50.0,
+  "heavy_min": 75.0,
+  "onset": {
+    "min": 15.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 1.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "substance_id": "chlordiazepoxide",
+  "substance_name": "Chlordiazepoxide",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 10.0,
+  "strong_min": 50.0,
+  "heavy_min": 100.0,
+  "onset": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 120.0,
+    "max": 180.0,
+    "units": "minutes"
+  },
+  "offset": null,
+  "total": {
+    "min": 24.0,
+    "max": 60.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 150.0,
+    "max": 300.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

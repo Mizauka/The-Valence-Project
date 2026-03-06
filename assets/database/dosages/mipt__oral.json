@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "substance_id": "mipt",
+  "substance_name": "MiPT",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": null,
+  "common_min": 10.0,
+  "strong_min": 25.0,
+  "heavy_min": 75.0,
+  "onset": null,
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 3.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

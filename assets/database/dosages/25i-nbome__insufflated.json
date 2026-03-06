@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "25i-nbome",
+  "substance_name": "25I-NBOMe",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "µg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 500.0,
+  "strong_min": 700.0,
+  "heavy_min": null,
+  "onset": {
+    "min": 5.0,
+    "max": 10.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 10.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 60.0,
+    "max": 120.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 120.0,
+    "max": 180.0,
+    "units": "minutes"
+  },
+  "total": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 1.0,
+    "max": 7.0,
+    "units": "days"
+  },
+  "legacy": {}
+}

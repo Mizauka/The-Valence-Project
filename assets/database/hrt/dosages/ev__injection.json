@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "compound_id": "ev",
+  "compound_name": "Estradiol Valerate (EV)",
+  "route_id": "injection",
+  "route_name": "Injection",
+  "dose_units": "mg",
+  "model": {
+    "type": "InjectionTwoDepot3C",
+    "frac_fast": 0.40,
+    "fast": {
+      "type": "ThreeCompAnalytical",
+      "k1_per_hour": 0.0216,
+      "k2_per_hour": 0.070,
+      "k3_per_hour": 0.041,
+      "f": 0.0623
+    },
+    "slow": {
+      "type": "ThreeCompAnalytical",
+      "k1_per_hour": 0.0138,
+      "k2_per_hour": 0.070,
+      "k3_per_hour": 0.041,
+      "f": 0.0623
+    }
+  },
+  "total": { "min": 72.0, "max": 336.0, "units": "hours" },
+  "legacy": {
+    "oyama": {
+      "route": "injection",
+      "ester": "EV",
+      "TwoPartDepotPK": { "Frac_fast": 0.40, "k1_fast": 0.0216, "k1_slow": 0.0138 },
+      "EsterPK": { "k2": 0.070 },
+      "InjectionPK": { "formationFraction": 0.0623 },
+      "CorePK": { "kClearInjection": 0.041 }
+    }
+  }
+}

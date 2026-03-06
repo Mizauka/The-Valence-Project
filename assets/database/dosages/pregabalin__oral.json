@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "substance_id": "pregabalin",
+  "substance_name": "Pregabalin",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 225.0,
+  "strong_min": 600.0,
+  "heavy_min": 900.0,
+  "onset": {
+    "min": 30.0,
+    "max": 45.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "peak": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 4.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 9.0,
+    "max": 17.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 4.0,
+    "max": 10.0,
+    "units": "hours"
+  },
+  "legacy": {
+    "bioavailability": {
+      "max": 90
+    }
+  }
+}

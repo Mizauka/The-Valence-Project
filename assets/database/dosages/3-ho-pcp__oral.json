@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "3-ho-pcp",
+  "substance_name": "3-HO-PCP",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 1.0,
+  "common_min": 4.0,
+  "strong_min": 6.0,
+  "heavy_min": 8.0,
+  "onset": null,
+  "comeup": {
+    "min": 60.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

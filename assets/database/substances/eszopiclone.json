@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "eszopiclone",
+  "name": "Eszopiclone",
+  "common_names": [
+    "Lunesta",
+    "Eszop"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Eszopiclone",
+  "categories": [
+    "hallucinogen",
+    "depressant",
+    "hypnotic",
+    "habit-forming"
+  ],
+  "summary": "The d-isomer of Zopiclone, this drug is a potent hypnotic 'Z' drug often used to treat insomnia. High doses may cause amnesia, delirium and lowered inhibitions. Should not be combined with any depressants. Limited recreational value.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "addictionPotential": "extremely physically and psychologically addictive",
+    "crossTolerances": [
+      "benzodiazepines"
+    ],
+    "isApproved": false,
+    "tolerance": {
+      "full": "within a couple of weeks of daily use",
+      "zero": "7 - 14 days"
+    },
+    "toxicities": [
+      "low toxicity",
+      "potentially lethal when mixed with depressants like benzodiazepines, alcohol or opioids"
+    ]
+  }
+}

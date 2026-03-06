@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "lsm-775",
+  "name": "LSM-775",
+  "common_names": [
+    "LSM-775"
+  ],
+  "url": "https://psychonautwiki.org/wiki/LSM-775",
+  "categories": [
+    "psychedelic",
+    "research-chemical",
+    "tentative"
+  ],
+  "summary": "Psychedelic of the lysergamide class, less potent by weight and produces a rather mild, dreamy and even sedating trip compared to its bigger brother LSD.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Lithium"
+    ],
+    "unsafe": [
+      "Tramadol"
+    ],
+    "uncertain": [
+      "Cannabis",
+      "Stimulants"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "not habit-forming",
+    "crossTolerances": [
+      "psychedelics"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "almost immediately after ingestion",
+      "half": "5-7 days",
+      "zero": "14 days"
+    },
+    "toxicities": [
+      "toxic dose is unknown"
+    ]
+  }
+}

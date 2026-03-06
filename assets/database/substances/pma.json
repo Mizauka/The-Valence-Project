@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "id": "pma",
+  "name": "PMA",
+  "common_names": [
+    "PMA"
+  ],
+  "url": "https://psychonautwiki.org/wiki/PMA",
+  "categories": [
+    "entactogen",
+    "hallucinogen",
+    "stimulant",
+    "tentative"
+  ],
+  "summary": "An empathogen with a slow onset and very strong serotonin release. This, combined with its lack of dopamine release, often leads users to dose more for the pleasurable effects which never come, leading to hospitalisations and deaths. Sometimes mis-sold as MDMA.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Tramadol",
+      "ΑMT",
+      "MAOI"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "PCP",
+      "25x-NBOMe",
+      "2C-T-x",
+      "5-MeO-xxT",
+      "DOx"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "GHB",
+      "GBL",
+      "Opioids",
+      "Cocaine",
+      "Cannabis",
+      "Caffeine",
+      "Ketamine",
+      "Methoxetamine",
+      "Psychedelics"
+    ]
+  },
+  "legacy": {
+    "crossTolerances": [],
+    "isApproved": true,
+    "toxicities": [
+      "can be considered extremely toxic when compared to other substances such as Methamphetamine or MDMA",
+      "Ingestion of PMA has been associated with severe tachycardia (abnormally high heart rate), seizures, hyperthermia, and death"
+    ]
+  }
+}

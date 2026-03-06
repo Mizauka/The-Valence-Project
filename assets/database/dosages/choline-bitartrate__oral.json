@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "choline-bitartrate",
+  "substance_name": "Choline bitartrate",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 250.0,
+  "strong_min": 1000.0,
+  "heavy_min": 2000.0,
+  "onset": {
+    "min": 45.0,
+    "max": 75.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 15.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 4.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

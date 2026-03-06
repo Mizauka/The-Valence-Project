@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "pentobarbital",
+  "substance_name": "Pentobarbital",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 25.0,
+  "common_min": 100.0,
+  "strong_min": 200.0,
+  "heavy_min": 300.0,
+  "onset": {
+    "min": 15.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 1.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 1.0,
+    "max": 36.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

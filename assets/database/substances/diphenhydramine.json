@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "diphenhydramine",
+  "name": "Diphenhydramine",
+  "common_names": [
+    "DPH",
+    "Benadryl",
+    "Nytol",
+    "Sominex",
+    "Unisom SleepMelts",
+    "ZzzQuil"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Diphenhydramine",
+  "categories": [
+    "deliriant",
+    "depressant",
+    "common"
+  ],
+  "summary": "An antihistamine which, when taken in smaller doses relieves allergies and insomnia. In larger doses works as a deliriant and can actually keep the user awake. Generally the 'high' of this drug is reported as dysphoric, potentially causing hallucinations indistinguishable from reality.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "addictionPotential": "produces dependence with chronic use",
+    "crossTolerances": [
+      "deliriant"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "with repeated use",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "fatal at amounts close to or exceeding 2 grams"
+    ]
+  }
+}

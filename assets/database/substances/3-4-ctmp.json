@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "3-4-ctmp",
+  "name": "3,4-CTMP",
+  "common_names": [
+    "3,4-CTMP"
+  ],
+  "url": "https://psychonautwiki.org/wiki/3,4-CTMP",
+  "categories": [
+    "stimulant",
+    "research-chemical",
+    "habit-forming"
+  ],
+  "summary": "A strong stimulant, NDRI and analogue of methylphenidate. Has increased in popularity in recent years. Said to be seven times more potent than methylphenidate but with a slower onset, however discrimination studies have found it to be more addictive than cocaine.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "MAOI"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "crossTolerances": [],
+    "isApproved": true,
+    "toxicities": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "efavirenz",
+  "substance_name": "Efavirenz",
+  "route_id": "smoked",
+  "route_name": "smoked",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": null,
+  "common_min": 600.0,
+  "strong_min": 1800.0,
+  "heavy_min": null,
+  "onset": {
+    "min": 1.0,
+    "max": 5.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "offset": null,
+  "total": null,
+  "afterglow": {
+    "min": 6.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

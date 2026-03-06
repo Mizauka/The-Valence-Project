@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "buspirone",
+  "name": "Buspirone",
+  "common_names": [
+    "DMT",
+    "Dimethyltryptamine",
+    "Dmitri"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Buspirone",
+  "categories": [
+    "psychedelic"
+  ],
+  "summary": null,
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "crossTolerances": [],
+    "isApproved": false,
+    "toxicities": []
+  }
+}

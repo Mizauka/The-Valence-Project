@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "mdpv",
+  "substance_name": "MDPV",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 2.0,
+  "common_min": 8.0,
+  "strong_min": 14.0,
+  "heavy_min": 25.0,
+  "onset": {
+    "min": 15.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 1.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 0.5,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 2.0,
+    "max": 7.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 48.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

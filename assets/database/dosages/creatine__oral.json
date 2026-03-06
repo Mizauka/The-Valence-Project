@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "creatine",
+  "substance_name": "Creatine",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "g",
+  "threshold": null,
+  "light_min": 0.25,
+  "common_min": 5.0,
+  "strong_min": 10.0,
+  "heavy_min": 20.0,
+  "onset": {
+    "min": 30.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 30.0,
+    "max": 36.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

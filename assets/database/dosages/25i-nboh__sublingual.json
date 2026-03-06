@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "25i-nboh",
+  "substance_name": "25I-NBOH",
+  "route_id": "sublingual",
+  "route_name": "sublingual",
+  "dose_units": "µg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 500.0,
+  "strong_min": 900.0,
+  "heavy_min": 1400.0,
+  "onset": {
+    "min": 15.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 30.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 2.0,
+    "max": 3.5,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.5,
+    "max": 2.5,
+    "units": "hours"
+  },
+  "total": {
+    "min": 5.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 3.0,
+    "max": 12.0,
+    "units": "days"
+  },
+  "legacy": {}
+}

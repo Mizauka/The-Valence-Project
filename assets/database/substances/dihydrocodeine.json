@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "id": "dihydrocodeine",
+  "name": "Dihydrocodeine",
+  "common_names": [
+    "Dihydrocodeine"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Dihydrocodeine",
+  "categories": [
+    "opioid",
+    "habit-forming",
+    "depressant"
+  ],
+  "summary": "A weak semi-synthetic opioid analgesic and antitussive (anti-cough) drug. Often sold as a syrup in combination with aspirin or paracetamol. Not to be confused with the slightly less potent codeine.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Alcohol",
+      "Benzodiazepines",
+      "Dextromethorphan",
+      "GHB",
+      "GBL",
+      "Ketamine",
+      "Methoxetamine",
+      "Tramadol",
+      "Grapefruit"
+    ],
+    "unsafe": [],
+    "uncertain": [
+      "MAOI",
+      "Nitrous",
+      "PCP",
+      "Stimulants"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "opioids"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "low toxicity",
+      "potentially lethal when mixed with depressants like alcohol or benzodiazepines"
+    ]
+  }
+}

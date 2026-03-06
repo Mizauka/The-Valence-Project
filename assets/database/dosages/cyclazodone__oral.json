@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "cyclazodone",
+  "substance_name": "Cyclazodone",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 15.0,
+  "strong_min": 25.0,
+  "heavy_min": 60.0,
+  "onset": {
+    "min": 20.0,
+    "max": 45.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 5.0,
+    "max": 7.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

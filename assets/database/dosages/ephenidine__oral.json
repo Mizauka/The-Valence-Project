@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "ephenidine",
+  "substance_name": "Ephenidine",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 30.0,
+  "common_min": 70.0,
+  "strong_min": 100.0,
+  "heavy_min": 150.0,
+  "onset": {
+    "min": 10.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 5.0,
+    "max": 7.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

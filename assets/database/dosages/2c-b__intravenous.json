@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "substance_id": "2c-b",
+  "substance_name": "2C-B",
+  "route_id": "intravenous",
+  "route_name": "intravenous",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 1.0,
+  "common_min": 2.5,
+  "strong_min": 5.0,
+  "heavy_min": 10.0,
+  "onset": {
+    "min": 5.0,
+    "max": 15.0,
+    "units": "seconds"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 15.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 1.5,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 2.0,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

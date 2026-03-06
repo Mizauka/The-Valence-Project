@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "substance_id": "sam-e",
+  "substance_name": "SAM-e",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 200.0,
+  "common_min": 800.0,
+  "strong_min": 1200.0,
+  "heavy_min": 1600.0,
+  "onset": {
+    "min": 100.0,
+    "max": 180.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": null,
+  "afterglow": null,
+  "legacy": {}
+}

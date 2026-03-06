@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "3-fpm",
+  "name": "3-FPM",
+  "common_names": [
+    "3-FPM",
+    "PAL-593"
+  ],
+  "url": "https://psychonautwiki.org/wiki/3-FPM",
+  "categories": [
+    "stimulant",
+    "research-chemical",
+    "habit-forming"
+  ],
+  "summary": "A functional stimulant related to phenmetrazine. Effects similar to amphetamine, but longer and more focused. Observed as being relatively benign in low doses, but seems to cause worrying health effects for heavy users. Pain from insufflation is eye-wateringly intense, but short.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "MAOI"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dopamine",
+      "stimulant"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

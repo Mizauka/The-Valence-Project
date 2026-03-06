@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "id": "ec",
+  "name": "Estradiol Cypionate (EC)",
+  "distribution_volume_l_per_kg": 2.0,
+  "notes": "Oyama baseline: EC injection uses TwoPartDepotPK + analytic3C.",
+  "legacy": { "oyama": { "ester": "EC" } }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "1cp-mipla",
+  "substance_name": "1cP-MiPLA",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "µg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 150.0,
+  "strong_min": 200.0,
+  "heavy_min": 300.0,
+  "onset": {
+    "min": 20.0,
+    "max": 40.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 45.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 4.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

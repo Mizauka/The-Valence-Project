@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "id": "estradiol",
+  "name": "Estradiol",
+  "distribution_volume_l_per_kg": 2.0,
+  "notes": "Oyama baseline: Vd ~2.0 L/kg for E2 (used for pg/mL conversion).",
+  "legacy": {}
+}

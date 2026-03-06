@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "naloxone",
+  "substance_name": "Naloxone",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": null,
+  "common_min": 1.0,
+  "strong_min": 4.0,
+  "heavy_min": null,
+  "onset": {
+    "min": 0.0,
+    "max": 10.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 30.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

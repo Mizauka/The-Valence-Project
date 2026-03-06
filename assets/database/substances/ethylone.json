@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "ethylone",
+  "name": "Ethylone",
+  "common_names": [
+    "Ethylone",
+    "bk-MDEA",
+    "MDEC"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Ethylone",
+  "categories": [
+    "stimulant",
+    "psychedelic",
+    "research-chemical",
+    "habit-forming",
+    "entactogen"
+  ],
+  "summary": "A euphoric stimulant often sold in place of MDMA since methylone was banned. Slightly less potent and empathogenic than methylone, it is often described as more of a 'straight stimulant.'",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "SNRIs",
+      "MAOI",
+      "Serotonin releasers",
+      "SSRIs",
+      "5-Hydroxytryptophan"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dopamine",
+      "stimulant"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

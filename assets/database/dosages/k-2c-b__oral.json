@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "k-2c-b",
+  "substance_name": "Βk-2C-B",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 80.0,
+  "strong_min": 100.0,
+  "heavy_min": 150.0,
+  "onset": {
+    "min": 20.0,
+    "max": 70.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 8.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

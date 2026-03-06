@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "tma-6",
+  "substance_name": "TMA-6",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 5.0,
+  "common_min": 20.0,
+  "strong_min": 35.0,
+  "heavy_min": 50.0,
+  "onset": {
+    "min": 30.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 1.5,
+    "max": 3.0,
+    "units": "hours"
+  },
+  "peak": {
+    "min": 5.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 3.0,
+    "max": 5.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 10.0,
+    "max": 16.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 6.0,
+    "max": 18.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

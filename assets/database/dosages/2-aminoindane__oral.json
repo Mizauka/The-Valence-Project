@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "2-aminoindane",
+  "substance_name": "2-Aminoindane",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 3.0,
+  "common_min": 10.0,
+  "strong_min": 20.0,
+  "heavy_min": 40.0,
+  "onset": {
+    "min": 10.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

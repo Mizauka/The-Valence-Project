@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "substance_id": "oxiracetam",
+  "substance_name": "Oxiracetam",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 250.0,
+  "common_min": 1200.0,
+  "strong_min": 1800.0,
+  "heavy_min": 2400.0,
+  "onset": {
+    "min": 30.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 8.0,
+    "max": 10.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

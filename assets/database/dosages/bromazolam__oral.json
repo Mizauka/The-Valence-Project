@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "substance_id": "bromazolam",
+  "substance_name": "Bromazolam",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 0.5,
+  "common_min": 1.0,
+  "strong_min": 2.0,
+  "heavy_min": 4.0,
+  "onset": {
+    "min": 15.0,
+    "max": 45.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 5.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "offset": null,
+  "total": {
+    "min": 6.0,
+    "max": 20.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 1.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

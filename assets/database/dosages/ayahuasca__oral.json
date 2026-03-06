@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "substance_id": "ayahuasca",
+  "substance_name": "Ayahuasca",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "unknown",
+  "threshold": null,
+  "light_min": null,
+  "common_min": null,
+  "strong_min": null,
+  "heavy_min": null,
+  "onset": {
+    "min": 20.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": {
+    "min": 5.0,
+    "max": 10.0,
+    "units": "hours"
+  },
+  "afterglow": {
+    "min": 1.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "substance_id": "dextropropoxyphene",
+  "substance_name": "Dextropropoxyphene",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 15.0,
+  "common_min": 65.0,
+  "strong_min": 100.0,
+  "heavy_min": 200.0,
+  "onset": {
+    "min": 20.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 1.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "offset": null,
+  "total": null,
+  "afterglow": {
+    "min": 1.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

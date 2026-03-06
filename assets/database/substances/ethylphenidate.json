@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "id": "ethylphenidate",
+  "name": "Ethylphenidate",
+  "common_names": [
+    "Ethylphenidate",
+    "EPH"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Ethylphenidate",
+  "categories": [
+    "stimulant",
+    "research-chemical",
+    "habit-forming",
+    "common"
+  ],
+  "summary": "Potent psychostimulant, similar to Methylphenidate. Note: Ethylphenidate should NOT be insufflated as it is known to be highly caustic and will cause serious harm to your nasal septum, even with light usage.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "25x-NBOMe",
+      "25x-NBOH",
+      "Tramadol",
+      "MAOI"
+    ],
+    "unsafe": [
+      "Dextromethorphan",
+      "MDMA",
+      "Stimulants"
+    ],
+    "uncertain": [
+      "Alcohol",
+      "Methoxetamine",
+      "Dissociatives"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "moderately addictive with a high potential for abuse",
+    "crossTolerances": [
+      "dopaminergic",
+      "stimulants"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "exact toxic dosage is unknown"
+    ]
+  }
+}

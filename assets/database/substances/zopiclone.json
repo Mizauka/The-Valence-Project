@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "zopiclone",
+  "name": "Zopiclone",
+  "common_names": [
+    "Zimovane",
+    "Imovane"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Zopiclone",
+  "categories": [
+    "hallucinogen",
+    "depressant",
+    "habit-forming",
+    "common"
+  ],
+  "summary": "A nonbenzodiazepine sedative sleep aid (Z-drug), which can have hallucinogenic effects if taken while awake. Often causes users to have a metallic taste in the mouth for ~12h. Has been reported in some cases to cause certain users to black out, redose excessively and undertake dangerous activities such as driving.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "addictionPotential": "extremely physically and psychologically addictive",
+    "crossTolerances": [
+      "benzodiazepines"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "within a couple of weeks of daily use",
+      "zero": "7 - 14 days"
+    },
+    "toxicities": [
+      "low toxicity",
+      "potentially lethal when mixed with depressants like benzodiazepines, alcohol or opioids"
+    ]
+  }
+}

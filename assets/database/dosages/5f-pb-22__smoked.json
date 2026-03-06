@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "substance_id": "5f-pb-22",
+  "substance_name": "5F-PB-22",
+  "route_id": "smoked",
+  "route_name": "smoked",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 1.0,
+  "common_min": 3.0,
+  "strong_min": 5.0,
+  "heavy_min": 8.0,
+  "onset": null,
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": null,
+  "afterglow": null,
+  "legacy": {}
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "kratom",
+  "name": "Kratom",
+  "common_names": [
+    "Mitragyna Speciosa",
+    "กระท่อม (Thai)",
+    "Ketum",
+    "Kratom",
+    "Kratum"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Kratom",
+  "categories": [
+    "stimulant",
+    "opioid",
+    "habit-forming",
+    "depressant",
+    "common"
+  ],
+  "summary": "A drug made out of the leaves of Mitragyna Speciosa, which is related to coffee. Stimulating at lower doses, with opioid effects at higher doses. Frequent heavy use can cause physical addiction and withdrawals.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [
+      "Alcohol",
+      "Benzodiazepines",
+      "Dextromethorphan",
+      "GHB",
+      "GBL",
+      "Ketamine",
+      "Methoxetamine",
+      "Tramadol",
+      "Grapefruit"
+    ],
+    "unsafe": [],
+    "uncertain": [
+      "MAOI",
+      "Nitrous",
+      "PCP",
+      "Stimulants"
+    ]
+  },
+  "legacy": {
+    "addictionPotential": "produces dependence with chronic use and has a high abuse potential",
+    "crossTolerances": [
+      "opioids"
+    ],
+    "isApproved": true,
+    "tolerance": {
+      "full": "develops with prolonged and repeated use",
+      "half": "3 - 7 days",
+      "zero": "1 - 2 weeks"
+    },
+    "toxicities": [
+      "low toxicity"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "substance_id": "proscaline",
+  "substance_name": "Proscaline",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 10.0,
+  "common_min": 30.0,
+  "strong_min": 40.0,
+  "heavy_min": 60.0,
+  "onset": null,
+  "comeup": null,
+  "peak": null,
+  "offset": null,
+  "total": {
+    "min": 8.0,
+    "max": 12.0,
+    "units": "hours"
+  },
+  "afterglow": null,
+  "legacy": {}
+}

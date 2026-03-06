@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "substance_id": "2c-e",
+  "substance_name": "2C-E",
+  "route_id": "insufflated",
+  "route_name": "insufflated",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 1.0,
+  "common_min": 4.0,
+  "strong_min": 7.0,
+  "heavy_min": 14.0,
+  "onset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "minutes"
+  },
+  "comeup": null,
+  "peak": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 1.0,
+    "max": 2.0,
+    "units": "hours"
+  },
+  "total": null,
+  "afterglow": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "legacy": {}
+}

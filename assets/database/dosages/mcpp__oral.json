@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "substance_id": "mcpp",
+  "substance_name": "MCPP",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 15.0,
+  "common_min": 50.0,
+  "strong_min": 120.0,
+  "heavy_min": 150.0,
+  "onset": {
+    "min": 20.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 20.0,
+    "max": 60.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 2.0,
+    "max": 4.0,
+    "units": "hours"
+  },
+  "offset": {
+    "min": 3.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "total": null,
+  "afterglow": null,
+  "legacy": {}
+}

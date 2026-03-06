@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "substance_id": "ketamine",
+  "substance_name": "Ketamine",
+  "route_id": "oral",
+  "route_name": "oral",
+  "dose_units": "mg",
+  "threshold": null,
+  "light_min": 50.0,
+  "common_min": 100.0,
+  "strong_min": 300.0,
+  "heavy_min": 450.0,
+  "onset": {
+    "min": 10.0,
+    "max": 30.0,
+    "units": "minutes"
+  },
+  "comeup": {
+    "min": 5.0,
+    "max": 20.0,
+    "units": "minutes"
+  },
+  "peak": {
+    "min": 45.0,
+    "max": 90.0,
+    "units": "minutes"
+  },
+  "offset": {
+    "min": 3.0,
+    "max": 6.0,
+    "units": "hours"
+  },
+  "total": null,
+  "afterglow": {
+    "min": 4.0,
+    "max": 8.0,
+    "units": "hours"
+  },
+  "legacy": {
+    "bioavailability": {
+      "max": 17
+    }
+  }
+}

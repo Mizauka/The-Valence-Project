@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "ayahuasca",
+  "name": "Ayahuasca",
+  "common_names": [
+    "Ayahuasca",
+    "Aya",
+    "Caapi",
+    "Cipó",
+    "Hoasca",
+    "Vegetal",
+    "Yagé",
+    "Yajé",
+    "Natem",
+    "Shori"
+  ],
+  "url": "https://psychonautwiki.org/wiki/Ayahuasca",
+  "categories": [
+    "psychedelic",
+    "entactogen"
+  ],
+  "summary": "A concoction made of two or more plants that contain at least an MAOI and DMT, the combination of which allows the DMT to work orally. Typically associated to south american cultures. Also, sometimes approximated synthetically by taking an external MAOI with extracted DMT. Causes intense, spiritually orientated hallucinogenic experiences.",
+  "half_life_hours": null,
+  "distribution_volume_l_per_kg": null,
+  "mechanisms": null,
+  "ddi": {
+    "dangerous": [],
+    "unsafe": [],
+    "uncertain": []
+  },
+  "legacy": {
+    "addictionPotential": "not habit-forming",
+    "crossTolerances": [],
+    "isApproved": true,
+    "toxicities": [
+      "LD50 is around 50 times a regular dose"
+    ]
+  }
+}
