@@ -1,8 +1,0 @@
-{
-  "schema_version": 1,
-  "id": "eb",
-  "name": "Estradiol Benzoate (EB)",
-  "distribution_volume_l_per_kg": 2.0,
-  "notes": "Oyama baseline: EB injection uses TwoPartDepotPK + analytic3C.",
-  "legacy": { "oyama": { "ester": "EB" } }
-}

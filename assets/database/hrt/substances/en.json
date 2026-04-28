@@ -1,8 +1,0 @@
-{
-  "schema_version": 1,
-  "id": "en",
-  "name": "Estradiol Enanthate (EN)",
-  "distribution_volume_l_per_kg": 2.0,
-  "notes": "Oyama baseline: EN injection uses TwoPartDepotPK + analytic3C.",
-  "legacy": { "oyama": { "ester": "EN" } }
-}
