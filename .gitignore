@@ -13,6 +13,7 @@ dist-ssr
 *.local
 reference
 .agents
+drug-data-converter
 
 # Editor directories and files
 .vscode/*
