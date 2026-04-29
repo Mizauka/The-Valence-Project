@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 1,
-    "exportedAt": "2026-04-29T02:43:42.959Z"
+    "exportedAt": "2026-04-29T05:41:32.060Z"
   },
   "weight": 55,
   "events": [
@@ -46,16 +46,6 @@
       }
     },
     {
-      "id": "d72716f8-86e2-43a0-9e09-20fab5cdee60",
-      "route": "oral",
-      "ester": "Estradiol Valerate",
-      "timeH": 493726.75,
-      "doseMG": 4,
-      "extras": {
-        "drug_id": "hrt_ev"
-      }
-    },
-    {
       "id": "ebc09b32-b583-4b9e-9e34-5934e6199720",
       "route": "oral",
       "ester": "Cyproterone Acetate",
@@ -76,20 +66,30 @@
       }
     },
     {
-      "id": "f685bf29-39ba-4340-bf4d-e84c5b666020",
+      "id": "44567814-4d2d-43af-a506-2c9d46af1beb",
+      "route": "oral",
+      "ester": "Pregabalin",
+      "timeH": 493730.8,
+      "doseMG": 900,
+      "extras": {
+        "drug_id": "journal_pregabalin"
+      }
+    },
+    {
+      "id": "7c144c7c-e6eb-4713-8324-f08c35bc8bb1",
       "route": "sublingual",
       "ester": "LSD",
-      "timeH": 493730.7166666667,
+      "timeH": 493731.85,
       "doseMG": 0.025,
       "extras": {
         "drug_id": "journal_lsd"
       }
     },
     {
-      "id": "703f9a24-e3f5-4477-80a9-bbab038ebf43",
+      "id": "6967b129-ee81-413c-a0ac-55b35dc7d18d",
       "route": "injection",
       "ester": "Estradiol Valerate",
-      "timeH": 493751.85,
+      "timeH": 493733.6,
       "doseMG": 10,
       "extras": {
         "drug_id": "hrt_ev"

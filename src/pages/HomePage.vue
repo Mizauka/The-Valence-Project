@@ -13,19 +13,39 @@
         </mdui-button>
       </div>
     </div>
-    <div class="chart-container">
-      <canvas ref="chartCanvas"></canvas>
-      <div v-if="!hasData" class="chart-placeholder">
-        <mdui-icon name="show_chart"></mdui-icon>
-        <p>{{ placeholderText }}</p>
+
+    <div class="chart-wrapper">
+      <div v-if="hasData" class="y-slider-container" ref="ySliderContainer">
+        <!--span class="y-slider-label-top"> {{ yMaxDisplay }} </span-->
+        <div class="y-slider-track" ref="ySliderTrack">
+          <mdui-slider
+            ref="ySliderRef"
+            class="y-mdui-slider"
+            :min="ySliderMin"
+            :max="ySliderMax"
+            :step="ySliderStep"
+            :value="currentYMax"
+            nolabel
+            @input="onYSliderInput"
+          ></mdui-slider>
+        </div>
+        <!--span class="y-slider-label-bottom">1</span-->
+      </div>
+
+      <div class="chart-container">
+        <canvas ref="chartCanvas"></canvas>
+        <div v-if="!hasData" class="chart-placeholder">
+          <mdui-icon name="show_chart"></mdui-icon>
+          <p>{{ placeholderText }}</p>
+        </div>
       </div>
     </div>
 
     <div v-if="hasData" class="time-range-control">
-      <div class="range-labels">
+      <!--div class="range-labels">
         <span class="range-label-start">{{ rangeStartLabel }}</span>
         <span class="range-label-end">{{ rangeEndLabel }}</span>
-      </div>
+      </div-->
       <mdui-range-slider
         ref="rangeSlider"
         :min="timeRangeMin"
@@ -59,6 +79,9 @@ Chart.register(...registerables)
 const route = useRoute()
 const chartCanvas = ref(null)
 const rangeSlider = ref(null)
+const ySliderRef = ref(null)
+const ySliderTrack = ref(null)
+const ySliderContainer = ref(null)
 const doseCount = ref(0)
 const hasData = ref(false)
 const placeholderText = ref('添加给药记录后，浓度曲线将在此显示')
@@ -69,11 +92,29 @@ const rangeStep = ref(1)
 const currentRangeStart = ref(0)
 const currentRangeEnd = ref(100)
 
+const currentYMax = ref(100)
+const ySliderMin = ref(10)
+const ySliderMax = ref(500)
+const ySliderStep = ref(10)
+
+const curveVisibility = ref({})
+
 let chartInstance = null
 let cachedSimResults = null
+let resizeObserver = null
 
 const rangeStartLabel = computed(() => formatXLabel(currentRangeStart.value))
 const rangeEndLabel = computed(() => formatXLabel(currentRangeEnd.value))
+
+const yMaxDisplay = computed(() => {
+  return currentYMax.value.toFixed(0)
+})
+
+function calcNiceYMax(maxVal) {
+  if (maxVal <= 0) return 50
+  const rounded = Math.ceil(maxVal / 50) * 50
+  return Math.max(rounded, 50)
+}
 
 function getViewWindow() {
   const nowSec = Date.now() / 1000
@@ -112,6 +153,26 @@ function applyRangeToChart() {
   chartInstance.options.scales.x.min = currentRangeStart.value
   chartInstance.options.scales.x.max = currentRangeEnd.value
   chartInstance.update('none')
+}
+
+function onYSliderInput(e) {
+  const val = parseFloat(e.target.value)
+  if (isNaN(val)) return
+  currentYMax.value = val
+  if (!chartInstance) return
+  chartInstance.options.scales.y.max = val
+  chartInstance.update('none')
+}
+
+function syncYSliderSize() {
+  if (!ySliderContainer.value || !ySliderRef.value) return
+  const containerH = ySliderContainer.value.clientHeight
+  const labelH = 24
+  const paddingV = 16
+  const trackH = containerH - labelH * 2 - paddingV * 2
+  if (trackH > 0) {
+    ySliderRef.value.style.width = `${trackH}px`
+  }
 }
 
 function formatTooltipValue(val, unit) {
@@ -178,6 +239,8 @@ async function renderChart() {
       'rgba(255, 159, 64, 1)',
     ]
 
+    let globalMaxY = 0
+
     for (let i = 0; i < simResults.length; i++) {
       const result = simResults[i]
       if (!result) continue
@@ -194,7 +257,12 @@ async function renderChart() {
         y: Math.max(0, rawConc[j]) * factor,
       }))
 
+      for (const p of points) {
+        if (p.y > globalMaxY) globalMaxY = p.y
+      }
+
       const color = colors[i % colors.length]
+      const hidden = curveVisibility.value[drugName] === false
       datasets.push({
         label: drugName,
         data: points,
@@ -205,6 +273,7 @@ async function renderChart() {
         tension: 0.3,
         pointRadius: 0,
         unit,
+        hidden,
       })
     }
 
@@ -213,6 +282,12 @@ async function renderChart() {
       placeholderText.value = '浓度数据为空，请检查药物参数'
       return
     }
+
+    const niceYMax = calcNiceYMax(globalMaxY)
+    currentYMax.value = niceYMax
+    ySliderMin.value = 10
+    ySliderMax.value = niceYMax
+    ySliderStep.value = 1
 
     const viewWindow = getViewWindow()
     const totalRangeMs = viewWindow.endMs - viewWindow.startMs
@@ -242,6 +317,30 @@ async function renderChart() {
           legend: {
             display: true,
             position: 'top',
+            labels: {
+              generateLabels: (chart) => {
+                return chart.data.datasets.map((dataset, i) => ({
+                  text: `${dataset.label} (${dataset.unit || 'mg/L'})`,
+                  fillStyle: dataset.borderColor,
+                  strokeStyle: dataset.borderColor,
+                  lineWidth: 2,
+                  hidden: !chart.isDatasetVisible(i),
+                  index: i,
+                  datasetIndex: i,
+                }))
+              },
+            },
+            onClick: (e, legendItem, legend) => {
+              const index = legendItem.datasetIndex
+              const ci = legend.chart
+              if (ci.isDatasetVisible(index)) {
+                ci.hide(index)
+                curveVisibility.value[ci.data.datasets[index].label] = false
+              } else {
+                ci.show(index)
+                curveVisibility.value[ci.data.datasets[index].label] = true
+              }
+            },
           },
           tooltip: {
             callbacks: {
@@ -273,6 +372,7 @@ async function renderChart() {
           y: {
             title: { display: true, text: '浓度' },
             beginAtZero: true,
+            max: niceYMax,
           },
         },
       },
@@ -283,6 +383,11 @@ async function renderChart() {
       rangeSlider.value.value = [viewWindow.startMs, viewWindow.endMs]
       rangeSlider.value.labelFormatter = (val) => formatXLabel(val)
     }
+    if (ySliderRef.value) {
+      ySliderRef.value.value = niceYMax
+    }
+    await nextTick()
+    syncYSliderSize()
 
     console.log('[HomePage] chart OK, datasets:', datasets.map(d => d.label))
   } catch (e) {
@@ -362,12 +467,20 @@ function exportJSON() {
 
 onMounted(async () => {
   await renderChart()
+  if (ySliderContainer.value) {
+    resizeObserver = new ResizeObserver(() => syncYSliderSize())
+    resizeObserver.observe(ySliderContainer.value)
+  }
 })
 
 onUnmounted(() => {
   if (chartInstance) {
     chartInstance.destroy()
     chartInstance = null
+  }
+  if (resizeObserver) {
+    resizeObserver.disconnect()
+    resizeObserver = null
   }
 })
 
@@ -403,14 +516,61 @@ watch(() => route.path, async (newPath) => {
   gap: 4px;
 }
 
-.chart-container {
-  width: 100%;
-  height: 320px;
+.chart-wrapper {
+  display: flex;
+  gap: 0;
   margin-bottom: 12px;
+}
+
+.y-slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px 4px 16px 0;
+  min-width: 44px;
   background: var(--mdui-color-surface-container);
-  border-radius: 16px;
+  border-radius: 16px 0 0 16px;
+}
+
+.y-slider-label-top,
+.y-slider-label-bottom {
+  font-size: 11px;
+  opacity: 0.7;
+  writing-mode: horizontal-tb;
+  white-space: nowrap;
+  height: 24px;
+  line-height: 24px;
+  flex-shrink: 0;
+}
+
+.y-slider-track {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+  width: 44px;
+}
+
+.y-mdui-slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: center center;
+}
+
+.chart-container {
+  flex: 1;
+  height: 320px;
+  background: var(--mdui-color-surface-container);
+  border-radius: 0 16px 16px 0;
   padding: 16px;
   position: relative;
+  min-width: 0;
+}
+
+.chart-container:has(.chart-placeholder) {
+  border-radius: 0 16px 16px 0;
 }
 
 .chart-placeholder {
