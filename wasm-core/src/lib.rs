@@ -271,7 +271,7 @@ impl ValenceEngine {
         }
 
         for (_drug_id, items) in &other_groups {
-            let rep_drug = items[0].drug;
+            let _rep_drug = items[0].drug;
             if let Some(output) = self.simulate_generic_group(items) {
                 results.push(serde_wasm_bindgen::to_value(&output).unwrap_or(JsValue::NULL));
             }
