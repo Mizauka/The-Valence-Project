@@ -261,10 +261,17 @@ async function saveDose() {
   const amount = parseFloat(doseAmount.value)
   if (isNaN(amount) || amount <= 0) return
 
+  const doseUnit = currentDoseUnit.value
+  let amountMG = amount
+  if (doseUnit === 'µg') amountMG = amount / 1000
+  else if (doseUnit === 'ng') amountMG = amount / 1000000
+  else if (doseUnit === 'pg') amountMG = amount / 1000000000
+  else if (doseUnit === 'mL') amountMG = amount
+
   await store.addDose({
     dose_id: crypto.randomUUID(),
     drug_id: selectedDrug.value.drug_id,
-    dose_amount: amount,
+    dose_amount: amountMG,
     timestamp: new Date(timestamp.value).getTime() / 1000 / 3600,
     route_of_administration: route.value,
   })

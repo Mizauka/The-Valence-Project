@@ -551,14 +551,26 @@ export async function getAllDoses() {
     drugMap[d.drug_id] = d.name
   }
 
-  return doses.map(d => ({
-    dose_id: d.dose_id,
-    drug_id: d.drug_id,
-    dose_amount: d.dose_amount,
-    timestamp: d.timestamp * 3600,
-    route_of_administration: d.route,
-    drugName: drugMap[d.drug_id] || d.drug_id,
-  }))
+  return doses.map(d => {
+    const meta = _drugMetaCache[d.drug_id]
+    const doseUnit = meta?.dose_unit || 'mg'
+    let displayAmount = d.dose_amount
+    let displayUnit = 'mg'
+    if (doseUnit === 'µg') { displayAmount = d.dose_amount * 1000; displayUnit = 'µg' }
+    else if (doseUnit === 'ng') { displayAmount = d.dose_amount * 1000000; displayUnit = 'ng' }
+    else if (doseUnit === 'pg') { displayAmount = d.dose_amount * 1000000000; displayUnit = 'pg' }
+    else if (doseUnit === 'mL') { displayAmount = d.dose_amount; displayUnit = 'mL' }
+    return {
+      dose_id: d.dose_id,
+      drug_id: d.drug_id,
+      dose_amount: d.dose_amount,
+      display_amount: displayAmount,
+      display_unit: displayUnit,
+      timestamp: d.timestamp * 3600,
+      route_of_administration: d.route,
+      drugName: drugMap[d.drug_id] || d.drug_id,
+    }
+  })
 }
 
 export async function exportAllData() {

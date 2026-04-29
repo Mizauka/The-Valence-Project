@@ -33,7 +33,7 @@
                 <div class="dose-info">
                   <span class="dose-drug-name">{{ dose.drugName }}</span>
                   <span class="dose-meta">
-                    {{ dose.dose_amount }} mg · {{ routeLabel(dose.route_of_administration) }} · {{ dose.timeStr }}
+                    {{ formatDose(dose) }} · {{ routeLabel(dose.route_of_administration) }} · {{ dose.timeStr }}
                   </span>
                 </div>
               </div>
@@ -72,15 +72,27 @@ const routeLabels = {
   oral: '口服',
   injection: '注射',
   sublingual: '舌下',
+  buccal: '颊黏膜',
+  insufflated: '鼻吸',
   transdermal: '透皮',
   gel: '凝胶',
   patch: '贴片',
   rectal: '直肠',
+  smoked: '吸入(烟)',
+  inhaled: '吸入',
   inhalation: '吸入',
 }
 
 function routeLabel(key) {
   return routeLabels[key] || key
+}
+
+function formatDose(dose) {
+  const val = dose.display_amount ?? dose.dose_amount
+  const unit = dose.display_unit || 'mg'
+  if (Number.isInteger(val) || Math.abs(val) >= 10) return `${val} ${unit}`
+  if (Math.abs(val) >= 1) return `${val.toFixed(1)} ${unit}`
+  return `${val.toFixed(2)} ${unit}`
 }
 
 function formatTimestamp(ts) {
