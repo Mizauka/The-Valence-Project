@@ -1,0 +1,5296 @@
+[
+  {
+    "drug_id": "journal_1_4_butanediol",
+    "name": "1,4-Butanediol",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.75,
+      "volume_of_distribution": 1,
+      "clearance": 0.924,
+      "ka": 2.5
+    },
+    "dose_unit": "mL",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mL"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_1b_lsd",
+    "name": "1B-LSD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 4.5
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_1cp_al_lad",
+    "name": "1cP-AL-LAD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.55,
+      "volume_of_distribution": 1,
+      "clearance": 0.272,
+      "ka": 4.5
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_1cp_lsd",
+    "name": "1cP-LSD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 4.5
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_1cp_mipla",
+    "name": "1cP-MiPLA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 6
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_1p_eth_lad",
+    "name": "1P-ETH-LAD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.7,
+      "volume_of_distribution": 1,
+      "clearance": 0.257,
+      "ka": 3
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_1p_lsd",
+    "name": "1P-LSD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.6,
+      "volume_of_distribution": 1,
+      "clearance": 0.192,
+      "ka": 0.6
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_1v_lsd",
+    "name": "1V-LSD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 4.5
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2_aminoindane",
+    "name": "2-Aminoindane",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.45,
+      "volume_of_distribution": 1,
+      "clearance": 1.54,
+      "ka": 9
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2_fa",
+    "name": "2-FA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2_fea",
+    "name": "2-FEA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.53,
+      "volume_of_distribution": 1,
+      "clearance": 1.32,
+      "ka": 18
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2_fluorodeschloroketamine",
+    "name": "2-Fluorodeschloroketamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 47.77
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2_fma",
+    "name": "2-FMA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2_5_dma",
+    "name": "2,5-DMA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_25b_nbome",
+    "name": "25B-NBOMe",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 6
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "µg"
+      },
+      {
+        "route": "sublingual",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_25c_nboh",
+    "name": "25C-NBOH",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 6
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "sublingual",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_25c_nbome",
+    "name": "25C-NBOMe",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.7,
+      "volume_of_distribution": 1,
+      "clearance": 0.257,
+      "ka": 24
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "sublingual",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_25d_nbome",
+    "name": "25D-NBOMe",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 6
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "sublingual",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_25i_nboh",
+    "name": "25I-NBOH",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 4.8
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "sublingual",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_25i_nbome",
+    "name": "25I-NBOMe",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 13.33
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "µg"
+      },
+      {
+        "route": "sublingual",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_25n_nbome",
+    "name": "25N-NBOMe",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.25,
+      "volume_of_distribution": 1,
+      "clearance": 0.308,
+      "ka": 3
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "sublingual",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_b",
+    "name": "2C-B",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.56,
+      "volume_of_distribution": 1,
+      "clearance": 0.445,
+      "ka": 18.04
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "rectal",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_b_fly",
+    "name": "2C-B-FLY",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.85,
+      "volume_of_distribution": 1,
+      "clearance": 0.243,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_c",
+    "name": "2C-C",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 5.54
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_d",
+    "name": "2C-D",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.2,
+      "volume_of_distribution": 1,
+      "clearance": 0.578,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_e",
+    "name": "2C-E",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.289,
+      "ka": 63
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_i",
+    "name": "2C-I",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.289,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_p",
+    "name": "2C-P",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 4.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.154,
+      "ka": 1.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_t",
+    "name": "2C-T",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 4.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_t_2",
+    "name": "2C-T-2",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 11
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_t_21",
+    "name": "2C-T-21",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.3,
+      "volume_of_distribution": 1,
+      "clearance": 0.21,
+      "ka": 1.71
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2c_t_7",
+    "name": "2C-T-7",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 10.2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_2m2b",
+    "name": "2M2B",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.3,
+      "volume_of_distribution": 1,
+      "clearance": 0.21
+    },
+    "dose_unit": "mL",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mL"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_fa",
+    "name": "3-FA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_fea",
+    "name": "3-FEA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.98,
+      "volume_of_distribution": 1,
+      "clearance": 0.711,
+      "ka": 11.25
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_fma",
+    "name": "3-FMA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_fpm",
+    "name": "3-FPM",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.42,
+      "volume_of_distribution": 1,
+      "clearance": 0.486,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_ho_pce",
+    "name": "3-HO-PCE",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_ho_pcp",
+    "name": "3-HO-PCP",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_meo_pce",
+    "name": "3-MeO-PCE",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 11.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_meo_pcmo",
+    "name": "3-MeO-PCMo",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.65,
+      "volume_of_distribution": 1,
+      "clearance": 0.42,
+      "ka": 2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_meo_pcp",
+    "name": "3-MeO-PCP",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.96,
+      "volume_of_distribution": 1,
+      "clearance": 0.725,
+      "ka": 6.64
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_mmc",
+    "name": "3-MMC",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.24,
+      "volume_of_distribution": 1,
+      "clearance": 0.56,
+      "ka": 10.53
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3_4_ctmp",
+    "name": "3,4-CTMP",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.6,
+      "volume_of_distribution": 1,
+      "clearance": 0.193,
+      "ka": 2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3c_e",
+    "name": "3C-E",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.22,
+      "volume_of_distribution": 1,
+      "clearance": 0.215,
+      "ka": 2.89
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_3c_p",
+    "name": "3C-P",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.178,
+      "ka": 2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_aco_det",
+    "name": "4-AcO-DET",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.65,
+      "volume_of_distribution": 1,
+      "clearance": 0.42,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_aco_dipt",
+    "name": "4-AcO-DiPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.05,
+      "volume_of_distribution": 1,
+      "clearance": 0.66,
+      "ka": 6.55
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_aco_dmt",
+    "name": "4-AcO-DMT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.42,
+      "volume_of_distribution": 1,
+      "clearance": 0.486,
+      "ka": 9.27
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_aco_met",
+    "name": "4-AcO-MET",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_aco_mipt",
+    "name": "4-AcO-MiPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_fa",
+    "name": "4-FA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_fma",
+    "name": "4-FMA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_ho_det",
+    "name": "4-HO-DET",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 5.54
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_ho_dipt",
+    "name": "4-HO-DiPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_ho_dpt",
+    "name": "4-HO-DPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.73,
+      "volume_of_distribution": 1,
+      "clearance": 0.402,
+      "ka": 4.71
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_ho_ept",
+    "name": "4-HO-EPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_ho_met",
+    "name": "4-HO-MET",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.84,
+      "volume_of_distribution": 1,
+      "clearance": 0.827,
+      "ka": 3.29
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_ho_mipt",
+    "name": "4-HO-MiPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_ho_mpt",
+    "name": "4-HO-MPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4_meo_pcp",
+    "name": "4-MeO-PCP",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 4.65,
+      "volume_of_distribution": 1,
+      "clearance": 0.149,
+      "ka": 10.09
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4f_eph",
+    "name": "4F-EPH",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.65,
+      "volume_of_distribution": 1,
+      "clearance": 0.42,
+      "ka": 10.29
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_4f_mph",
+    "name": "4F-MPH",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.57,
+      "volume_of_distribution": 1,
+      "clearance": 0.44,
+      "ka": 6.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_5_apb",
+    "name": "5-APB",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_5_mapb",
+    "name": "5-MAPB",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_5_meo_dalt",
+    "name": "5-MeO-DALT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.49,
+      "volume_of_distribution": 1,
+      "clearance": 1.404,
+      "ka": 7.27
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_5_meo_dibf",
+    "name": "5-MeO-DiBF",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_5_meo_dipt",
+    "name": "5-MeO-DiPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_5_meo_dmt",
+    "name": "5-MeO-DMT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.45,
+      "volume_of_distribution": 1,
+      "clearance": 1.54,
+      "ka": 16.41
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_5_meo_mipt",
+    "name": "5-MeO-MiPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 5.25
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_5f_akb48",
+    "name": "5F-AKB48",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.22,
+      "volume_of_distribution": 1,
+      "clearance": 3.08,
+      "ka": 18
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_5f_pb_22",
+    "name": "5F-PB-22",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.75,
+      "volume_of_distribution": 1,
+      "clearance": 0.924
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_6_apb",
+    "name": "6-APB",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.55,
+      "volume_of_distribution": 1,
+      "clearance": 0.272,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_6_apdb",
+    "name": "6-APDB",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_a_php",
+    "name": "A-PHP",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.16,
+      "volume_of_distribution": 1,
+      "clearance": 0.596,
+      "ka": 24.34
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_a_pvp",
+    "name": "A-PVP",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.68,
+      "volume_of_distribution": 1,
+      "clearance": 1.027,
+      "ka": 6.38
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ab_fubinaca",
+    "name": "AB-FUBINACA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.45,
+      "volume_of_distribution": 1,
+      "clearance": 1.54,
+      "ka": 18
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_acetylfentanyl",
+    "name": "Acetylfentanyl",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 13.59
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "sublingual",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_adrafinil",
+    "name": "Adrafinil",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.7,
+      "volume_of_distribution": 1,
+      "clearance": 0.257,
+      "ka": 2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_al_lad",
+    "name": "AL-LAD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.55,
+      "volume_of_distribution": 1,
+      "clearance": 0.272,
+      "ka": 4.5
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_alcohol",
+    "name": "Alcohol",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.98,
+      "volume_of_distribution": 1,
+      "clearance": 0.711,
+      "ka": 51.43
+    },
+    "dose_unit": "g",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ald_52",
+    "name": "ALD-52",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.3,
+      "volume_of_distribution": 1,
+      "clearance": 0.21,
+      "ka": 6
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_allylescaline",
+    "name": "Allylescaline",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 1.26
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_alpha_gpc",
+    "name": "Alpha-GPC",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_alprazolam",
+    "name": "Alprazolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.73,
+      "volume_of_distribution": 1,
+      "clearance": 0.402,
+      "ka": 4.2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "inhaled",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_amphetamine",
+    "name": "Amphetamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.73,
+      "volume_of_distribution": 1,
+      "clearance": 0.402,
+      "ka": 17.52
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_aniracetam",
+    "name": "Aniracetam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.2,
+      "volume_of_distribution": 1,
+      "clearance": 0.578,
+      "ka": 2.67
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_apica",
+    "name": "APICA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.22,
+      "volume_of_distribution": 1,
+      "clearance": 3.08,
+      "ka": 0.3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_apomorphine",
+    "name": "Apomorphine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.68,
+      "volume_of_distribution": 1,
+      "clearance": 1.027,
+      "ka": 41.75
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      },
+      {
+        "route": "injection",
+        "unit": "Mg#"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_armodafinil",
+    "name": "Armodafinil",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.45,
+      "volume_of_distribution": 1,
+      "clearance": 0.201,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ayahuasca",
+    "name": "Ayahuasca",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.25,
+      "volume_of_distribution": 1,
+      "clearance": 0.308,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_baclofen",
+    "name": "Baclofen",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.3,
+      "volume_of_distribution": 1,
+      "clearance": 0.21,
+      "ka": 3.43
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_benzydamine",
+    "name": "Benzydamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_bromantane",
+    "name": "Bromantane",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.289,
+      "ka": 4,
+      "bioavailability": 0.42
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_bromazepam",
+    "name": "Bromazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.15,
+      "volume_of_distribution": 1,
+      "clearance": 0.22,
+      "ka": 12.41
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_bromazolam",
+    "name": "Bromazolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.178,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_bromo_dragonfly",
+    "name": "Bromo-DragonFLY",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 18,
+      "volume_of_distribution": 1,
+      "clearance": 0.039,
+      "ka": 0.67
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_bufotenin",
+    "name": "Bufotenin",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.26,
+      "volume_of_distribution": 1,
+      "clearance": 2.64,
+      "ka": 0.13
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_buprenorphine",
+    "name": "Buprenorphine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 4.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.144,
+      "ka": 3.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "sublingual",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_butylone",
+    "name": "Butylone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.2,
+      "volume_of_distribution": 1,
+      "clearance": 0.578,
+      "ka": 4.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_caffeine",
+    "name": "Caffeine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.54,
+      "volume_of_distribution": 1,
+      "clearance": 1.289,
+      "ka": 67.71
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_cannabidiol",
+    "name": "Cannabidiol",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.83,
+      "volume_of_distribution": 1,
+      "clearance": 0.84
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_cannabis",
+    "name": "Cannabis",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.56,
+      "volume_of_distribution": 1,
+      "clearance": 0.445,
+      "ka": 26.4
+    },
+    "dose_unit": "mg THC",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg THC"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg THC"
+      },
+      {
+        "route": "sublingual",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_chlordiazepoxide",
+    "name": "Chlordiazepoxide",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 12.6,
+      "volume_of_distribution": 1,
+      "clearance": 0.055,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_choline_bitartrate",
+    "name": "Choline bitartrate",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_cinolazepam",
+    "name": "Cinolazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_citicoline",
+    "name": "Citicoline",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 19.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.035,
+      "ka": 2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_clonazepam",
+    "name": "Clonazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_clonazolam",
+    "name": "Clonazolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.289,
+      "ka": 9
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_clonidine",
+    "name": "Clonidine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33,
+      "ka": 6
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_cocaine",
+    "name": "Cocaine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.15,
+      "volume_of_distribution": 1,
+      "clearance": 4.62,
+      "ka": 16.74
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_codeine",
+    "name": "Codeine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 4.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_coluracetam",
+    "name": "Coluracetam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 34
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_creatine",
+    "name": "Creatine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 9.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.07,
+      "ka": 3
+    },
+    "dose_unit": "g",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_cyclazodone",
+    "name": "Cyclazodone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 5.54
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_deschloroetizolam",
+    "name": "Deschloroetizolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.7,
+      "volume_of_distribution": 1,
+      "clearance": 0.257,
+      "ka": 8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_deschloroketamine",
+    "name": "Deschloroketamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.86,
+      "volume_of_distribution": 1,
+      "clearance": 0.803,
+      "ka": 13.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_desomorphine",
+    "name": "Desomorphine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.05,
+      "volume_of_distribution": 1,
+      "clearance": 0.66
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_desoxypipradrol",
+    "name": "Desoxypipradrol",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 12.75,
+      "volume_of_distribution": 1,
+      "clearance": 0.054,
+      "ka": 1.31
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_dextroamphetamine",
+    "name": "Dextroamphetamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.73,
+      "volume_of_distribution": 1,
+      "clearance": 0.402,
+      "ka": 34
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_dextromethorphan",
+    "name": "Dextromethorphan",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 2.4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_diazepam",
+    "name": "Diazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_dichloropane",
+    "name": "Dichloropane",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.59,
+      "volume_of_distribution": 1,
+      "clearance": 1.167,
+      "ka": 4.04
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_diclazepam",
+    "name": "Diclazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 6.55
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_dihydrocodeine",
+    "name": "Dihydrocodeine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.05,
+      "volume_of_distribution": 1,
+      "clearance": 0.66
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_diphenhydramine",
+    "name": "Diphenhydramine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_diphenidine",
+    "name": "Diphenidine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.01,
+      "volume_of_distribution": 1,
+      "clearance": 0.684,
+      "ka": 4.28
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "rectal",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_dipt",
+    "name": "DiPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.77,
+      "volume_of_distribution": 1,
+      "clearance": 0.901,
+      "ka": 11
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_dmt",
+    "name": "DMT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.09,
+      "volume_of_distribution": 1,
+      "clearance": 7.92,
+      "ka": 0.3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_dob",
+    "name": "DOB",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 5.7,
+      "volume_of_distribution": 1,
+      "clearance": 0.122,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_doc",
+    "name": "DOC",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 5.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.128,
+      "ka": 31
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_doi",
+    "name": "DOI",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 6,
+      "volume_of_distribution": 1,
+      "clearance": 0.115,
+      "ka": 2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_dom",
+    "name": "DOM",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 4.2,
+      "volume_of_distribution": 1,
+      "clearance": 0.165,
+      "ka": 2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_dpt",
+    "name": "DPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.68,
+      "volume_of_distribution": 1,
+      "clearance": 1.027,
+      "ka": 9.45
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ephedrine",
+    "name": "Ephedrine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.05,
+      "volume_of_distribution": 1,
+      "clearance": 0.66,
+      "ka": 3.27
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ephenidine",
+    "name": "Ephenidine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 9
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ephylone",
+    "name": "Ephylone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ept",
+    "name": "EPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 14.4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_escaline",
+    "name": "Escaline",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 1.71
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_eszopiclone",
+    "name": "Eszopiclone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33,
+      "ka": 12
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_eth_cat",
+    "name": "ETH-CAT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.98,
+      "volume_of_distribution": 1,
+      "clearance": 0.711,
+      "ka": 33.27
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_eth_lad",
+    "name": "ETH-LAD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 6
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ethylmorphine",
+    "name": "Ethylmorphine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ethylone",
+    "name": "Ethylone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ethylphenidate",
+    "name": "Ethylphenidate",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.42,
+      "volume_of_distribution": 1,
+      "clearance": 0.486,
+      "ka": 8.32
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "rectal",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_etizolam",
+    "name": "Etizolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_etomidate",
+    "name": "Etomidate",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.05,
+      "volume_of_distribution": 1,
+      "clearance": 0.66,
+      "ka": 10.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_f_phenibut",
+    "name": "F-Phenibut",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_fenethylline",
+    "name": "Fenethylline",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.05,
+      "volume_of_distribution": 1,
+      "clearance": 0.66,
+      "ka": 1.71
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_fentanyl",
+    "name": "Fentanyl",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 9.38,
+      "volume_of_distribution": 1,
+      "clearance": 0.074,
+      "ka": 4.5
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "µg"
+      },
+      {
+        "route": "sublingual",
+        "unit": "µg"
+      },
+      {
+        "route": "transdermal",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_flualprazolam",
+    "name": "Flualprazolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_flubromazepam",
+    "name": "Flubromazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.7,
+      "volume_of_distribution": 1,
+      "clearance": 0.257,
+      "ka": 2.77
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_flubromazolam",
+    "name": "Flubromazolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 4.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.154
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_flunitrazepam",
+    "name": "Flunitrazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 7.2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_flunitrazolam",
+    "name": "Flunitrazolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_gabapentin",
+    "name": "Gabapentin",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.289,
+      "ka": 2.4,
+      "bioavailability": 0.435
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_gaboxadol",
+    "name": "Gaboxadol",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.02,
+      "volume_of_distribution": 1,
+      "clearance": 39.6,
+      "ka": 4.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_galantamine",
+    "name": "Galantamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.7,
+      "volume_of_distribution": 1,
+      "clearance": 0.257,
+      "ka": 4.5,
+      "bioavailability": 0.9
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_gbl",
+    "name": "GBL",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.45,
+      "volume_of_distribution": 1,
+      "clearance": 1.54,
+      "ka": 27.69
+    },
+    "dose_unit": "mL",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mL"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ghb",
+    "name": "GHB",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.6,
+      "volume_of_distribution": 1,
+      "clearance": 1.155,
+      "ka": 10.29
+    },
+    "dose_unit": "g",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_haloperidol",
+    "name": "Haloperidol",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 7.2,
+      "volume_of_distribution": 1,
+      "clearance": 0.096,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_heroin",
+    "name": "Heroin",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.31,
+      "volume_of_distribution": 1,
+      "clearance": 0.528,
+      "ka": 0.52
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_hexedrone",
+    "name": "Hexedrone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.75,
+      "volume_of_distribution": 1,
+      "clearance": 0.924,
+      "ka": 8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_hxe",
+    "name": "HXE",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.42,
+      "volume_of_distribution": 1,
+      "clearance": 0.486,
+      "ka": 5.63
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "sublingual",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_hydrocodone",
+    "name": "Hydrocodone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 5.14
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_hydromorphone",
+    "name": "Hydromorphone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.39,
+      "volume_of_distribution": 1,
+      "clearance": 0.499,
+      "ka": 34
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_isopropylphenidate",
+    "name": "Isopropylphenidate",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.2,
+      "volume_of_distribution": 1,
+      "clearance": 0.578,
+      "ka": 30.21
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_jwh_018",
+    "name": "JWH-018",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.45,
+      "volume_of_distribution": 1,
+      "clearance": 1.54,
+      "ka": 24
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_jwh_073",
+    "name": "JWH-073",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.45,
+      "volume_of_distribution": 1,
+      "clearance": 1.54,
+      "ka": 24
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_ketamine",
+    "name": "Ketamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.45,
+      "volume_of_distribution": 1,
+      "clearance": 1.54,
+      "ka": 49.5,
+      "bioavailability": 0.245
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "sublingual",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_kratom",
+    "name": "Kratom",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 6
+    },
+    "dose_unit": "g",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_lae_32",
+    "name": "LAE-32",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_lisdexamfetamine",
+    "name": "Lisdexamfetamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.6,
+      "volume_of_distribution": 1,
+      "clearance": 0.193,
+      "ka": 2.4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_lorazepam",
+    "name": "Lorazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_lsd",
+    "name": "LSD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 8,
+      "bioavailability": 0.71
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "sublingual",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_lsm_775",
+    "name": "LSM-775",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.289,
+      "ka": 9
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_lsz",
+    "name": "LSZ",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.289,
+      "ka": 4.5
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mda",
+    "name": "MDA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mdea",
+    "name": "MDEA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mdma",
+    "name": "MDMA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 4.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mdpv",
+    "name": "MDPV",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_melatonin",
+    "name": "Melatonin",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 14.4,
+      "bioavailability": 0.15
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_memantine",
+    "name": "Memantine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 8.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.086,
+      "ka": 1.71
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mephedrone",
+    "name": "Mephedrone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.01,
+      "volume_of_distribution": 1,
+      "clearance": 0.684,
+      "ka": 16.85
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mephenaqualone",
+    "name": "Mephenaqualone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 5.25,
+      "volume_of_distribution": 1,
+      "clearance": 0.132,
+      "ka": 5.14
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mescaline",
+    "name": "Mescaline",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.3,
+      "volume_of_distribution": 1,
+      "clearance": 0.21,
+      "ka": 2.67
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_met",
+    "name": "MET",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.73,
+      "volume_of_distribution": 1,
+      "clearance": 0.948,
+      "ka": 13.39
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methadone",
+    "name": "Methadone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 4.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.159,
+      "ka": 3.27
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methallylescaline",
+    "name": "Methallylescaline",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.7,
+      "volume_of_distribution": 1,
+      "clearance": 0.257,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methamphetamine",
+    "name": "Methamphetamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.79,
+      "volume_of_distribution": 1,
+      "clearance": 0.387,
+      "ka": 8.25
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "rectal",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methaqualone",
+    "name": "Methaqualone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.2,
+      "volume_of_distribution": 1,
+      "clearance": 0.578
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methcathinone",
+    "name": "Methcathinone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methiopropamine",
+    "name": "Methiopropamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.289,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methoxetamine",
+    "name": "Methoxetamine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 11.2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methoxphenidine",
+    "name": "Methoxphenidine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methylnaphthidate",
+    "name": "Methylnaphthidate",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.86,
+      "volume_of_distribution": 1,
+      "clearance": 0.803,
+      "ka": 36.36
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methylone",
+    "name": "Methylone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.98,
+      "volume_of_distribution": 1,
+      "clearance": 0.711,
+      "ka": 6
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_methylphenidate",
+    "name": "Methylphenidate",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.94,
+      "volume_of_distribution": 1,
+      "clearance": 0.739,
+      "ka": 9.2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_metizolam",
+    "name": "Metizolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mexedrone",
+    "name": "Mexedrone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_midazolam",
+    "name": "Midazolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.05,
+      "volume_of_distribution": 1,
+      "clearance": 0.66,
+      "ka": 20
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mipla",
+    "name": "MiPLA",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 6
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mipt",
+    "name": "MiPT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.65,
+      "volume_of_distribution": 1,
+      "clearance": 0.42
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mirtazapine",
+    "name": "Mirtazapine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 5.7,
+      "volume_of_distribution": 1,
+      "clearance": 0.122,
+      "ka": 8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_modafinil",
+    "name": "Modafinil",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.25,
+      "volume_of_distribution": 1,
+      "clearance": 0.308,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_morphine",
+    "name": "Morphine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.42,
+      "volume_of_distribution": 1,
+      "clearance": 0.486,
+      "ka": 4.6,
+      "bioavailability": 0.375
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_mxipr",
+    "name": "MXiPr",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.94,
+      "volume_of_distribution": 1,
+      "clearance": 0.739,
+      "ka": 27.96
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_myristicin",
+    "name": "Myristicin",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 12.6,
+      "volume_of_distribution": 1,
+      "clearance": 0.055,
+      "ka": 0.55
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_n_acetylcysteine",
+    "name": "N-Acetylcysteine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_n_ethylhexedrone",
+    "name": "N-Ethylhexedrone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 33
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_n_methylbisfluoromodafinil",
+    "name": "N-Methylbisfluoromodafinil",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_naloxone",
+    "name": "Naloxone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.34,
+      "volume_of_distribution": 1,
+      "clearance": 2.053,
+      "ka": 73.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_nep",
+    "name": "NEP",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.94,
+      "volume_of_distribution": 1,
+      "clearance": 0.739
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_nicotine",
+    "name": "Nicotine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.83,
+      "volume_of_distribution": 1,
+      "clearance": 0.831,
+      "ka": 6.62
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "buccal",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_nifoxipam",
+    "name": "Nifoxipam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 12.75,
+      "volume_of_distribution": 1,
+      "clearance": 0.054,
+      "ka": 2.18
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_nitrous",
+    "name": "Nitrous",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.02,
+      "volume_of_distribution": 1,
+      "clearance": 46.2,
+      "ka": 0.4
+    },
+    "dose_unit": "g",
+    "routes": [
+      {
+        "route": "inhaled",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_nm_2_ai",
+    "name": "NM-2-AI",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_o_desmethyltramadol",
+    "name": "O-Desmethyltramadol",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.21,
+      "volume_of_distribution": 1,
+      "clearance": 0.313,
+      "ka": 4.56
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "injection",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "sublingual",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_o_pce",
+    "name": "O-PCE",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.27,
+      "volume_of_distribution": 1,
+      "clearance": 0.544,
+      "ka": 28.71
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_omberacetam",
+    "name": "Omberacetam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.13,
+      "volume_of_distribution": 1,
+      "clearance": 0.616,
+      "ka": 72
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_oxazepam",
+    "name": "Oxazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 8,
+      "volume_of_distribution": 1,
+      "clearance": 0.0866,
+      "ka": 1.2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_oxiracetam",
+    "name": "Oxiracetam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.7,
+      "volume_of_distribution": 1,
+      "clearance": 0.257,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_oxycodone",
+    "name": "Oxycodone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 28.71
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_oxymorphone",
+    "name": "Oxymorphone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 5.54
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_pargy_lad",
+    "name": "PARGY-LAD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33,
+      "ka": 4.8
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_pce",
+    "name": "PCE",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.58,
+      "volume_of_distribution": 1,
+      "clearance": 0.44,
+      "ka": 11.66
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_pcp",
+    "name": "PCP",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.58,
+      "volume_of_distribution": 1,
+      "clearance": 0.44,
+      "ka": 11.66
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_pentedrone",
+    "name": "Pentedrone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.98,
+      "volume_of_distribution": 1,
+      "clearance": 0.711,
+      "ka": 16
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_pentobarbital",
+    "name": "Pentobarbital",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 4.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_phenazepam",
+    "name": "Phenazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 5.85,
+      "volume_of_distribution": 1,
+      "clearance": 0.118,
+      "ka": 1.2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_phenibut",
+    "name": "Phenibut",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.178,
+      "ka": 1.33
+    },
+    "dose_unit": "g",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_phenobarbital",
+    "name": "Phenobarbital",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 4.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_phenylpiracetam",
+    "name": "Phenylpiracetam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.75,
+      "volume_of_distribution": 1,
+      "clearance": 0.924,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_piracetam",
+    "name": "Piracetam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 3
+    },
+    "dose_unit": "g",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_pramiracetam",
+    "name": "Pramiracetam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.65,
+      "volume_of_distribution": 1,
+      "clearance": 0.42,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_pregabalin",
+    "name": "Pregabalin",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.93,
+      "volume_of_distribution": 1,
+      "clearance": 0.237,
+      "ka": 6.4,
+      "bioavailability": 0.9
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "rectal",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_pro_lad",
+    "name": "PRO-LAD",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33,
+      "ka": 4.8
+    },
+    "dose_unit": "µg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "µg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_prochlorperazine",
+    "name": "Prochlorperazine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 4.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_progesterone",
+    "name": "Progesterone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "rectal",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_prolintane",
+    "name": "Prolintane",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_promethazine",
+    "name": "Promethazine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_propylhexedrine",
+    "name": "Propylhexedrine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33,
+      "ka": 9
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_proscaline",
+    "name": "Proscaline",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_psilocin",
+    "name": "Psilocin",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 5.54
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_psilocybin_mushrooms",
+    "name": "Psilocybin mushrooms",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.1,
+      "volume_of_distribution": 1,
+      "clearance": 0.33,
+      "ka": 5.54
+    },
+    "dose_unit": "mg Psilocybin",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg Psilocybin"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_pyrazolam",
+    "name": "Pyrazolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.95,
+      "volume_of_distribution": 1,
+      "clearance": 0.355,
+      "ka": 14.4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_quetiapine",
+    "name": "Quetiapine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 4.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.144,
+      "ka": 6,
+      "bioavailability": 1
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_risperidone",
+    "name": "Risperidone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 4.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.144,
+      "ka": 4.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_rolicyclidine",
+    "name": "Rolicyclidine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.8,
+      "volume_of_distribution": 1,
+      "clearance": 0.385,
+      "ka": 11.73
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      },
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_salvinorin_a",
+    "name": "Salvinorin A",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.28,
+      "volume_of_distribution": 1,
+      "clearance": 2.464,
+      "ka": 6.04
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "smoked",
+        "unit": "mg"
+      },
+      {
+        "route": "sublingual",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_secobarbital",
+    "name": "Secobarbital",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.289,
+      "ka": 4.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_sts_135",
+    "name": "STS-135",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.22,
+      "volume_of_distribution": 1,
+      "clearance": 3.08,
+      "ka": 0.11
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_tapentadol",
+    "name": "Tapentadol",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_temazepam",
+    "name": "Temazepam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.25,
+      "volume_of_distribution": 1,
+      "clearance": 0.308,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_theacrine",
+    "name": "Theacrine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.5,
+      "volume_of_distribution": 1,
+      "clearance": 0.462,
+      "ka": 7.14
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      },
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_theanine",
+    "name": "Theanine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_thj_018",
+    "name": "THJ-018",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.75,
+      "volume_of_distribution": 1,
+      "clearance": 0.924,
+      "ka": 24
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_thj_2201",
+    "name": "THJ-2201",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.45,
+      "volume_of_distribution": 1,
+      "clearance": 1.54,
+      "ka": 24
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "smoked",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_tianeptine",
+    "name": "Tianeptine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.75,
+      "volume_of_distribution": 1,
+      "clearance": 0.924,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_tilidin",
+    "name": "Tilidin",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 18
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_tma_2",
+    "name": "TMA-2",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 2.57
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_tma_6",
+    "name": "TMA-6",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.178,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_tramadol",
+    "name": "Tramadol",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.289,
+      "ka": 4.8,
+      "bioavailability": 0.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_triazolam",
+    "name": "Triazolam",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 1.35,
+      "volume_of_distribution": 1,
+      "clearance": 0.513,
+      "ka": 7.2
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_tyrosine",
+    "name": "Tyrosine",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 0.9,
+      "volume_of_distribution": 1,
+      "clearance": 0.77,
+      "ka": 3
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_u_47700",
+    "name": "U-47700",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2,
+      "volume_of_distribution": 1,
+      "clearance": 0.346,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "insufflated",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_zolpidem",
+    "name": "Zolpidem",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 2.4,
+      "volume_of_distribution": 1,
+      "clearance": 0.288,
+      "ka": 1.8
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_zopiclone",
+    "name": "Zopiclone",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 5,
+      "volume_of_distribution": 1,
+      "clearance": 0.138,
+      "ka": 1.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_αmt",
+    "name": "ΑMT",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 4.2,
+      "volume_of_distribution": 1,
+      "clearance": 0.165,
+      "ka": 1.5
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  },
+  {
+    "drug_id": "journal_βk_2c_b",
+    "name": "Βk-2C-B",
+    "model_type": "one_compartment",
+    "parameters": {
+      "half_life": 3,
+      "volume_of_distribution": 1,
+      "clearance": 0.231,
+      "ka": 4
+    },
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ]
+  }
+]

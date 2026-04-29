@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "version": 1,
+    "exportedAt": "2026-04-29T01:17:52.563Z"
+  },
+  "weight": 55,
+  "events": [
+    {
+      "id": "3f4285fa-d37f-433f-a6ad-0b16de4ea5f9",
+      "route": "oral",
+      "ester": "Estradiol Valerate",
+      "timeH": 493702.75,
+      "doseMG": 4,
+      "extras": {
+        "drug_id": "hrt_ev"
+      }
+    },
+    {
+      "id": "d72716f8-86e2-43a0-9e09-20fab5cdee60",
+      "route": "oral",
+      "ester": "Estradiol Valerate",
+      "timeH": 493726.75,
+      "doseMG": 4,
+      "extras": {
+        "drug_id": "hrt_ev"
+      }
+    },
+    {
+      "id": "ebc09b32-b583-4b9e-9e34-5934e6199720",
+      "route": "oral",
+      "ester": "Cyproterone Acetate",
+      "timeH": 493726.8,
+      "doseMG": 25,
+      "extras": {
+        "drug_id": "hrt_cpa"
+      }
+    },
+    {
+      "id": "91a19a5e-012c-4ad1-ae59-ae4fc31e81dc",
+      "route": "oral",
+      "ester": "Oxazepam",
+      "timeH": 493726.85,
+      "doseMG": 25,
+      "extras": {
+        "drug_id": "journal_oxazepam"
+      }
+    },
+    {
+      "id": "5a8561e6-4e75-49a9-aca4-55c4b4e0f920",
+      "route": "sublingual",
+      "ester": "LSD",
+      "timeH": 493729.01666666666,
+      "doseMG": 25,
+      "extras": {
+        "drug_id": "journal_lsd"
+      }
+    },
+    {
+      "id": "703f9a24-e3f5-4477-80a9-bbab038ebf43",
+      "route": "injection",
+      "ester": "Estradiol Valerate",
+      "timeH": 493751.85,
+      "doseMG": 10,
+      "extras": {
+        "drug_id": "hrt_ev"
+      }
+    }
+  ]
+}

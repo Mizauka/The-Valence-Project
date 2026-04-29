@@ -1,0 +1,4 @@
+# Valence Data Directory
+# Custom drugs and dose records are stored here as JSON files:
+# - custom_drugs.json  (user-defined drug library)
+# - doses.json          (dose administration records)

@@ -1,0 +1,99 @@
+[
+  {
+    "drug_id": "hrt_e2",
+    "name": "Estradiol",
+    "model_type": "one_compartment",
+    "dose_unit": "mg",
+    "routes": [
+      { "route": "oral", "unit": "mg" },
+      { "route": "sublingual", "unit": "mg" },
+      { "route": "gel", "unit": "mg" }
+    ],
+    "parameters": {
+      "half_life": 15,
+      "volume_of_distribution": 100,
+      "ka": 0.8,
+      "bioavailability": 0.05
+    }
+  },
+  {
+    "drug_id": "hrt_eb",
+    "name": "Estradiol Benzoate",
+    "model_type": "multi_compartment",
+    "dose_unit": "mg",
+    "routes": [
+      { "route": "injection", "unit": "mg" }
+    ],
+    "parameters": {
+      "half_life": 7.56,
+      "elimination_half_life": 4,
+      "volume_of_distribution": 100,
+      "equivalence_factor": 0.7235,
+      "parent_compound": "Estradiol"
+    }
+  },
+  {
+    "drug_id": "hrt_ev",
+    "name": "Estradiol Valerate",
+    "model_type": "multi_compartment",
+    "dose_unit": "mg",
+    "routes": [
+      { "route": "injection", "unit": "mg" },
+      { "route": "oral", "unit": "mg" }
+    ],
+    "parameters": {
+      "half_life": 96,
+      "elimination_half_life": 12,
+      "volume_of_distribution": 100,
+      "equivalence_factor": 0.764,
+      "parent_compound": "Estradiol"
+    }
+  },
+  {
+    "drug_id": "hrt_ec",
+    "name": "Estradiol Cypionate",
+    "model_type": "multi_compartment",
+    "dose_unit": "mg",
+    "routes": [
+      { "route": "injection", "unit": "mg" }
+    ],
+    "parameters": {
+      "half_life": 192,
+      "elimination_half_life": 12,
+      "volume_of_distribution": 100,
+      "equivalence_factor": 0.6868,
+      "parent_compound": "Estradiol"
+    }
+  },
+  {
+    "drug_id": "hrt_en",
+    "name": "Estradiol Enanthate",
+    "model_type": "multi_compartment",
+    "dose_unit": "mg",
+    "routes": [
+      { "route": "injection", "unit": "mg" }
+    ],
+    "parameters": {
+      "half_life": 36.47,
+      "elimination_half_life": 4,
+      "volume_of_distribution": 100,
+      "equivalence_factor": 0.7083,
+      "parent_compound": "Estradiol"
+    }
+  },
+  {
+    "drug_id": "hrt_cpa",
+    "name": "Cyproterone Acetate",
+    "model_type": "two_compartment",
+    "dose_unit": "mg",
+    "routes": [
+      { "route": "oral", "unit": "mg" }
+    ],
+    "parameters": {
+      "half_life": 43.89,
+      "volume_of_distribution": 80,
+      "ka": 0.6,
+      "bioavailability": 0.88
+    }
+  }
+]
