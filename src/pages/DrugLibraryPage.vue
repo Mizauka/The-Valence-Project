@@ -23,12 +23,12 @@
           <div class="drug-params">
             <span>t½={{ drug.parameters.half_life }}h</span>
             <span>Vd={{ drug.parameters.volume_of_distribution }} L/kg</span>
-            <span>CL={{ drug.parameters.clearance }} L/h/kg</span>
+            <span>CL={{ drug.parameters.k_clear || drug.parameters.clearance }} L/h/kg</span>
             <span v-if="drug.parameters.equivalence_factor" class="eq-factor">
               等效系数={{ drug.parameters.equivalence_factor }}
             </span>
-            <span v-if="drug.parameters.parent_compound" class="parent-compound">
-              → {{ drug.parameters.parent_compound }}
+            <span v-if="drug.parameters.group_id" class="group-tag">
+              {{ drug.parameters.group_id }}
             </span>
           </div>
           <div class="drug-actions">
@@ -273,7 +273,7 @@ function modelLabel(modelType) {
   font-weight: 600;
 }
 
-.parent-compound {
+.group-tag {
   color: var(--mdui-color-secondary);
   opacity: 1 !important;
 }

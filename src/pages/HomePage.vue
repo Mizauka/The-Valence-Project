@@ -186,6 +186,21 @@ function formatTooltipValue(val, unit) {
   }
 }
 
+function resolveDisplayUnit(rawValues, simResult) {
+  const du = simResult?.display_unit
+  if (du && du !== 'mg/L') {
+    const factorMap = {
+      'pg/mL': 1e9,
+      'ng/mL': 1e6,
+      'µg/mL': 1000,
+      'mg/L': 1,
+    }
+    const factor = factorMap[du] || 1
+    return { factor, unit: du }
+  }
+  return autoScaleUnit(rawValues)
+}
+
 function autoScaleUnit(rawValues) {
   let maxVal = 0
   for (const v of rawValues) { if (v > maxVal) maxVal = v }
@@ -251,7 +266,7 @@ async function renderChart() {
 
       if (timeH.length === 0 || rawConc.length === 0) continue
 
-      const { factor, unit } = autoScaleUnit(rawConc)
+      const { factor, unit } = resolveDisplayUnit(rawConc, result)
       const points = timeH.map((t, j) => ({
         x: t * 3600 * 1000,
         y: Math.max(0, rawConc[j]) * factor,
@@ -285,7 +300,7 @@ async function renderChart() {
 
     const niceYMax = calcNiceYMax(globalMaxY)
     currentYMax.value = niceYMax
-    ySliderMin.value = 10
+    ySliderMin.value = 0
     ySliderMax.value = niceYMax
     ySliderStep.value = 1
 
@@ -418,7 +433,7 @@ function exportCSV() {
   for (const r of cachedSimResults) {
     if (!r) continue
     const rawConc = Array.from(r.concentrations || [])
-    const { factor, unit } = autoScaleUnit(rawConc)
+    const { factor, unit } = resolveDisplayUnit(rawConc, r)
     results.push({
       name: r.drug_name || 'unknown',
       unit,
@@ -451,7 +466,7 @@ function exportJSON() {
     if (!r) continue
     const rawConc = Array.from(r.concentrations || [])
     const timeH = Array.from(r.time_h || [])
-    const { factor, unit } = autoScaleUnit(rawConc)
+    const { factor, unit } = resolveDisplayUnit(rawConc, r)
     const scaledConc = rawConc.map(v => Math.max(0, v) * factor)
     const datetime = timeH.map(h => hoursToISO(h))
     payload.push({

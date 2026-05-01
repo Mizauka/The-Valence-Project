@@ -23,22 +23,33 @@ pub struct DrugRecord {
     #[wasm_bindgen(getter_with_clone)]
     pub model_type: String,
     #[wasm_bindgen(getter_with_clone)]
+    #[serde(default)]
+    pub group_id: String,
+    #[wasm_bindgen(getter_with_clone)]
     pub dose_unit: String,
     #[wasm_bindgen(skip)]
     pub routes: Vec<RouteInfo>,
     #[wasm_bindgen(getter_with_clone)]
     pub display_unit: String,
-    pub unit_conversion_factor: f64,
-    pub half_life: f64,
-    pub volume_of_distribution: f64,
-    pub clearance: f64,
-    pub ka: f64,
-    pub bioavailability: f64,
-    pub k12: f64,
-    pub k21: f64,
-    #[wasm_bindgen(getter_with_clone)]
-    pub parent_compound: String,
-    pub equivalence_factor: f64,
+    #[serde(default)]
+    pub molecular_weight: f64,
+    #[serde(default)]
+    pub depot_model: bool,
+    #[wasm_bindgen(skip)]
+    #[serde(default)]
+    pub parameters: HashMap<String, f64>,
+}
+
+#[wasm_bindgen]
+impl DrugRecord {
+    #[wasm_bindgen(getter, js_name = "params")]
+    pub fn params_js(&self) -> JsValue {
+        let obj = js_sys::Object::new();
+        for (k, v) in &self.parameters {
+            js_sys::Reflect::set(&obj, &k.clone().into(), &JsValue::from_f64(*v)).ok();
+        }
+        obj.into()
+    }
 }
 
 #[wasm_bindgen]
@@ -77,30 +88,54 @@ struct DoseWithDrug<'a> {
 pub struct ValenceEngine {
     drugs: HashMap<String, DrugRecord>,
     doses: Vec<DoseRecord>,
-    mw: pk::EsterMW,
-    e2_model: pk::e2::E2OneCompartment,
-    ester_model: pk::ester::EsterMultiCompartment,
-    cpa_model: pk::cpa::CPATwoCompartment,
     weight_kg: f64,
 }
 
+fn param(map: &HashMap<String, f64>, key: &str, default: f64) -> f64 {
+    map.get(key).copied().unwrap_or(default)
+}
+
 impl ValenceEngine {
-    fn is_e2_family(&self, drug: &DrugRecord) -> bool {
-        if drug.parent_compound == "Estradiol" { return true; }
-        if drug.drug_id.starts_with("hrt_e") && drug.drug_id != "hrt_cpa" { return true; }
-        false
-    }
-
-    fn is_cpa(&self, drug: &DrugRecord) -> bool {
-        drug.drug_id == "hrt_cpa"
-            || drug.parent_compound == "CPA"
-            || drug.name == "Cyproterone Acetate"
-    }
-
     fn collect_doses_with_drug(&self) -> Vec<DoseWithDrug<'_>> {
         self.doses.iter()
             .filter_map(|d| self.drugs.get(&d.drug_id).map(|drug| DoseWithDrug { dose: d, drug }))
             .collect()
+    }
+
+    fn resolve_group_id(drug: &DrugRecord) -> String {
+        if drug.group_id.is_empty() { drug.drug_id.clone() } else { drug.group_id.clone() }
+    }
+
+    fn compute_molar_factor(&self, drug: &DrugRecord) -> f64 {
+        let eq = param(&drug.parameters, "equivalence_factor", 0.0);
+        if eq > 0.0 { return eq; }
+        if drug.group_id.is_empty() || drug.molecular_weight <= 0.0 {
+            return 1.0;
+        }
+        for (_id, other) in &self.drugs {
+            if other.group_id == drug.group_id
+                && other.drug_id != drug.drug_id
+                && !other.depot_model
+                && other.molecular_weight > 0.0
+            {
+                return other.molecular_weight / drug.molecular_weight;
+            }
+        }
+        1.0
+    }
+
+    fn resolve_group_vd(&self, items: &[DoseWithDrug]) -> f64 {
+        let rep = items[0].drug;
+        if rep.group_id.is_empty() {
+            return param(&rep.parameters, "volume_of_distribution", 1.0);
+        }
+        for (_id, other) in &self.drugs {
+            if other.group_id == rep.group_id && !other.depot_model {
+                let vd = param(&other.parameters, "volume_of_distribution", 0.0);
+                if vd > 0.0 { return vd; }
+            }
+        }
+        param(&rep.parameters, "volume_of_distribution", 1.0)
     }
 }
 
@@ -108,21 +143,11 @@ impl ValenceEngine {
 impl ValenceEngine {
     #[wasm_bindgen(constructor)]
     pub fn new() -> Self {
-        ValenceEngine {
-            drugs: HashMap::new(),
-            doses: Vec::new(),
-            mw: pk::EsterMW::new(),
-            e2_model: pk::e2::E2OneCompartment::new(),
-            ester_model: pk::ester::EsterMultiCompartment::new(),
-            cpa_model: pk::cpa::CPATwoCompartment::new(),
-            weight_kg: 60.0,
-        }
+        ValenceEngine { drugs: HashMap::new(), doses: Vec::new(), weight_kg: 60.0 }
     }
 
     #[wasm_bindgen(js_name = setWeight)]
-    pub fn set_weight(&mut self, kg: f64) {
-        if kg > 0.0 { self.weight_kg = kg; }
-    }
+    pub fn set_weight(&mut self, kg: f64) { if kg > 0.0 { self.weight_kg = kg; } }
 
     #[wasm_bindgen(js_name = getWeight)]
     pub fn get_weight(&self) -> f64 { self.weight_kg }
@@ -142,9 +167,7 @@ impl ValenceEngine {
     }
 
     #[wasm_bindgen(js_name = removeDrug)]
-    pub fn remove_drug(&mut self, drug_id: &str) -> bool {
-        self.drugs.remove(drug_id).is_some()
-    }
+    pub fn remove_drug(&mut self, drug_id: &str) -> bool { self.drugs.remove(drug_id).is_some() }
 
     #[wasm_bindgen(js_name = getDrug)]
     pub fn get_drug(&self, drug_id: &str) -> JsValue {
@@ -198,11 +221,7 @@ impl ValenceEngine {
         let drugs: Vec<&DrugRecord> = self.drugs.values().collect();
         let mut sorted_doses = self.doses.clone();
         sorted_doses.sort_by(|a, b| a.timestamp.partial_cmp(&b.timestamp).unwrap());
-        let payload = serde_json::json!({
-            "weight": self.weight_kg,
-            "drugs": drugs,
-            "doses": sorted_doses,
-        });
+        let payload = serde_json::json!({ "weight": self.weight_kg, "drugs": drugs, "doses": sorted_doses });
         serde_wasm_bindgen::to_value(&payload).unwrap_or(JsValue::NULL)
     }
 
@@ -232,235 +251,106 @@ impl ValenceEngine {
 
     #[wasm_bindgen(js_name = runSimulation)]
     pub fn run_simulation(&self) -> Vec<JsValue> {
-        if self.doses.is_empty() || self.weight_kg <= 0.0 {
-            return vec![];
-        }
-
+        if self.doses.is_empty() || self.weight_kg <= 0.0 { return vec![]; }
         let all_items = self.collect_doses_with_drug();
+        if all_items.is_empty() { return vec![]; }
 
-        if all_items.is_empty() {
-            return vec![];
-        }
-
-        let mut e2_items: Vec<DoseWithDrug> = Vec::new();
-        let mut cpa_items: Vec<DoseWithDrug> = Vec::new();
-        let mut other_groups: HashMap<String, Vec<DoseWithDrug>> = HashMap::new();
-
+        let mut groups: HashMap<String, Vec<DoseWithDrug>> = HashMap::new();
         for item in &all_items {
-            if self.is_e2_family(item.drug) {
-                e2_items.push(*item);
-            } else if self.is_cpa(item.drug) {
-                cpa_items.push(*item);
-            } else {
-                other_groups.entry(item.drug.drug_id.clone()).or_default().push(*item);
-            }
+            let gid = Self::resolve_group_id(item.drug);
+            groups.entry(gid).or_default().push(*item);
         }
 
         let mut results = Vec::new();
-
-        if !e2_items.is_empty() {
-            if let Some(output) = self.simulate_merged_e2(&e2_items) {
+        for (_gid, items) in &groups {
+            if let Some(output) = self.simulate_group(items) {
                 results.push(serde_wasm_bindgen::to_value(&output).unwrap_or(JsValue::NULL));
             }
         }
-
-        if !cpa_items.is_empty() {
-            if let Some(output) = self.simulate_merged_cpa(&cpa_items) {
-                results.push(serde_wasm_bindgen::to_value(&output).unwrap_or(JsValue::NULL));
-            }
-        }
-
-        for (_drug_id, items) in &other_groups {
-            let _rep_drug = items[0].drug;
-            if let Some(output) = self.simulate_generic_group(items) {
-                results.push(serde_wasm_bindgen::to_value(&output).unwrap_or(JsValue::NULL));
-            }
-        }
-
         results
     }
 }
 
 impl ValenceEngine {
-    fn compute_time_range(items: &[DoseWithDrug], pad_hours_before: f64, pad_hours_after: f64) -> (f64, f64) {
+    fn compute_time_range(items: &[DoseWithDrug], pad_before: f64, pad_after: f64) -> (f64, f64) {
         let mut times: Vec<f64> = items.iter().map(|i| i.dose.timestamp).collect();
+        if times.is_empty() { return (0.0, 1.0); }
         times.sort_by(|a, b| a.partial_cmp(b).unwrap());
-        (times[0] - pad_hours_before, *times.last().unwrap() + pad_hours_after)
+        (times[0] - pad_before, *times.last().unwrap() + pad_after)
     }
 
-    fn simulate_merged_e2(&self, items: &[DoseWithDrug]) -> Option<SimulationOutput> {
-        let (start_time, end_time) = Self::compute_time_range(items, 24.0, 24.0 * 14.0);
+    fn simulate_group(&self, items: &[DoseWithDrug]) -> Option<SimulationOutput> {
+        if items.is_empty() { return None; }
 
-        let has_oral = items.iter().any(|i| i.dose.route != "injection");
-        let max_step_h = if has_oral { 0.5 } else { 2.0 };
-        let steps = ((end_time - start_time) / max_step_h).ceil() as usize;
-        let steps = steps.max(1000);
-        let step_size = (end_time - start_time) / (steps as f64 - 1.0);
-
-        let vd_ml = pk::VD_PER_KG * self.weight_kg * 1000.0;
-
-        let mut time_h = Vec::with_capacity(steps);
-        let mut concentrations = Vec::with_capacity(steps);
-
-        for i in 0..steps {
-            let t = start_time + i as f64 * step_size;
-            let mut total_mg = 0.0;
-
-            for item in items {
-                let tau = t - item.dose.timestamp;
-                if tau < 0.0 { continue; }
-
-                let key = self.mw.ester_key(&item.drug.name);
-                let to_e2 = self.mw.to_e2_factor(&item.drug.name);
-
-                if key == "E2" && item.dose.route != "injection" {
-                    total_mg += self.e2_model.concentration(tau, item.dose.dose_amount, to_e2);
-                } else if item.dose.route == "injection" {
-                    total_mg += self.ester_model.injection_concentration(tau, item.dose.dose_amount, key, to_e2);
-                } else {
-                    total_mg += self.ester_model.oral_concentration(tau, item.dose.dose_amount, key, to_e2);
-                }
-            }
-
-            time_h.push(t);
-            concentrations.push(total_mg / vd_ml);
-        }
-
-        Some(SimulationOutput {
-            time_h,
-            concentrations,
-            drug_name: "E2".to_string(),
-            display_unit: "mg/L".to_string(),
-        })
-    }
-
-    fn simulate_merged_cpa(&self, items: &[DoseWithDrug]) -> Option<SimulationOutput> {
-        let (start_time, end_time) = Self::compute_time_range(items, 24.0, 24.0 * 14.0);
-
-        let has_oral = items.iter().any(|i| i.dose.route != "injection");
-        let max_step_h = if has_oral { 0.5 } else { 2.0 };
-        let steps = ((end_time - start_time) / max_step_h).ceil() as usize;
-        let steps = steps.max(1000);
-        let step_size = (end_time - start_time) / (steps as f64 - 1.0);
-
-        let vd_ml = self.cpa_model.v1_per_kg() * self.weight_kg * 1000.0;
-
-        let mut time_h = Vec::with_capacity(steps);
-        let mut concentrations = Vec::with_capacity(steps);
-
-        for i in 0..steps {
-            let t = start_time + i as f64 * step_size;
-            let mut total_mg = 0.0;
-
-            for item in items {
-                let tau = t - item.dose.timestamp;
-                if tau >= 0.0 {
-                    total_mg += self.cpa_model.concentration(tau, item.dose.dose_amount);
-                }
-            }
-
-            time_h.push(t);
-            concentrations.push(total_mg / vd_ml);
-        }
-
-        Some(SimulationOutput {
-            time_h,
-            concentrations,
-            drug_name: "CPA".to_string(),
-            display_unit: "mg/L".to_string(),
-        })
-    }
-
-    fn simulate_generic_group(&self, items: &[DoseWithDrug]) -> Option<SimulationOutput> {
         let rep_drug = items[0].drug;
-        let (start_time, end_time) = Self::compute_time_range(items, 24.0, 24.0 * 7.0);
+        let group_name = if rep_drug.group_id.is_empty() {
+            rep_drug.name.clone()
+        } else {
+            rep_drug.group_id.clone()
+        };
+        let display_unit = if rep_drug.display_unit.is_empty() {
+            "mg/L".to_string()
+        } else {
+            rep_drug.display_unit.clone()
+        };
 
-        let max_step_h = 0.5;
+        let any_injection = items.iter().any(|i| i.dose.route == "injection");
+        let any_oral = items.iter().any(|i| i.dose.route != "injection");
+        let is_depot = rep_drug.depot_model;
+
+        let pad_after = if is_depot && any_injection { 24.0 * 14.0 } else { 24.0 * 7.0 };
+        let max_step_h = if any_oral { 0.5 } else { 2.0 };
+        let (start_time, end_time) = Self::compute_time_range(items, 24.0, pad_after);
+
         let steps = ((end_time - start_time) / max_step_h).ceil() as usize;
         let steps = steps.max(500);
         let step_size = (end_time - start_time) / (steps as f64 - 1.0);
 
+        let vd_per_kg = self.resolve_group_vd(items);
+        let vd_ml = vd_per_kg * self.weight_kg * 1000.0;
+        if vd_ml <= 0.0 { return None; }
+
         let mut time_h = Vec::with_capacity(steps);
         let mut concentrations = Vec::with_capacity(steps);
 
-        match rep_drug.model_type.as_str() {
-            "one_compartment" => {
-                let model = pk::one_comp::OneCompartment::from_params(
-                    rep_drug.half_life,
-                    rep_drug.volume_of_distribution,
-                    rep_drug.ka,
-                    rep_drug.bioavailability,
+        for i in 0..steps {
+            let t = start_time + i as f64 * step_size;
+            let mut total = 0.0;
+            for item in items {
+                let tau = t - item.dose.timestamp;
+                if tau < 0.0 { continue; }
+                let route = &item.dose.route;
+                total += route_amount(item.drug, tau, item.dose.dose_amount, route,
+                    self.compute_molar_factor(item.drug),
                 );
-                for i in 0..steps {
-                    let t = start_time + i as f64 * step_size;
-                    let mut total = 0.0;
-                    for item in items {
-                        let tau = t - item.dose.timestamp;
-                        if tau >= 0.0 {
-                            total += model.concentration(tau, item.dose.dose_amount, self.weight_kg);
-                        }
-                    }
-                    time_h.push(t);
-                    concentrations.push(total);
-                }
             }
-            "two_compartment" => {
-                let model = pk::two_comp::TwoCompartment::from_params(
-                    rep_drug.half_life,
-                    rep_drug.volume_of_distribution,
-                    rep_drug.ka,
-                    rep_drug.bioavailability,
-                    rep_drug.k12,
-                    rep_drug.k21,
-                );
-                for i in 0..steps {
-                    let t = start_time + i as f64 * step_size;
-                    let mut total = 0.0;
-                    for item in items {
-                        let tau = t - item.dose.timestamp;
-                        if tau >= 0.0 {
-                            total += model.concentration(tau, item.dose.dose_amount, self.weight_kg);
-                        }
-                    }
-                    time_h.push(t);
-                    concentrations.push(total);
-                }
-            }
-            "multi_compartment" => {
-                let model = pk::one_comp::OneCompartment::from_params(
-                    rep_drug.half_life,
-                    rep_drug.volume_of_distribution,
-                    rep_drug.ka,
-                    rep_drug.bioavailability * rep_drug.equivalence_factor,
-                );
-                for i in 0..steps {
-                    let t = start_time + i as f64 * step_size;
-                    let mut total = 0.0;
-                    for item in items {
-                        let tau = t - item.dose.timestamp;
-                        if tau >= 0.0 {
-                            total += model.concentration(tau, item.dose.dose_amount, self.weight_kg);
-                        }
-                    }
-                    time_h.push(t);
-                    concentrations.push(total);
-                }
-            }
-            _ => {
-                return Some(SimulationOutput {
-                    time_h: vec![],
-                    concentrations: vec![],
-                    drug_name: rep_drug.name.clone(),
-                    display_unit: rep_drug.display_unit.clone(),
-                });
-            }
+            time_h.push(t);
+            concentrations.push(total / vd_ml);
         }
 
-        Some(SimulationOutput {
-            time_h,
-            concentrations,
-            drug_name: rep_drug.name.clone(),
-            display_unit: rep_drug.display_unit.clone(),
-        })
+        Some(SimulationOutput { time_h, concentrations, drug_name: group_name, display_unit })
+    }
+}
+
+fn route_amount(drug: &DrugRecord, tau: f64, dose_mg: f64, route: &str, molar_factor: f64) -> f64 {
+    if drug.depot_model {
+        if route == "injection" {
+            return pk::ester::depot_injection_amount(tau, dose_mg, &drug.parameters, molar_factor);
+        } else {
+            return pk::ester::depot_oral_amount(tau, dose_mg, &drug.parameters, molar_factor);
+        }
+    }
+
+    match drug.model_type.as_str() {
+        "one_compartment" | "multi_compartment" => {
+            let m = pk::one_comp::OneCompartment::from_params(&drug.parameters);
+            let eq = param(&drug.parameters, "equivalence_factor", 1.0);
+            m.amount(tau, dose_mg * eq)
+        }
+        "two_compartment" => {
+            let m = pk::two_comp::TwoCompartment::from_params(&drug.parameters);
+            m.amount(tau, dose_mg)
+        }
+        _ => 0.0,
     }
 }

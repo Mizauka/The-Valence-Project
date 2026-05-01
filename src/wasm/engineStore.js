@@ -454,19 +454,13 @@ export function jsonDrugToRecord(d) {
     drug_id: d.drug_id || '',
     name: d.name || '',
     model_type: d.model_type || 'one_compartment',
+    group_id: d.group_id || '',
     dose_unit: d.dose_unit || 'mg',
     routes,
-    display_unit: '',
-    unit_conversion_factor: 1,
-    half_life: p.half_life || 0,
-    volume_of_distribution: p.volume_of_distribution || 1,
-    clearance: p.clearance || 0,
-    ka: p.ka || 0,
-    bioavailability: p.bioavailability ?? 1,
-    k12: p.k12 || 0,
-    k21: p.k21 || 0,
-    parent_compound: p.parent_compound || '',
-    equivalence_factor: p.equivalence_factor || 0,
+    display_unit: d.display_unit || '',
+    molecular_weight: d.molecular_weight || 0,
+    depot_model: d.depot_model || false,
+    parameters: { ...p },
   }
 }
 
@@ -482,15 +476,8 @@ export async function getAllDrugsWithSource() {
     const meta = _drugMetaCache[d.drug_id]
     d.dose_unit = meta?.dose_unit || 'mg'
     d.routes = meta?.routes || [{ route: 'oral', unit: d.dose_unit }]
-    d.parameters = {
-      half_life: d.half_life,
-      volume_of_distribution: d.volume_of_distribution,
-      clearance: d.clearance,
-      ka: d.ka,
-      bioavailability: d.bioavailability,
-      equivalence_factor: d.equivalence_factor,
-      parent_compound: d.parent_compound,
-    }
+    d.parameters = d.params || {}
+    d.parameters.group_id = d.group_id || ''
   }
 
   return all
