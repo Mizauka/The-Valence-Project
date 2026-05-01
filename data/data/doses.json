@@ -1,14 +1,14 @@
 {
   "meta": {
     "version": 1,
-    "exportedAt": "2026-05-01T18:10:42.656Z"
+    "exportedAt": "2026-05-01T18:36:50.922Z"
   },
   "weight": 55,
   "events": [
     {
       "id": "7eae88ec-bccd-4df4-bec0-67405f5c5e0b",
       "route": "injection",
-      "ester": "hrt_ev",
+      "ester": "Estradiol Valerate",
       "timeH": 493792.5333333333,
       "doseMG": 10,
       "extras": {

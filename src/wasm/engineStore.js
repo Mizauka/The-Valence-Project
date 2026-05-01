@@ -96,10 +96,14 @@ function readFallback(key) {
   try { return localStorage.getItem('valence_' + key) } catch { return null }
 }
 
+function assetUrl(path) {
+  return new URL(path, document.baseURI).href
+}
+
 async function _init() {
   const cacheBust = `?v=${Date.now()}`
-  const jsUrl = '/wasm/wasm_core.js' + cacheBust
-  const wasmUrl = '/wasm/wasm_core_bg.wasm' + cacheBust
+  const jsUrl = assetUrl('wasm/wasm_core.js' + cacheBust)
+  const wasmUrl = assetUrl('wasm/wasm_core_bg.wasm' + cacheBust)
 
   const response = await fetch(jsUrl)
   if (!response.ok) throw new Error(`Failed to fetch WASM JS glue: HTTP ${response.status}`)
@@ -292,8 +296,8 @@ function resolveDrugId(engine, ev) {
 async function loadPresetDrugs(engine) {
   try {
     const [hrtResp, journalResp] = await Promise.all([
-      fetch('/data/hrt_drugs.json'),
-      fetch('/data/journal_drugs.json'),
+      fetch(assetUrl('data/hrt_drugs.json')),
+      fetch(assetUrl('data/journal_drugs.json')),
     ])
     const hrt = await hrtResp.json()
     const journal = await journalResp.json()

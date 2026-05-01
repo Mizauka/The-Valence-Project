@@ -18,8 +18,8 @@ export async function getEngine() {
 async function _init() {
   console.log('[WASM] initializing ValenceEngine (web target)...')
 
-  const jsUrl = '/wasm/wasm_core.js'
-  const wasmUrl = '/wasm/wasm_core_bg.wasm'
+  const jsUrl = new URL('wasm/wasm_core.js', document.baseURI).href
+  const wasmUrl = new URL('wasm/wasm_core_bg.wasm', document.baseURI).href
 
   const response = await fetch(jsUrl)
   if (!response.ok) {

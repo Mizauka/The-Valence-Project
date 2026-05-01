@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+dist
 *.local
 reference
 .agents
@@ -16,10 +17,7 @@ drug-data-converter
 # WASM build artifacts
 wasm-core/target
 wasm-core/pkg
-public/wasm_core.js
-public/wasm_core_bg.wasm
-public/wasm_core.d.ts
-public/wasm_core_bg.wasm.d.ts
+public/wasm/
 
 # Rust
 wasm-core/Cargo.lock

@@ -16,6 +16,34 @@
 | `pnpm dev` | 启动 Vite 开发服务器 |
 | `pnpm build` | 生产构建 |
 | `pnpm preview` | 预览生产构建 |
+| `pnpm wasm` | 编译 Rust WASM（需先安装 wasm-pack） |
+
+---
+
+## GitHub Pages 部署
+
+项目通过 GitHub Actions 自动构建部署。配置位于 `.github/workflows/deploy.yml`。
+
+### 手动部署步骤
+
+1. Fork/Push 仓库到 GitHub
+2. 在仓库 Settings → Pages → Source 选择 **GitHub Actions**
+3. 每次 push 到 main/master 分支时将自动构建部署
+
+### 部署原理
+
+| 配置项 | 说明 |
+|------|------|
+| `vite.config.js` → `base: './'` | 所有资源使用相对路径，适配 `user.github.io/repo/` 子目录 |
+| `router/index.js` → `createWebHashHistory()` | Hash 路由（`#/page`），不需要服务端路由支持 |
+| `engineStore.js` → `assetUrl()` | 使用 `new URL(path, document.baseURI)` 动态解析 WASM/数据文件路径 |
+
+### WASM 构建命令
+
+```bash
+cd wasm-core
+wasm-pack build --target web --out-dir ../public/wasm
+```
 
 ### 前端依赖
 

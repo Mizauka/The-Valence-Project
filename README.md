@@ -48,9 +48,9 @@ The-Valence-Project/
 │           ├── mod.rs          # PK 模块入口与常量
 │           ├── one_comp.rs     # 一室模型
 │           ├── two_comp.rs     # 二室模型
-│           ├── e2.rs           # 雌二醇（E2）专用一室模型
-│           ├── ester.rs        # E2 酯类多室模型（注射/口服）
-│           └── cpa.rs          # CPA 专用二室模型
+│           └── ester.rs        # Depot 储库模型
+├── .github/workflows/
+│   └── deploy.yml              # GitHub Pages 自动部署
 └── docs/                       # 项目文档
 ```
 
@@ -102,6 +102,16 @@ pnpm build
 ```
 
 产物输出到 `dist/` 目录。
+
+### 5. 部署到 GitHub Pages
+
+项目已配置 CI/CD（`.github/workflows/deploy.yml`）：
+
+1. Push 到 GitHub 仓库的 main/master 分支
+2. 仓库 Settings → Pages → Source 选择 **GitHub Actions**
+3. 每次 push 自动构建部署
+
+无需手动操作，GitHub Actions 会自动安装 Rust + Node.js，编译 WASM，构建前端，部署到 Pages。
 
 ## 架构概览
 
