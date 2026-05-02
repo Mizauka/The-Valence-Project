@@ -2,74 +2,70 @@
   <div class="page home-page">
     <div class="page-header">
       <h2 class="page-title">血药浓度追踪</h2>
-      <div v-if="hasData" class="chart-actions">
-        <mdui-button variant="text" @click="exportCSV">
-          <mdui-icon slot="icon" name="download"></mdui-icon>
-          导出 CSV
-        </mdui-button>
-        <mdui-button variant="text" @click="exportJSON">
-          <mdui-icon slot="icon" name="data_object"></mdui-icon>
-          导出 JSON
-        </mdui-button>
+      <div class="header-actions" v-if="hasData">
+        <mdui-dropdown>
+          <mdui-button slot="trigger" variant="outlined" icon="download">
+            导出
+          </mdui-button>
+          <mdui-menu>
+            <mdui-menu-item @click="exportCSV">CSV</mdui-menu-item>
+            <mdui-menu-item @click="exportJSON">JSON</mdui-menu-item>
+          </mdui-menu>
+        </mdui-dropdown>
       </div>
     </div>
 
-    <div class="chart-wrapper">
-      <div v-if="hasData" class="y-slider-container" ref="ySliderContainer">
-        <!--span class="y-slider-label-top"> {{ yMaxDisplay }} </span-->
-        <div class="y-slider-track" ref="ySliderTrack">
-          <mdui-slider
-            ref="ySliderRef"
-            class="y-mdui-slider"
-            :min="ySliderMin"
-            :max="ySliderMax"
-            :step="ySliderStep"
-            :value="currentYMax"
-            nolabel
-            @input="onYSliderInput"
-          ></mdui-slider>
-        </div>
-        <!--span class="y-slider-label-bottom">1</span-->
+    <div class="main-row" v-if="hasData">
+      <div class="side-panel">
+        <mdui-card variant="filled" class="side-stat">
+          <mdui-icon name="event" class="side-icon"></mdui-icon>
+          <div>
+            <span class="side-num">{{ doseCount }}</span>
+            <span class="side-sub">给药记录</span>
+          </div>
+        </mdui-card>
       </div>
 
-      <div class="chart-container">
-        <canvas ref="chartCanvas"></canvas>
-        <div v-if="!hasData" class="chart-placeholder">
-          <mdui-icon name="show_chart"></mdui-icon>
-          <p>{{ placeholderText }}</p>
+      <mdui-card variant="elevated" class="chart-card">
+        <div class="chart-card-inner">
+          <div class="y-slider-container" ref="ySliderContainer" style="margin-top: 20px;">
+            <mdui-slider
+              ref="ySliderRef"
+              class="y-mdui-slider"
+              :min="ySliderMin"
+              :max="ySliderMax"
+              :step="ySliderStep"
+              :value="ySliderMax"
+              nolabel
+              @input="onYSliderInput"
+            ></mdui-slider>
+          </div>
+          <div class="chart-area">
+            <canvas ref="chartCanvas"></canvas>
+          </div>
         </div>
-      </div>
+        <div class="time-slider-row" style="margin-right: 10px;">
+          <mdui-range-slider
+            ref="rangeSlider"
+            :min="timeRangeMin"
+            :max="timeRangeMax"
+            :step="rangeStep"
+            @input="onRangeInput"
+            @change="onRangeChange"
+          ></mdui-range-slider>
+        </div>
+      </mdui-card>
     </div>
 
-    <div v-if="hasData" class="time-range-control">
-      <!--div class="range-labels">
-        <span class="range-label-start">{{ rangeStartLabel }}</span>
-        <span class="range-label-end">{{ rangeEndLabel }}</span>
-      </div-->
-      <mdui-range-slider
-        ref="rangeSlider"
-        :min="timeRangeMin"
-        :max="timeRangeMax"
-        :step="rangeStep"
-        @input="onRangeInput"
-        @change="onRangeChange"
-      ></mdui-range-slider>
+    <div class="chart-placeholder-card" v-if="!hasData">
+      <mdui-icon name="show_chart" class="placeholder-icon"></mdui-icon>
+      <p>{{ placeholderText }}</p>
     </div>
-
-    <mdui-card variant="elevated" class="summary-card">
-      <div class="card-content">
-        <mdui-icon name="event"></mdui-icon>
-        <div class="card-text">
-          <span class="card-value">{{ doseCount }}</span>
-          <span class="card-label">给药记录</span>
-        </div>
-      </div>
-    </mdui-card>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { Chart, registerables } from 'chart.js'
 import * as store from '../wasm/engineStore'
@@ -80,7 +76,6 @@ const route = useRoute()
 const chartCanvas = ref(null)
 const rangeSlider = ref(null)
 const ySliderRef = ref(null)
-const ySliderTrack = ref(null)
 const ySliderContainer = ref(null)
 const doseCount = ref(0)
 const hasData = ref(false)
@@ -93,7 +88,7 @@ const currentRangeStart = ref(0)
 const currentRangeEnd = ref(100)
 
 const currentYMax = ref(100)
-const ySliderMin = ref(10)
+const ySliderMin = ref(50)
 const ySliderMax = ref(500)
 const ySliderStep = ref(10)
 
@@ -102,13 +97,6 @@ const curveVisibility = ref({})
 let chartInstance = null
 let cachedSimResults = null
 let resizeObserver = null
-
-const rangeStartLabel = computed(() => formatXLabel(currentRangeStart.value))
-const rangeEndLabel = computed(() => formatXLabel(currentRangeEnd.value))
-
-const yMaxDisplay = computed(() => {
-  return currentYMax.value.toFixed(0)
-})
 
 function calcNiceYMax(maxVal) {
   if (maxVal <= 0) return 50
@@ -166,12 +154,9 @@ function onYSliderInput(e) {
 
 function syncYSliderSize() {
   if (!ySliderContainer.value || !ySliderRef.value) return
-  const containerH = ySliderContainer.value.clientHeight
-  const labelH = 24
-  const paddingV = 16
-  const trackH = containerH - labelH * 2 - paddingV * 2
-  if (trackH > 0) {
-    ySliderRef.value.style.width = `${trackH}px`
+  const h = ySliderContainer.value.clientHeight
+  if (h > 40) {
+    ySliderRef.value.style.width = `${h - 8}px`
   }
 }
 
@@ -189,14 +174,8 @@ function formatTooltipValue(val, unit) {
 function resolveDisplayUnit(rawValues, simResult) {
   const du = simResult?.display_unit
   if (du && du !== 'mg/L') {
-    const factorMap = {
-      'pg/mL': 1e9,
-      'ng/mL': 1e6,
-      'µg/mL': 1000,
-      'mg/L': 1,
-    }
-    const factor = factorMap[du] || 1
-    return { factor, unit: du }
+    const v = { 'pg/mL': 1e9, 'ng/mL': 1e6, 'µg/mL': 1000, 'mg/L': 1 }
+    return { factor: v[du] || 1, unit: du }
   }
   return autoScaleUnit(rawValues)
 }
@@ -219,76 +198,65 @@ async function renderChart() {
       placeholderText.value = '计算引擎加载失败'
       return
     }
-
     const doses = await store.getAllDoses()
-
     doseCount.value = doses.length
-
     if (doses.length === 0) {
       hasData.value = false
       placeholderText.value = '添加给药记录后，浓度曲线将在此显示'
       if (chartInstance) { chartInstance.destroy(); chartInstance = null }
       return
     }
-
     const simResults = engine.runSimulation()
     cachedSimResults = simResults
-
     if (!simResults || simResults.length === 0) {
       hasData.value = false
       placeholderText.value = '计算引擎返回空结果'
       return
     }
-
     hasData.value = true
     await nextTick()
     if (!chartCanvas.value) return
 
     const datasets = []
     const colors = [
-      'rgba(255, 99, 132, 1)',
-      'rgba(54, 162, 235, 1)',
-      'rgba(75, 192, 192, 1)',
-      'rgba(255, 206, 86, 1)',
-      'rgba(153, 102, 255, 1)',
-      'rgba(255, 159, 64, 1)',
+      { border: '#E91E63', bg: 'rgba(233,30,99,0.08)' },
+      { border: '#2196F3', bg: 'rgba(33,150,243,0.08)' },
+      { border: '#00BCD4', bg: 'rgba(0,188,212,0.08)' },
+      { border: '#FF9800', bg: 'rgba(255,152,0,0.08)' },
+      { border: '#9C27B0', bg: 'rgba(156,39,176,0.08)' },
+      { border: '#4CAF50', bg: 'rgba(76,175,80,0.08)' },
     ]
-
     let globalMaxY = 0
 
     for (let i = 0; i < simResults.length; i++) {
-      const result = simResults[i]
-      if (!result) continue
-
-      const timeH = result.time_h ? Array.from(result.time_h) : []
-      const rawConc = result.concentrations ? Array.from(result.concentrations) : []
-      const drugName = result.drug_name || `Drug ${i + 1}`
-
+      const r = simResults[i]
+      if (!r) continue
+      const timeH = r.time_h ? Array.from(r.time_h) : []
+      const rawConc = r.concentrations ? Array.from(r.concentrations) : []
+      const drugName = r.drug_name || `Drug ${i + 1}`
       if (timeH.length === 0 || rawConc.length === 0) continue
 
-      const { factor, unit } = resolveDisplayUnit(rawConc, result)
+      const { factor, unit } = resolveDisplayUnit(rawConc, r)
       const points = timeH.map((t, j) => ({
         x: t * 3600 * 1000,
         y: Math.max(0, rawConc[j]) * factor,
       }))
+      for (const p of points) { if (p.y > globalMaxY) globalMaxY = p.y }
 
-      for (const p of points) {
-        if (p.y > globalMaxY) globalMaxY = p.y
-      }
-
-      const color = colors[i % colors.length]
-      const hidden = curveVisibility.value[drugName] === false
+      const c = colors[i % colors.length]
       datasets.push({
         label: drugName,
         data: points,
-        borderColor: color,
-        backgroundColor: color.replace('1)', '0.1)'),
-        borderWidth: 2,
+        borderColor: c.border,
+        backgroundColor: c.bg,
+        borderWidth: 2.5,
         fill: true,
-        tension: 0.3,
+        tension: 0.35,
         pointRadius: 0,
+        pointHoverRadius: 4,
+        pointHoverBackgroundColor: c.border,
         unit,
-        hidden,
+        hidden: curveVisibility.value[drugName] === false,
       })
     }
 
@@ -300,23 +268,18 @@ async function renderChart() {
 
     const niceYMax = calcNiceYMax(globalMaxY)
     currentYMax.value = niceYMax
-    ySliderMin.value = 0
+    ySliderMin.value = 50
     ySliderMax.value = niceYMax
     ySliderStep.value = 1
 
     const viewWindow = getViewWindow()
-    const totalRangeMs = viewWindow.endMs - viewWindow.startMs
-    const stepMs = Math.max(totalRangeMs / 200, 3600000)
     timeRangeMin.value = viewWindow.startMs
     timeRangeMax.value = viewWindow.endMs
-    rangeStep.value = stepMs
+    rangeStep.value = Math.max((viewWindow.endMs - viewWindow.startMs) / 200, 3600000)
     currentRangeStart.value = viewWindow.startMs
     currentRangeEnd.value = viewWindow.endMs
 
-    if (chartInstance) {
-      chartInstance.destroy()
-      chartInstance = null
-    }
+    if (chartInstance) { chartInstance.destroy(); chartInstance = null }
 
     chartInstance = new Chart(chartCanvas.value, {
       type: 'line',
@@ -324,50 +287,45 @@ async function renderChart() {
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        interaction: {
-          mode: 'nearest',
-          intersect: false,
-        },
+        interaction: { mode: 'nearest', intersect: false },
         plugins: {
           legend: {
             display: true,
             position: 'top',
+            align: 'start',
             labels: {
-              generateLabels: (chart) => {
-                return chart.data.datasets.map((dataset, i) => ({
-                  text: `${dataset.label} (${dataset.unit || 'mg/L'})`,
-                  fillStyle: dataset.borderColor,
-                  strokeStyle: dataset.borderColor,
-                  lineWidth: 2,
-                  hidden: !chart.isDatasetVisible(i),
-                  index: i,
-                  datasetIndex: i,
-                }))
-              },
+              usePointStyle: true,
+              pointStyleWidth: 14,
+              padding: 20,
+              generateLabels: (chart) => chart.data.datasets.map((ds, i) => ({
+                text: `${ds.label} (${ds.unit || 'mg/L'})`,
+                fillStyle: ds.borderColor,
+                strokeStyle: ds.borderColor,
+                lineWidth: 3,
+                hidden: !chart.isDatasetVisible(i),
+                index: i,
+                datasetIndex: i,
+                pointStyle: 'circle',
+              })),
             },
-            onClick: (e, legendItem, legend) => {
-              const index = legendItem.datasetIndex
+            onClick: (e, item, legend) => {
+              const i = item.datasetIndex
               const ci = legend.chart
-              if (ci.isDatasetVisible(index)) {
-                ci.hide(index)
-                curveVisibility.value[ci.data.datasets[index].label] = false
+              if (ci.isDatasetVisible(i)) {
+                ci.hide(i)
+                curveVisibility.value[ci.data.datasets[i].label] = false
               } else {
-                ci.show(index)
-                curveVisibility.value[ci.data.datasets[index].label] = true
+                ci.show(i)
+                curveVisibility.value[ci.data.datasets[i].label] = true
               }
             },
           },
           tooltip: {
+            padding: 10,
+            cornerRadius: 8,
             callbacks: {
-              label: (ctx) => {
-                const ds = ctx.dataset
-                const unit = ds.unit || 'mg/L'
-                return `${ds.label}: ${formatTooltipValue(ctx.parsed.y, unit)}`
-              },
-              title: (items) => {
-                if (!items.length) return ''
-                return formatXLabel(items[0].parsed.x)
-              },
+              label: (ctx) => ` ${ctx.dataset.label}: ${formatTooltipValue(ctx.parsed.y, ctx.dataset.unit || 'mg/L')}`,
+              title: (items) => items.length ? formatXLabel(items[0].parsed.x) : '',
             },
           },
         },
@@ -376,18 +334,16 @@ async function renderChart() {
             type: 'linear',
             min: viewWindow.startMs,
             max: viewWindow.endMs,
-            title: { display: true, text: '时间' },
-            ticks: {
-              maxTicksLimit: 8,
-              callback: function(value) {
-                return formatXLabel(value)
-              },
-            },
+            title: { display: true, text: '时间', color: '#666' },
+            grid: { color: 'rgba(0,0,0,0.04)', drawBorder: false },
+            ticks: { maxTicksLimit: 8, color: '#999', padding: 8, callback: v => formatXLabel(v) },
           },
           y: {
-            title: { display: true, text: '浓度' },
+            title: { display: true, text: '浓度', color: '#666' },
             beginAtZero: true,
             max: niceYMax,
+            grid: { color: 'rgba(0,0,0,0.06)', drawBorder: false },
+            ticks: { maxTicksLimit: 5, color: '#999', padding: 8 },
           },
         },
       },
@@ -396,15 +352,11 @@ async function renderChart() {
     await nextTick()
     if (rangeSlider.value) {
       rangeSlider.value.value = [viewWindow.startMs, viewWindow.endMs]
-      rangeSlider.value.labelFormatter = (val) => formatXLabel(val)
+      rangeSlider.value.labelFormatter = (v) => formatXLabel(v)
     }
-    if (ySliderRef.value) {
-      ySliderRef.value.value = niceYMax
-    }
+    if (ySliderRef.value) ySliderRef.value.value = niceYMax
     await nextTick()
     syncYSliderSize()
-
-    console.log('[HomePage] chart OK, datasets:', datasets.map(d => d.label))
   } catch (e) {
     console.error('[HomePage] renderChart failed:', e)
     hasData.value = false
@@ -416,68 +368,49 @@ function downloadBlob(content, filename, mime) {
   const blob = new Blob([content], { type: mime })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
-  a.href = url
-  a.download = filename
-  a.click()
+  a.href = url; a.download = filename; a.click()
   URL.revokeObjectURL(url)
 }
 
-function hoursToISO(h) {
-  const ms = h * 3600 * 1000
-  return new Date(ms).toISOString()
-}
+function hoursToISO(h) { return new Date(h * 3600 * 1000).toISOString() }
 
 function exportCSV() {
-  if (!cachedSimResults || cachedSimResults.length === 0) return
-  const results = []
+  if (!cachedSimResults?.length) return
+  const rs = []
   for (const r of cachedSimResults) {
     if (!r) continue
-    const rawConc = Array.from(r.concentrations || [])
-    const { factor, unit } = resolveDisplayUnit(rawConc, r)
-    results.push({
-      name: r.drug_name || 'unknown',
-      unit,
-      factor,
-      timeH: Array.from(r.time_h || []),
-      conc: rawConc,
-    })
+    const rc = Array.from(r.concentrations || [])
+    const { factor, unit } = resolveDisplayUnit(rc, r)
+    rs.push({ name: r.drug_name || 'unknown', unit, factor, th: Array.from(r.time_h || []), conc: rc })
   }
-  if (results.length === 0) return
-  const header = ['datetime']
-  for (const r of results) header.push(`${r.name} (${r.unit})`)
-  const lines = [header.join(',')]
-  const maxLen = Math.max(...results.map(r => r.timeH.length))
+  if (!rs.length) return
+  const hdr = ['datetime', ...rs.map(r => `${r.name} (${r.unit})`)]
+  const lines = [hdr.join(',')]
+  const maxLen = Math.max(...rs.map(r => r.th.length))
   for (let i = 0; i < maxLen; i++) {
-    const row = [results[0].timeH[i] != null ? hoursToISO(results[0].timeH[i]) : '']
-    for (const r of results) {
-      const v = r.conc[i]
-      row.push(v != null ? (Math.max(0, v) * r.factor).toFixed(4) : '')
-    }
+    const row = [rs[0].th[i] != null ? hoursToISO(rs[0].th[i]) : '']
+    for (const r of rs) row.push(r.conc[i] != null ? (Math.max(0, r.conc[i]) * r.factor).toFixed(4) : '')
     lines.push(row.join(','))
   }
-  const ts = new Date().toISOString().slice(0, 10)
-  downloadBlob(lines.join('\n'), `valence_chart_${ts}.csv`, 'text/csv')
+  downloadBlob(lines.join('\n'), `valence_chart_${new Date().toISOString().slice(0, 10)}.csv`, 'text/csv')
 }
 
 function exportJSON() {
-  if (!cachedSimResults || cachedSimResults.length === 0) return
+  if (!cachedSimResults?.length) return
   const payload = []
   for (const r of cachedSimResults) {
     if (!r) continue
-    const rawConc = Array.from(r.concentrations || [])
-    const timeH = Array.from(r.time_h || [])
-    const { factor, unit } = resolveDisplayUnit(rawConc, r)
-    const scaledConc = rawConc.map(v => Math.max(0, v) * factor)
-    const datetime = timeH.map(h => hoursToISO(h))
+    const rc = Array.from(r.concentrations || [])
+    const th = Array.from(r.time_h || [])
+    const { factor, unit } = resolveDisplayUnit(rc, r)
     payload.push({
       drug_name: r.drug_name,
       display_unit: unit,
-      datetime,
-      concentrations: scaledConc,
+      datetime: th.map(h => hoursToISO(h)),
+      concentrations: rc.map(v => Math.max(0, v) * factor),
     })
   }
-  const ts = new Date().toISOString().slice(0, 10)
-  downloadBlob(JSON.stringify(payload, null, 2), `valence_chart_${ts}.json`, 'application/json')
+  downloadBlob(JSON.stringify(payload, null, 2), `valence_chart_${new Date().toISOString().slice(0, 10)}.json`, 'application/json')
 }
 
 onMounted(async () => {
@@ -489,81 +422,101 @@ onMounted(async () => {
 })
 
 onUnmounted(() => {
-  if (chartInstance) {
-    chartInstance.destroy()
-    chartInstance = null
-  }
-  if (resizeObserver) {
-    resizeObserver.disconnect()
-    resizeObserver = null
-  }
+  if (chartInstance) { chartInstance.destroy(); chartInstance = null }
+  if (resizeObserver) { resizeObserver.disconnect(); resizeObserver = null }
 })
 
 watch(() => route.path, async (newPath) => {
-  if (newPath === '/') {
-    await nextTick()
-    await renderChart()
-  }
+  if (newPath === '/') { await nextTick(); await renderChart() }
 })
 </script>
 
 <style scoped>
 .home-page {
-  max-width: 960px;
   margin: 0 auto;
-}
-
-.page-title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 16px;
 }
 
 .page-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-.chart-actions {
-  display: flex;
-  gap: 4px;
+.page-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
 }
 
-.chart-wrapper {
-  display: flex;
-  gap: 0;
-  margin-bottom: 12px;
-}
-
-.y-slider-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 16px 4px 16px 0;
-  min-width: 44px;
-  background: var(--mdui-color-surface-container);
-  border-radius: 16px 0 0 16px;
-}
-
-.y-slider-label-top,
-.y-slider-label-bottom {
-  font-size: 11px;
-  opacity: 0.7;
-  writing-mode: horizontal-tb;
-  white-space: nowrap;
-  height: 24px;
-  line-height: 24px;
+.header-actions {
   flex-shrink: 0;
 }
 
-.y-slider-track {
+.main-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: stretch;
+}
+
+.side-panel {
+  width: 120px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.side-stat {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.side-icon {
+  font-size: 28px;
+  color: var(--mdui-color-primary);
+  opacity: 0.7;
+}
+
+.side-num {
+  font-size: 28px;
+  font-weight: 700;
+  display: block;
+  line-height: 1.1;
+}
+
+.side-sub {
+  font-size: 12px;
+  opacity: 0.6;
+  display: block;
+  margin-top: 2px;
+}
+
+.chart-card {
   flex: 1;
-  position: relative;
-  min-height: 0;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.chart-card-inner {
+  display: flex;
+  height: 360px;
+}
+
+.y-slider-container {
   width: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0;
+  border-right: 1px solid rgba(0,0,0,0.06);
+  position: relative;
 }
 
 .y-mdui-slider {
@@ -574,71 +527,35 @@ watch(() => route.path, async (newPath) => {
   transform-origin: center center;
 }
 
-.chart-container {
+.chart-area {
   flex: 1;
-  height: 320px;
-  background: var(--mdui-color-surface-container);
-  border-radius: 0 16px 16px 0;
-  padding: 16px;
-  position: relative;
+  padding: 16px 16px 16px 4px;
   min-width: 0;
+  position: relative;
 }
 
-.chart-container:has(.chart-placeholder) {
-  border-radius: 0 16px 16px 0;
-}
-
-.chart-placeholder {
-  position: absolute;
-  inset: 0;
+.chart-placeholder-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  opacity: 0.5;
+  padding: 80px 0;
+  opacity: 0.4;
+  background: var(--mdui-color-surface-container);
+  border-radius: 16px;
+  margin-bottom: 12px;
 }
 
-.chart-placeholder p {
+.placeholder-icon {
+  font-size: 48px;
+}
+
+.chart-placeholder-card p {
   font-size: 14px;
-  text-align: center;
 }
 
-.time-range-control {
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-
-.range-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  opacity: 0.7;
-  margin-bottom: 4px;
-}
-
-.summary-card {
-  padding: 16px;
-}
-
-.card-content {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.card-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.card-value {
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.card-label {
-  font-size: 13px;
-  opacity: 0.7;
+.time-slider-row {
+  padding: 4px 16px 12px 60px;
 }
 </style>

@@ -291,7 +291,6 @@ function modelLabel(modelType) {
 
 <style scoped>
 .add-dose-page {
-  max-width: 600px;
   margin: 0 auto;
   height: calc(100vh - 140px);
   display: flex;

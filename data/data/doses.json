@@ -1,18 +1,38 @@
 {
   "meta": {
     "version": 1,
-    "exportedAt": "2026-05-01T18:36:50.922Z"
+    "exportedAt": "2026-05-02T05:12:05.772Z"
   },
   "weight": 55,
   "events": [
     {
-      "id": "7eae88ec-bccd-4df4-bec0-67405f5c5e0b",
-      "route": "injection",
+      "id": "580baec4-f81c-45cc-9dcb-06238faea3b9",
+      "route": "oral",
       "ester": "Estradiol Valerate",
-      "timeH": 493792.5333333333,
-      "doseMG": 10,
+      "timeH": 493799.76666666666,
+      "doseMG": 4,
       "extras": {
         "drug_id": "hrt_ev"
+      }
+    },
+    {
+      "id": "654487f0-278d-4407-8aea-ab2a47fa1f8d",
+      "route": "oral",
+      "ester": "Pregabalin",
+      "timeH": 493802.3333333333,
+      "doseMG": 900,
+      "extras": {
+        "drug_id": "journal_pregabalin"
+      }
+    },
+    {
+      "id": "c041f98d-d2f7-498d-b2fc-475c99898f54",
+      "route": "oral",
+      "ester": "Oxazepam",
+      "timeH": 493802.35,
+      "doseMG": 30,
+      "extras": {
+        "drug_id": "journal_oxazepam"
       }
     }
   ]

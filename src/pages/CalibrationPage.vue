@@ -43,7 +43,6 @@ function applyCalibration() {
 
 <style scoped>
 .calibration-page {
-  max-width: 600px;
   margin: 0 auto;
 }
 

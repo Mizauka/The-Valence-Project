@@ -184,7 +184,6 @@ async function importData(event) {
 
 <style scoped>
 .settings-page {
-  max-width: 600px;
   margin: 0 auto;
 }
 

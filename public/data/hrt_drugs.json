@@ -43,7 +43,7 @@
       "k1_slow": 0.114,
       "hydrolysis_k2": 0.090,
       "formation_frac": 0.1092,
-      "k_clear": 0.041,
+      "depot_clearance": 0.041,
       "oral_ka": 0.32,
       "oral_bioavailability": 0.03
     }
@@ -71,7 +71,7 @@
       "k1_slow": 0.0138,
       "hydrolysis_k2": 0.070,
       "formation_frac": 0.0623,
-      "k_clear": 0.041,
+      "depot_clearance": 0.041,
       "oral_ka": 0.05,
       "oral_bioavailability": 0.03
     }
@@ -98,7 +98,7 @@
       "k1_slow": 0.004510574,
       "hydrolysis_k2": 0.045,
       "formation_frac": 0.1173,
-      "k_clear": 0.041,
+      "depot_clearance": 0.041,
       "oral_ka": 0.32,
       "oral_bioavailability": 0.03
     }
@@ -125,7 +125,7 @@
       "k1_slow": 0.005,
       "hydrolysis_k2": 0.015,
       "formation_frac": 0.12,
-      "k_clear": 0.041,
+      "depot_clearance": 0.041,
       "oral_ka": 0.32,
       "oral_bioavailability": 0.03
     }

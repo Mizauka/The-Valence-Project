@@ -209,7 +209,6 @@ function modelLabel(modelType) {
 
 <style scoped>
 .drug-library-page {
-  max-width: 600px;
   margin: 0 auto;
   padding-bottom: 80px;
 }

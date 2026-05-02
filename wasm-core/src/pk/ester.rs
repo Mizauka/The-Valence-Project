@@ -44,7 +44,7 @@ pub fn depot_injection_amount(
     let k1_slow = param(parameters, "k1_slow", 0.01);
     let k2 = param(parameters, "hydrolysis_k2", 0.0);
     let formation_frac = param(parameters, "formation_frac", 1.0);
-    let k3 = param(parameters, "k_clear", 0.041);
+    let k3 = param(parameters, "depot_clearance", 0.041);
 
     let f = formation_frac * molar_factor;
 
@@ -62,7 +62,7 @@ pub fn depot_oral_amount(
     molar_factor: f64,
 ) -> f64 {
     let ka = param(parameters, "oral_ka", 0.32);
-    let ke = param(parameters, "k_clear", 0.41);
+    let ke = param(parameters, "oral_ke", 0.41);
     let oral_bio = param(parameters, "oral_bioavailability", 0.03);
     let f = oral_bio * molar_factor;
     one_comp_amount(tau, dose_mg, ka, ke, f)
