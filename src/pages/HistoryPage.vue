@@ -17,7 +17,7 @@
       <mdui-card
         v-for="group in groupedDoses"
         :key="group.date"
-        variant="outlined"
+        variant="elevated"
         class="date-group"
       >
         <div class="date-header">{{ group.date }}</div>
@@ -184,10 +184,6 @@ onMounted(loadData)
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-.date-group {
-  overflow: hidden;
 }
 
 .date-header {

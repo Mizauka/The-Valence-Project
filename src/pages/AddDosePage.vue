@@ -27,7 +27,7 @@
       </mdui-tabs>
 
       <div class="drug-list" v-if="displayDrugs.length > 0">
-        <mdui-card
+        <mdui-card clickable
           v-for="drug in displayDrugs"
           :key="drug.drug_id"
           variant="outlined"
@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <mdui-card variant="filled" class="form-card">
+      <mdui-card variant="outlined" class="form-card">
         <div class="form-content">
           <div class="selected-drug-banner">
             <mdui-icon name="medication" class="banner-icon"></mdui-icon>
@@ -301,7 +301,6 @@ function modelLabel(modelType) {
 .step-header {
   display: flex;
   align-items: center;
-  gap: 12px;
   margin-bottom: 12px;
   flex-shrink: 0;
 }
@@ -332,7 +331,6 @@ function modelLabel(modelType) {
 .drug-list {
   flex: 1;
   overflow-y: auto;
-  min-height: 0;
 }
 
 .drug-card {
@@ -342,20 +340,14 @@ function modelLabel(modelType) {
   transition: background 0.15s;
 }
 
-.drug-card:hover {
-  background: var(--mdui-color-surface-container-high);
-}
-
 .drug-card-content {
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 
 .drug-card-main {
   display: flex;
   align-items: center;
-  gap: 8px;
 }
 
 .drug-card-name {
@@ -373,7 +365,6 @@ function modelLabel(modelType) {
 
 .drug-card-meta {
   display: flex;
-  gap: 6px;
   font-size: 11px;
   opacity: 0.6;
   align-items: center;
@@ -431,7 +422,6 @@ function modelLabel(modelType) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   opacity: 0.4;
   padding: 48px 0;
 }
@@ -447,13 +437,11 @@ function modelLabel(modelType) {
 .form-content {
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .selected-drug-banner {
   display: flex;
   align-items: center;
-  gap: 12px;
   padding: 12px;
   background: var(--mdui-color-primary-container);
   border-radius: 12px;
@@ -467,7 +455,6 @@ function modelLabel(modelType) {
 .banner-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 .banner-name {

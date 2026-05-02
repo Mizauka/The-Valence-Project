@@ -1,24 +1,45 @@
 <template>
-  <div class="app-shell">
-    <mdui-navigation-rail contained>
+  <mdui-layout class="example-order" style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;">
+    <mdui-layout-item placement="left" class="example-layout-item" style="width: 100px"> <mdui-navigation-rail
+        contained>
 
-      <mdui-button-icon icon="arrow_back" slot="top"  @click="navigateTo('home')" ></mdui-button-icon>
-      <mdui-fab lowered icon="add" slot="top" :class="['nav-fab', { 'nav-fab--active': currentRoute === 'add-dose' }]"
-        @click="navigateTo('add-dose')"></mdui-fab>
+        <mdui-button-icon icon="medical_services--outlined" slot="top" @click="navigateTo('home')"></mdui-button-icon>
+        <mdui-fab lowered icon="add" slot="top" :class="['nav-fab', { 'nav-fab--active': currentRoute === 'add-dose' }]"
+          @click="navigateTo('add-dose')"></mdui-fab>
 
-      <mdui-navigation-rail-item v-for="item in navItems" :key="item.route" :icon="item.icon"
-        :active-icon="item.icon + '-filled'" :active="currentRoute === item.route" @click="navigateTo(item.route)">{{
-          item.label
-        }}</mdui-navigation-rail-item>
+        <mdui-navigation-rail-item v-for="item in navItems" :key="item.route" :icon="item.icon"
+          :active-icon="item.icon + '-filled'" :active="currentRoute === item.route" @click="navigateTo(item.route)">{{
+            item.label
+          }}</mdui-navigation-rail-item>
 
-      <mdui-button-icon icon="settings" slot="bottom" @click="navigateTo('settings')"></mdui-button-icon>
-    </mdui-navigation-rail>
+        <mdui-button-icon icon="settings" slot="bottom" @click="navigateTo('settings')"></mdui-button-icon>
+      </mdui-navigation-rail></mdui-layout-item>
 
-    <div class="content-area">
-      <div class="page-container">
-        <router-view />
+    <mdui-top-app-bar>
+      <mdui-top-app-bar-title>The Valence Project</mdui-top-app-bar-title>
+    </mdui-top-app-bar>
+
+    <mdui-layout-main style="min-height: 300px">
+      <div class="content-area">
+        <div class="page-container">
+          <router-view />
+        </div>
       </div>
-    </div>
+    </mdui-layout-main>
+  </mdui-layout>
+
+
+  <div class="app-shell">
+
+
+
   </div>
 </template>
 
@@ -44,17 +65,16 @@ function navigateTo(name) {
 </script>
 
 <style scoped>
-
 .nav-fab {
   border-radius: var(--mdui-shape-corner-large);
   box-shadow: var(--mdui-elevation-level3);
-  transition: all var(--mdui-motion-duration-medium4)
-    var(--mdui-motion-easing-emphasized-decelerate) !important;
+  transition: all var(--mdui-motion-duration-medium4) var(--mdui-motion-easing-emphasized-decelerate) !important;
 }
 
 .nav-fab:hover {
   box-shadow: var(--mdui-elevation-level5);
 }
+
 .nav-fab:active {
   box-shadow: var(--mdui-elevation-level0) !important;
   border-radius: 40% !important;
@@ -66,5 +86,4 @@ function navigateTo(name) {
   border-radius: 50% !important;
   color: #fff;
 }
-
 </style>

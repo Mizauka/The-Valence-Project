@@ -2,7 +2,7 @@
   <div class="page settings-page">
     <h2 class="page-title">设置</h2>
 
-    <mdui-card variant="filled" class="settings-card">
+    <mdui-list variant="filled" class="settings-card">
       <div class="settings-content">
         <h3 class="card-title">体重设置</h3>
         <p class="card-desc">体重将作为常量用于药代动力学计算的分布容积调整</p>
@@ -15,9 +15,9 @@
           @change="saveWeight"
         ></mdui-text-field>
       </div>
-    </mdui-card>
+    </mdui-list>
 
-    <mdui-card variant="filled" class="settings-card">
+    <mdui-list variant="filled" class="settings-card">
       <div class="settings-content">
         <h3 class="card-title">数据存储</h3>
         <p class="card-desc">数据默认使用浏览器持久化存储（OPFS），关闭浏览器后数据不会丢失。点击下方按钮可将当前所有数据同步保存到指定文件夹。</p>
@@ -37,9 +37,9 @@
           <span v-else class="dir-status dir-status--revoked">● 需重新授权</span>
         </p>
       </div>
-    </mdui-card>
+    </mdui-list>
 
-    <mdui-card variant="filled" class="settings-card">
+    <mdui-list variant="filled" class="settings-card">
       <div class="settings-content">
         <h3 class="card-title">数据管理</h3>
         <div class="action-buttons">
@@ -60,16 +60,16 @@
           />
         </div>
       </div>
-    </mdui-card>
+    </mdui-list>
 
-    <mdui-card variant="filled" class="settings-card">
+    <mdui-list variant="filled" class="settings-card">
       <div class="settings-content">
         <h3 class="card-title">关于</h3>
         <p class="about-text">Valence - 开源药物管理与血药浓度追踪</p>
         <p class="about-text">v0.1.0</p>
         <p class="about-text">所有数据存储在本地，注重隐私保护</p>
       </div>
-    </mdui-card>
+    </mdui-list>
   </div>
 </template>
 

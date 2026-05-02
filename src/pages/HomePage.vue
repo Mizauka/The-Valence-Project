@@ -4,7 +4,7 @@
       <h2 class="page-title">血药浓度追踪</h2>
       <div class="header-actions" v-if="hasData">
         <mdui-dropdown>
-          <mdui-button slot="trigger" variant="outlined" icon="download">
+          <mdui-button slot="trigger" variant="filled" icon="download">
             导出
           </mdui-button>
           <mdui-menu>
@@ -17,7 +17,7 @@
 
     <div class="main-row" v-if="hasData">
       <div class="side-panel">
-        <mdui-card variant="filled" class="side-stat">
+        <mdui-card variant="elevated" class="side-stat">
           <mdui-icon name="event" class="side-icon"></mdui-icon>
           <div>
             <span class="side-num">{{ doseCount }}</span>
