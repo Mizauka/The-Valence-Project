@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "drug_id": "custom_test",
+    "name": "test",
+    "model_type": "two_compartment",
+    "group_id": "",
+    "dose_unit": "mg",
+    "routes": [
+      {
+        "route": "oral",
+        "unit": "mg"
+      }
+    ],
+    "display_unit": "",
+    "molecular_weight": 0,
+    "depot_model": false,
+    "parameters": {}
+  }
+]

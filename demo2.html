@@ -1,0 +1,62 @@
+<!doctype html>
+<html style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+    <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+    <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
+</head>
+
+<body style="margin: 0; padding: 0; height: 100%;">
+
+    <mdui-navigation-rail>
+        <mdui-button-icon icon="menu" slot="top"></mdui-button-icon>
+        <mdui-fab lowered icon="edit--outlined" slot="top"></mdui-fab>
+        <mdui-button-icon icon="settings" slot="bottom"></mdui-button-icon>
+
+        <mdui-navigation-rail-item icon="watch_later--outlined">Recent</mdui-navigation-rail-item>
+        <mdui-navigation-rail-item icon="image--outlined">Images</mdui-navigation-rail-item>
+        <mdui-navigation-rail-item icon="library_music--outlined">Library</mdui-navigation-rail-item>
+    </mdui-navigation-rail>
+    <div style="display: flex; height: 100%; position: relative; overflow: hidden;">
+        <mdui-top-app-bar variant="medium" scroll-behavior="shrink" scroll-threshold="30"
+            scroll-target=".example-scroll-target">
+            <mdui-button-icon icon="menu"></mdui-button-icon>
+            <mdui-top-app-bar-title>Title</mdui-top-app-bar-title>
+            <div style="flex-grow: 1"></div>
+            <mdui-button-icon icon="more_vert"></mdui-button-icon>
+        </mdui-top-app-bar>
+        <mdui-bottom-app-bar fab-detach scroll-behavior="hide" scroll-threshold="30"
+            scroll-target=".example-scroll-target">
+            <mdui-button-icon icon="check_box--outlined"></mdui-button-icon>
+            <mdui-button-icon icon="edit--outlined"></mdui-button-icon>
+            <mdui-button-icon icon="mic_none--outlined"></mdui-button-icon>
+            <mdui-button-icon icon="image--outlined"></mdui-button-icon>
+            <div style="flex-grow: 1"></div>
+            <mdui-fab icon="add"></mdui-fab>
+        </mdui-bottom-app-bar>
+        <div class="example-scroll-target" style="overflow: auto; flex: 1;">
+            <!-- Desktop -->
+            <!--div style="display: flex; overflow: hidden; height: 100%;">
+                <div style="width: 50%; height: 100%; flex: 1; overflow: auto;">
+                    <div style="height: 10000px">Page Content 1</div>
+                </div>
+                <div style="width: 50%; height: 100%; flex: 1; overflow: auto;">
+                    <div style="height: 10000px">Page Content 2</div>
+                </div>
+            </div-->
+            <!-- Mobile -->
+            <div style="display: flex; overflow: auto;">
+                <div style="height: 100%; flex: 1; overflow: auto;">
+                    <div style="height: 10000px">Page Content 1</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

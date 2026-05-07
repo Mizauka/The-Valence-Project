@@ -1,54 +1,78 @@
 <template>
-  <div class="page history-page">
-    <h2 class="page-title">给药记录</h2>
+  <div class="sliding-page" :data-step="panels.step">
+    <div class="sliding-viewport">
+      <mdui-button-icon icon="arrow_back" @click="handleBack" />
 
-    <div v-if="loading" class="loading-state">
-      <mdui-circular-progress></mdui-circular-progress>
-      <p>加载中...</p>
-    </div>
+      <div class="sliding-track"
+        :style="{ width: panels.trackWidthPercent + '%', transform: `translateX(-${panels.offsetPercent}%)` }">
 
-    <div v-else-if="doses.length === 0" class="empty-state">
-      <mdui-icon name="history"></mdui-icon>
-      <p>暂无给药记录</p>
-      <mdui-button variant="tonal" @click="goAddDose">记录剂量</mdui-button>
-    </div>
-
-    <div v-else class="dose-list">
-      <mdui-card
-        v-for="group in groupedDoses"
-        :key="group.date"
-        variant="elevated"
-        class="date-group"
-      >
-        <div class="date-header">{{ group.date }}</div>
-        <mdui-list>
-          <mdui-list-item
-            v-for="dose in group.items"
-            :key="dose.dose_id"
-            class="dose-item"
-          >
-            <div class="dose-row">
-              <div class="dose-left">
-                <mdui-icon name="medication" class="dose-icon"></mdui-icon>
-                <div class="dose-info">
-                  <span class="dose-drug-name">{{ dose.drugName }}</span>
-                  <span class="dose-meta">
-                    {{ formatDose(dose) }} · {{ routeLabel(dose.route_of_administration) }} · {{ dose.timeStr }}
-                  </span>
-                </div>
-              </div>
-              <mdui-button-icon icon="delete" @click="confirmDelete(dose)"></mdui-button-icon>
+        <!-- Panel 0: Dose List -->
+        <div class="sliding-panel"><div class="sliding-panel-inner">
+          <div v-if="loading" class="loading-state">
+            <mdui-circular-progress></mdui-circular-progress><p>加载中...</p>
+          </div>
+          <div v-else-if="doses.length === 0" class="empty-state">
+            <mdui-icon name="history"></mdui-icon><p>暂无给药记录</p>
+            <mdui-button variant="tonal" @click="goAddDose">记录剂量</mdui-button>
+          </div>
+          <div v-else class="dose-list-custom">
+            <div v-for="group in groupedDoses" :key="group.date" class="date-group">
+              <div class="date-header">{{ group.date }}</div>
+              <mdui-list>
+                <mdui-list-item v-for="dose in group.items" :key="dose.dose_id" class="dose-item-custom">
+                  <div class="dose-row">
+                    <div class="dose-left">
+                      <mdui-icon name="medication" class="dose-icon"></mdui-icon>
+                      <div class="dose-info">
+                        <span class="dose-drug-name">{{ dose.drugName }}</span>
+                        <span class="dose-meta">{{ formatDose(dose) }} · {{ routeLabel(dose.route_of_administration) }} · {{ dose.timeStr }}</span>
+                      </div>
+                    </div>
+                    <div class="dose-actions">
+                      <mdui-button-icon icon="edit" @click.stop="openEdit(dose)"></mdui-button-icon>
+                      <mdui-button-icon icon="delete" @click.stop="confirmDelete(dose)"></mdui-button-icon>
+                    </div>
+                  </div>
+                </mdui-list-item>
+              </mdui-list>
             </div>
-          </mdui-list-item>
-        </mdui-list>
-      </mdui-card>
+          </div>
+        </div></div>
+
+        <!-- Panel 1: Edit Dose -->
+        <div class="sliding-panel"><div class="sliding-panel-inner">
+            <template v-if="!panels.showPlaceholder">
+          <div class="step-header">
+            <p class="step-desc">{{ editingDrug?.name || '编辑剂量' }}</p>
+          </div>
+          <DoseForm
+            v-if="editingDrug"
+            :drug="editingDrug"
+            :doseAmount="editAmount"
+            :route="editRoute"
+            :timestamp="editTimestamp"
+            :routes="editRoutes"
+            :currentDoseUnit="editDoseUnit"
+            :canSave="editCanSave"
+            saveLabel="保存修改"
+            @update:doseAmount="v => editAmount = v"
+            @update:route="v => editRoute = v"
+            @update:timestamp="v => editTimestamp = v"
+            @save="saveEdit"
+          />
+          </template>
+          <template v-else>
+            <div class="panel-placeholder">
+              <mdui-icon :name="panels.placeholderIcon"></mdui-icon>
+              <p>{{ panels.placeholderText }}</p>
+            </div>
+          </template>
+        </div></div>
+
+      </div>
     </div>
 
-    <mdui-dialog
-      :open="deleteDialogOpen"
-      headline="确认删除"
-      @closed="deleteDialogOpen = false"
-    >
+    <mdui-dialog :open="deleteDialogOpen" headline="确认删除" @closed="deleteDialogOpen = false">
       确定要删除这条给药记录吗？此操作不可撤销。
       <mdui-button slot="action" variant="text" @click="deleteDialogOpen = false">取消</mdui-button>
       <mdui-button slot="action" variant="tonal" @click="doDelete">删除</mdui-button>
@@ -56,179 +80,99 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import * as store from '../wasm/engineStore'
+import { useSlidingPanels } from '../composables/useSlidingPanels'
+import { formatDose as fmtDose, routeLabel } from '../utils/format'
+import DoseForm from '../components/DoseForm.vue'
+
+function formatDose(dose: any) { return fmtDose(dose.display_amount ?? dose.dose_amount, dose.display_unit || 'mg') }
 
 const router = useRouter()
+const panels = useSlidingPanels(2, { icon: 'edit_note', text: '在左侧选择记录后在此编辑' })
+function handleBack() { if (!panels.back()) router.push({ name: 'home' }) }
 
-const doses = ref([])
-const loading = ref(true)
-const deleteDialogOpen = ref(false)
-const pendingDelete = ref(null)
+onMounted(async () => {
+  loadData()
+})
 
-const routeLabels = {
-  oral: '口服',
-  injection: '注射',
-  sublingual: '舌下',
-  buccal: '颊黏膜',
-  insufflated: '鼻吸',
-  transdermal: '透皮',
-  gel: '凝胶',
-  patch: '贴片',
-  rectal: '直肠',
-  smoked: '吸入(烟)',
-  inhaled: '吸入',
-  inhalation: '吸入',
-}
+const doses = ref<any[]>([]); const loading = ref(true)
+const deleteDialogOpen = ref(false); const pendingDelete = ref<any>(null)
 
-function routeLabel(key) {
-  return routeLabels[key] || key
-}
+const editingDose = ref<any>(null); const editingDrug = ref<any>(null)
+const editAmount = ref(''); const editRoute = ref('oral'); const editTimestamp = ref('')
+const editRoutes = computed(() => [{ route: 'oral', unit: 'mg' }])
+const editDoseUnit = computed(() => 'mg')
+const editCanSave = computed(() => parseFloat(editAmount.value) > 0 && editTimestamp.value)
 
-function formatDose(dose) {
-  const val = dose.display_amount ?? dose.dose_amount
-  const unit = dose.display_unit || 'mg'
-  if (Number.isInteger(val) || Math.abs(val) >= 10) return `${val} ${unit}`
-  if (Math.abs(val) >= 1) return `${val.toFixed(1)} ${unit}`
-  return `${val.toFixed(2)} ${unit}`
-}
-
-function formatTimestamp(ts) {
+function formatTimestamp(ts: number) {
   const d = new Date(ts * 1000)
-  const date = d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })
-  const time = d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })
-  return { date, time }
+  return {
+    date: d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }),
+    time: d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }),
+  }
 }
 
 const groupedDoses = computed(() => {
   const groups = new Map()
   const sorted = [...doses.value].sort((a, b) => b.timestamp - a.timestamp)
-
   for (const dose of sorted) {
-    const { date, time: timeStr } = formatTimestamp(dose.timestamp)
-    dose.timeStr = timeStr
-
-    if (!groups.has(date)) {
-      groups.set(date, { date, items: [] })
-    }
+    const { date, time } = formatTimestamp(dose.timestamp)
+    dose.timeStr = time
+    if (!groups.has(date)) groups.set(date, { date, items: [] })
     groups.get(date).items.push(dose)
   }
-
   return [...groups.values()]
 })
 
 async function loadData() {
   loading.value = true
-  try {
-    doses.value = await store.getAllDoses()
-  } catch (e) {
-    console.error('[HistoryPage] loadData failed:', e)
-  } finally {
-    loading.value = false
-  }
+  try { doses.value = await store.getAllDoses() }
+  catch (e) { console.error('[HistoryPage] loadData failed:', e) }
+  finally { loading.value = false }
 }
 
-function confirmDelete(dose) {
-  pendingDelete.value = dose
-  deleteDialogOpen.value = true
-}
+function confirmDelete(dose: any) { pendingDelete.value = dose; deleteDialogOpen.value = true }
 
 async function doDelete() {
   if (!pendingDelete.value) return
   try {
     await store.removeDose(pendingDelete.value.dose_id)
     doses.value = doses.value.filter(d => d.dose_id !== pendingDelete.value.dose_id)
-  } catch (e) {
-    console.error('[HistoryPage] deleteDose failed:', e)
-  }
-  deleteDialogOpen.value = false
-  pendingDelete.value = null
+  } catch (e) { console.error('[HistoryPage] delete failed:', e) }
+  deleteDialogOpen.value = false; pendingDelete.value = null
 }
 
-function goAddDose() {
-  router.push({ name: 'add-dose' })
+function openEdit(dose: any) {
+  editingDose.value = dose
+  editingDrug.value = { name: dose.drugName, drug_id: dose.drug_id, model_type: 'one_compartment', parameters: {} }
+  const ts = new Date(dose.timestamp * 1000)
+  const local = new Date(ts.getTime() - ts.getTimezoneOffset() * 60000)
+  editAmount.value = String(dose.display_amount ?? dose.dose_amount)
+  editRoute.value = dose.route_of_administration || 'oral'
+  editTimestamp.value = local.toISOString().slice(0, 16)
+  panels.markSelection()
+  panels.advance(0)
 }
 
-onMounted(loadData)
+async function saveEdit() {
+  if (!editingDose.value || !editAmount.value || !editTimestamp.value) return
+  const amount = parseFloat(editAmount.value)
+  if (isNaN(amount) || amount <= 0) return
+  const newTs = new Date(editTimestamp.value).getTime() / 1000 / 3600
+  await store.removeDose(editingDose.value.dose_id)
+  await store.addDose({
+    dose_id: editingDose.value.dose_id,
+    drug_id: editingDose.value.drug_id,
+    dose_amount: amount,
+    timestamp: newTs,
+    route_of_administration: editRoute.value,
+  })
+  doses.value = await store.getAllDoses()
+  panels.reset()
+}
+
+function goAddDose() { router.push({ name: 'add-dose' }) }
 </script>
-
-<style scoped>
-.history-page {
-  margin: 0 auto;
-}
-
-.page-title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.loading-state,
-.empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 64px 0;
-  opacity: 0.6;
-}
-
-.empty-state p {
-  font-size: 14px;
-}
-
-.dose-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.date-header {
-  padding: 10px 16px;
-  font-size: 13px;
-  font-weight: 600;
-  opacity: 0.6;
-  background: var(--mdui-color-surface-container);
-}
-
-.dose-item {
-  --mdui-comp-list-item-padding: 8px 16px;
-}
-
-.dose-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.dose-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.dose-icon {
-  font-size: 20px;
-  color: var(--mdui-color-primary);
-}
-
-.dose-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.dose-drug-name {
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.dose-meta {
-  font-size: 12px;
-  opacity: 0.6;
-}
-</style>

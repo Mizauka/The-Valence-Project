@@ -1,25 +1,8 @@
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, reactive, onMounted, onUnmounted } from 'vue'
 
 const MOBILE_BP = 768
 
-/**
- * Generic multi-step sliding panel composable.
- *
- * Desktop (>=768px): show 2 panels side-by-side.
- *   (0,1) → (1,2) → … → (N-2, N-1)
- *
- * Mobile (<768px): show 1 panel at a time.
- *   0 → 1 → 2 → … → N-1
- *
- * `advance(fromPanel)` only succeeds when called from the rightmost
- * visible panel (or when step===0, which allows the first transition).
- *
- * CSS requirements:
- *   .viewport { overflow: hidden; }
- *   .track { display: flex; height: 100%; transition: transform .35s; }
- *   .track > * { flex: 1; min-width: 0; }
- */
-export function useSlidingPanels(totalPanels: number) {
+export function useSlidingPanels(totalPanels: number, placeholder?: { icon: string; text: string }) {
   const step = ref(0)
   const isMobile = ref(false)
 
@@ -35,64 +18,64 @@ export function useSlidingPanels(totalPanels: number) {
     window.removeEventListener('resize', checkMobile)
   })
 
-  // ── derived ──────────────────────────────────────────────
-
   const maxStep = computed(() =>
     isMobile.value ? totalPanels - 1 : totalPanels - 2
   )
 
-  /** Which panel is the rightmost visible one? */
-  const rightmostPanel = computed(() =>
-    isMobile.value ? step.value : step.value + 1
-  )
-
-  /** Track width as percentage of viewport. */
   const trackWidthPercent = computed(() =>
-    isMobile.value ? totalPanels * 100 : (totalPanels / 2) * 100
+    isMobile.value ? totalPanels * 100 : totalPanels * 50
   )
 
-  /** Horizontal offset of the track relative to viewport (%). */
-  const offsetPercent = computed(() => {
-    const onePanelPct = 100 / totalPanels
-    return step.value * onePanelPct * (isMobile.value ? 1 : 1)
-    // Desktop: step 0→0%, step 1→25%, …  (each step = 1 panel = 100/N %)
-    // Mobile:  step 0→0%, step 1→20%, …  (1 panel per step)
+  const offsetPercent = computed(() =>
+    isMobile.value ? step.value * 100 : step.value * 50
+  )
+
+  const _hasSelection = ref(false)
+  const _animating = ref(false)
+
+  function markSelection() { _hasSelection.value = true }
+
+  const showPlaceholder = computed(() => {
+    if (_hasSelection.value || _animating.value) return false
+    return placeholder !== undefined
   })
 
-  // ── actions ──────────────────────────────────────────────
-
-  /**
-   * Advance one step.
-   * @param fromPanel  Which panel index triggered this call.
-   *                   On desktop: only honoured from the rightmost visible panel
-   *                   (or step===0 for the first transition).
-   *                   On mobile: always allowed (single-panel flow).
-   */
   function advance(fromPanel?: number) {
     if (step.value >= maxStep.value) return
-    // Desktop guard: only rightmost panel (or step 0) can advance
-    if (!isMobile.value && fromPanel !== undefined && fromPanel !== rightmostPanel.value && step.value !== 0) return
     step.value++
-  }
-
-  function back() {
-    if (step.value > 0) step.value--
   }
 
   function reset() {
     step.value = 0
+    _hasSelection.value = false
   }
 
-  return {
-    step,
-    isMobile,
-    maxStep,
-    rightmostPanel,
-    trackWidthPercent,
-    offsetPercent,
+  function back(): boolean {
+    if (step.value > 0) {
+      _animating.value = true
+      step.value--
+      _hasSelection.value = false
+      setTimeout(() => { _animating.value = false }, 370)
+      return true
+    }
+    return false
+  }
+
+  const placeholderIcon = placeholder?.icon || 'edit_note'
+  const placeholderText = placeholder?.text || '在左侧选择后在此编辑'
+
+  return reactive({
+    get step() { return step.value },
+    get isMobile() { return isMobile.value },
+    get maxStep() { return maxStep.value },
+    get trackWidthPercent() { return trackWidthPercent.value },
+    get offsetPercent() { return offsetPercent.value },
+    get showPlaceholder() { return showPlaceholder.value },
+    placeholderIcon,
+    placeholderText,
     advance,
     back,
     reset,
-  }
+    markSelection,
+  })
 }
-
