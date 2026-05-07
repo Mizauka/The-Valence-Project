@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 mod pk;
+mod calibration;
 
 #[wasm_bindgen]
 #[derive(Serialize, Deserialize, Clone)]
@@ -89,6 +90,8 @@ pub struct ValenceEngine {
     drugs: HashMap<String, DrugRecord>,
     doses: Vec<DoseRecord>,
     weight_kg: f64,
+    calib_model: String,
+    lab_results: Vec<calibration::LabResult>,
 }
 
 fn param(map: &HashMap<String, f64>, key: &str, default: f64) -> f64 {
@@ -137,13 +140,28 @@ impl ValenceEngine {
         }
         param(&rep.parameters, "volume_of_distribution", 1.0)
     }
+
+    fn resolve_group_display_unit(&self, group_id: &str) -> String {
+        for (_id, drug) in &self.drugs {
+            if drug.group_id == group_id && !drug.depot_model && !drug.display_unit.is_empty() {
+                return drug.display_unit.clone();
+            }
+        }
+        "mg/L".to_string()
+    }
 }
 
 #[wasm_bindgen]
 impl ValenceEngine {
     #[wasm_bindgen(constructor)]
     pub fn new() -> Self {
-        ValenceEngine { drugs: HashMap::new(), doses: Vec::new(), weight_kg: 60.0 }
+        ValenceEngine {
+            drugs: HashMap::new(),
+            doses: Vec::new(),
+            weight_kg: 60.0,
+            calib_model: "ratio".to_string(),
+            lab_results: Vec::new(),
+        }
     }
 
     #[wasm_bindgen(js_name = setWeight)]
@@ -216,12 +234,204 @@ impl ValenceEngine {
     #[wasm_bindgen(js_name = clearDrugs)]
     pub fn clear_drugs(&mut self) { self.drugs.clear(); }
 
+    // ─── Calibration ─────────────────────────────────────────
+
+    #[wasm_bindgen(js_name = setCalibrationModel)]
+    pub fn set_calibration_model(&mut self, model: &str) {
+        self.calib_model = model.to_string();
+    }
+
+    #[wasm_bindgen(js_name = getCalibrationModel)]
+    pub fn get_calibration_model(&self) -> String {
+        self.calib_model.clone()
+    }
+
+    #[wasm_bindgen(js_name = addLabResult)]
+    pub fn add_lab_result(&mut self, lab: JsValue) -> Result<(), JsValue> {
+        let l: LabResult = serde_wasm_bindgen::from_value(lab)?;
+        self.lab_results.push(calibration::LabResult {
+            time_h: l.time_h,
+            conc_value: l.conc_value,
+            unit: l.unit,
+            group_id: l.group_id,
+        });
+        Ok(())
+    }
+
+    #[wasm_bindgen(js_name = clearLabResults)]
+    pub fn clear_lab_results(&mut self) { self.lab_results.clear(); }
+
+    #[wasm_bindgen(js_name = getLabResults)]
+    pub fn get_lab_results(&self) -> JsValue {
+        let list: Vec<LabResult> = self.lab_results.iter().map(|l| LabResult {
+            id: String::new(),
+            time_h: l.time_h,
+            conc_value: l.conc_value,
+            unit: l.unit.clone(),
+            group_id: l.group_id.clone(),
+        }).collect();
+        serde_wasm_bindgen::to_value(&list).unwrap_or(JsValue::NULL)
+    }
+
+    #[wasm_bindgen(js_name = getUserData)]
+    pub fn get_user_data_json(&self) -> String {
+        let calib = CalibrationState {
+            model: self.calib_model.clone(),
+            lab_results_json: {
+                let list: Vec<LabResult> = self.lab_results.iter().map(|l| LabResult {
+                    id: String::new(),
+                    time_h: l.time_h,
+                    conc_value: l.conc_value,
+                    unit: l.unit.clone(),
+                    group_id: l.group_id.clone(),
+                }).collect();
+                serde_json::to_string(&list).unwrap_or_else(|_| "[]".to_string())
+            },
+        };
+        let user = UserData {
+            weight_kg: self.weight_kg,
+            calibration: serde_json::to_string(&calib).unwrap_or_else(|_| "{}".to_string()),
+        };
+        serde_json::to_string(&user).unwrap_or_else(|_| "{}".to_string())
+    }
+
+    #[wasm_bindgen(js_name = loadUserData)]
+    pub fn load_user_data(&mut self, json_str: &str) -> Result<(), JsValue> {
+        let user: UserData = serde_json::from_str(json_str)
+            .map_err(|e| JsValue::from_str(&format!("JSON parse error: {}", e)))?;
+        if user.weight_kg > 0.0 {
+            self.weight_kg = user.weight_kg;
+        }
+        if !user.calibration.is_empty() {
+            if let Ok(calib) = serde_json::from_str::<CalibrationState>(&user.calibration) {
+                self.calib_model = calib.model;
+                if !calib.lab_results_json.is_empty() {
+                    if let Ok(labs) = serde_json::from_str::<Vec<LabResult>>(&calib.lab_results_json) {
+                        self.lab_results = labs.iter().map(|l| calibration::LabResult {
+                            time_h: l.time_h,
+                            conc_value: l.conc_value,
+                            unit: l.unit.clone(),
+                            group_id: l.group_id.clone(),
+                        }).collect();
+                    }
+                }
+            }
+        }
+        Ok(())
+    }
+
+    /// Apply calibration to a single SimulationOutput, returning a new one
+    /// with calibrated concentrations. Only lab results matching the
+    /// simulation's drug_name (group_id) are applied.
+    #[wasm_bindgen(js_name = applyCalibration)]
+    pub fn apply_calibration(&self, sim: JsValue) -> JsValue {
+        let output: SimulationOutput = match serde_wasm_bindgen::from_value(sim) {
+            Ok(o) => o,
+            Err(_) => return JsValue::NULL,
+        };
+
+        let n = output.time_h.len();
+        if n == 0 || self.lab_results.is_empty() {
+            return serde_wasm_bindgen::to_value(&output).unwrap_or(JsValue::NULL);
+        }
+
+        // Filter lab results to only those matching this simulation's drug group
+        let group_labs: Vec<calibration::LabResult> = self.lab_results.iter()
+            .filter(|l| {
+                l.group_id.is_empty() || l.group_id == output.drug_name
+            })
+            .cloned()
+            .collect();
+
+        if group_labs.is_empty() {
+            return serde_wasm_bindgen::to_value(&output).unwrap_or(JsValue::NULL);
+        }
+
+        let calib_conc = if self.calib_model == "ou-kalman" {
+            let params = calibration::OUKalmanParams::default();
+            calibration::apply_ou_kalman_to_conc(
+                &output.time_h, &output.concentrations, &group_labs, &params,
+            )
+        } else {
+            // ratio interpolator (default)
+            let points = calibration::build_ratio_interpolator(
+                &output.time_h, &output.concentrations, &group_labs,
+            );
+            output.time_h.iter()
+                .map(|&t| {
+                    let ratio = calibration::eval_ratio_interpolator(&points, t);
+                    let idx = output.time_h.iter().position(|&x| (x - t).abs() < 1e-9).unwrap_or(0);
+                    let conc = if idx < output.concentrations.len() { output.concentrations[idx] } else { 0.0 };
+                    conc * ratio
+                })
+                .collect::<Vec<_>>()
+        };
+
+        let calibrated = SimulationOutput {
+            time_h: output.time_h.clone(),
+            concentrations: calib_conc,
+            drug_name: output.drug_name.clone(),
+            display_unit: output.display_unit.clone(),
+        };
+
+        serde_wasm_bindgen::to_value(&calibrated).unwrap_or(JsValue::NULL)
+    }
+
+    /// Return calibration band with confidence intervals as a JS object.
+    /// Returns null if no calibration data is available for this drug group.
+    #[wasm_bindgen(js_name = getCalibrationBand)]
+    pub fn get_calibration_band(&self, sim: JsValue) -> JsValue {
+        let output: SimulationOutput = match serde_wasm_bindgen::from_value(sim) {
+            Ok(o) => o,
+            Err(_) => return JsValue::NULL,
+        };
+
+        if output.time_h.is_empty() || self.lab_results.is_empty() {
+            return JsValue::NULL;
+        }
+
+        let group_labs: Vec<calibration::LabResult> = self.lab_results.iter()
+            .filter(|l| l.group_id.is_empty() || l.group_id == output.drug_name)
+            .cloned()
+            .collect();
+
+        if group_labs.is_empty() {
+            return JsValue::NULL;
+        }
+
+        let band = calibration::generate_calibration_band(
+            &self.calib_model,
+            &output.time_h,
+            &output.concentrations,
+            &group_labs,
+        );
+
+        match band {
+            Some(b) => {
+                let obj = js_sys::Object::new();
+                js_sys::Reflect::set(&obj, &"calibrated".into(), &serde_wasm_bindgen::to_value(&b.calibrated).unwrap_or(JsValue::NULL)).ok();
+                js_sys::Reflect::set(&obj, &"ci95_low".into(), &serde_wasm_bindgen::to_value(&b.ci95_low).unwrap_or(JsValue::NULL)).ok();
+                js_sys::Reflect::set(&obj, &"ci95_high".into(), &serde_wasm_bindgen::to_value(&b.ci95_high).unwrap_or(JsValue::NULL)).ok();
+                js_sys::Reflect::set(&obj, &"ci68_low".into(), &serde_wasm_bindgen::to_value(&b.ci68_low).unwrap_or(JsValue::NULL)).ok();
+                js_sys::Reflect::set(&obj, &"ci68_high".into(), &serde_wasm_bindgen::to_value(&b.ci68_high).unwrap_or(JsValue::NULL)).ok();
+                obj.into()
+            },
+            None => JsValue::NULL,
+        }
+    }
+
     #[wasm_bindgen(js_name = exportData)]
     pub fn export_data(&self) -> JsValue {
         let drugs: Vec<&DrugRecord> = self.drugs.values().collect();
         let mut sorted_doses = self.doses.clone();
         sorted_doses.sort_by(|a, b| a.timestamp.partial_cmp(&b.timestamp).unwrap());
-        let payload = serde_json::json!({ "weight": self.weight_kg, "drugs": drugs, "doses": sorted_doses });
+        let user_json = self.get_user_data_json();
+        let payload = serde_json::json!({
+            "weight": self.weight_kg,
+            "drugs": drugs,
+            "doses": sorted_doses,
+            "user": user_json,
+        });
         serde_wasm_bindgen::to_value(&payload).unwrap_or(JsValue::NULL)
     }
 
@@ -231,6 +441,9 @@ impl ValenceEngine {
             .map_err(|e| JsValue::from_str(&format!("JSON parse error: {}", e)))?;
         if let Some(w) = data.get("weight").and_then(|v| v.as_f64()) {
             if w > 0.0 { self.weight_kg = w; }
+        }
+        if let Some(user_str) = data.get("user").and_then(|v| v.as_str()) {
+            self.load_user_data(user_str).ok();
         }
         if let Some(drugs) = data.get("drugs").and_then(|v| v.as_array()) {
             for d in drugs {
@@ -288,10 +501,14 @@ impl ValenceEngine {
         } else {
             rep_drug.group_id.clone()
         };
-        let display_unit = if rep_drug.display_unit.is_empty() {
-            "mg/L".to_string()
-        } else {
+
+        // Resolve display_unit: use the group parent drug's if first drug lacks one
+        let display_unit = if !rep_drug.display_unit.is_empty() {
             rep_drug.display_unit.clone()
+        } else if !rep_drug.group_id.is_empty() {
+            self.resolve_group_display_unit(&rep_drug.group_id)
+        } else {
+            "mg/L".to_string()
         };
 
         let any_injection = items.iter().any(|i| i.dose.route == "injection");
@@ -310,6 +527,15 @@ impl ValenceEngine {
         let vd_ml = vd_per_kg * self.weight_kg * 1000.0;
         if vd_ml <= 0.0 { return None; }
 
+        // Unit conversion: simulation produces mg/mL, convert to display_unit
+        let unit_factor: f64 = match display_unit.as_str() {
+            "pg/mL" => 1e9,
+            "ng/mL" => 1e6,
+            "µg/mL" => 1000.0,
+            "mg/L"  => 1000.0,
+            _ => 1.0,
+        };
+
         let mut time_h = Vec::with_capacity(steps);
         let mut concentrations = Vec::with_capacity(steps);
 
@@ -325,7 +551,7 @@ impl ValenceEngine {
                 );
             }
             time_h.push(t);
-            concentrations.push(total / vd_ml);
+            concentrations.push(total / vd_ml * unit_factor);
         }
 
         Some(SimulationOutput { time_h, concentrations, drug_name: group_name, display_unit })
@@ -353,4 +579,35 @@ fn route_amount(drug: &DrugRecord, tau: f64, dose_mg: f64, route: &str, molar_fa
         }
         _ => 0.0,
     }
+}
+
+#[wasm_bindgen]
+#[derive(Serialize, Deserialize, Clone)]
+pub struct LabResult {
+    #[wasm_bindgen(getter_with_clone)]
+    pub id: String,
+    pub time_h: f64,
+    pub conc_value: f64,
+    #[wasm_bindgen(getter_with_clone)]
+    pub unit: String,
+    #[wasm_bindgen(getter_with_clone)]
+    #[serde(default)]
+    pub group_id: String,
+}
+
+#[wasm_bindgen]
+#[derive(Serialize, Deserialize, Clone)]
+pub struct CalibrationState {
+    #[wasm_bindgen(getter_with_clone)]
+    pub model: String, // "ratio" | "ou-kalman"
+    #[wasm_bindgen(getter_with_clone)]
+    pub lab_results_json: String, // JSON-serialized Vec<LabResult>
+}
+
+#[wasm_bindgen]
+#[derive(Serialize, Deserialize, Clone)]
+pub struct UserData {
+    pub weight_kg: f64,
+    #[wasm_bindgen(getter_with_clone)]
+    pub calibration: String, // JSON-serialized CalibrationState
 }

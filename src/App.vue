@@ -5,10 +5,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
-    height: 100%;">
-    <mdui-layout-item placement="left" class="example-layout-item" style="width: 100px"> <mdui-navigation-rail
-        contained>
+">
+    <mdui-layout-item placement="left" class="example-layout-item">
+      <mdui-navigation-rail contained alignment="center">
 
         <mdui-button-icon icon="medical_services--outlined" slot="top" @click="navigateTo('home')"></mdui-button-icon>
         <mdui-fab lowered icon="add" slot="top" :class="['nav-fab', { 'nav-fab--active': currentRoute === 'add-dose' }]"
@@ -26,21 +25,14 @@
       <mdui-top-app-bar-title>The Valence Project</mdui-top-app-bar-title>
     </mdui-top-app-bar>
 
-    <mdui-layout-main style="min-height: 300px">
-      <div class="content-area">
-        <div class="page-container">
-          <router-view />
-        </div>
+    <mdui-layout-main class="content-area">
+      <div class="page-container">
+        <router-view />
       </div>
     </mdui-layout-main>
   </mdui-layout>
 
 
-  <div class="app-shell">
-
-
-
-  </div>
 </template>
 
 <script setup>

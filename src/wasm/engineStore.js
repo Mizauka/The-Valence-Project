@@ -127,10 +127,17 @@ async function _init() {
 
     await restoreExternalDir()
 
-    const savedWeightRaw = await opfsRead('weight')
+    await loadUserDataFromOPFS(_engine)
+
+    // Migrate old separate weight storage to user.json
+    const savedWeightRaw = readFallback('weight')
     if (savedWeightRaw) {
       const w = parseFloat(savedWeightRaw)
-      if (!isNaN(w) && w > 0) _engine.setWeight(w)
+      if (!isNaN(w) && w > 0 && _engine.getWeight() === 60) {
+        _engine.setWeight(w)
+        await saveUserData(_engine)
+        try { localStorage.removeItem('valence_weight') } catch {}
+      }
     }
 
     await loadPresetDrugs(_engine)
@@ -365,6 +372,22 @@ async function loadDosesFromOPFS(engine) {
   console.log(`[engineStore] loaded ${data.events.length} doses from OPFS`)
 }
 
+async function loadUserDataFromOPFS(engine) {
+  const raw = await opfsRead('user.json')
+  if (!raw) return
+  try {
+    engine.loadUserData(raw)
+    console.log('[engineStore] loaded user data, weight:', engine.getWeight())
+  } catch (e) {
+    console.warn('[engineStore] failed to load user data:', e)
+  }
+}
+
+async function saveUserData(engine) {
+  const json = engine.getUserData()
+  await opfsWrite('user.json', json)
+}
+
 async function saveAll(engine) {
   const rawDrugs = engine.getAllDrugs()
   const allDrugs = JSON.parse(JSON.stringify(rawDrugs))
@@ -395,7 +418,7 @@ async function saveAll(engine) {
   await Promise.all([
     opfsWrite('custom_drugs.json', JSON.stringify(customDrugs, null, 2)),
     opfsWrite('doses.json', JSON.stringify(payload, null, 2)),
-    opfsWrite('weight', String(engine.getWeight())),
+    saveUserData(engine),
   ])
 
   if (_externalDirHandle) {
@@ -416,15 +439,16 @@ async function syncToExternalDir(engine, customDrugs, payload) {
       // use root
     }
 
-    const cdFile = await dataDir.getFileHandle('custom_drugs.json', { create: true })
-    const cdW = await cdFile.createWritable()
-    await cdW.write(JSON.stringify(customDrugs, null, 2))
-    await cdW.close()
+    const writeFile = async (dir, name, content) => {
+      const fh = await dir.getFileHandle(name, { create: true })
+      const w = await fh.createWritable()
+      await w.write(content)
+      await w.close()
+    }
 
-    const dsFile = await dataDir.getFileHandle('doses.json', { create: true })
-    const dsW = await dsFile.createWritable()
-    await dsW.write(JSON.stringify(payload, null, 2))
-    await dsW.close()
+    await writeFile(dataDir, 'custom_drugs.json', JSON.stringify(customDrugs, null, 2))
+    await writeFile(dataDir, 'doses.json', JSON.stringify(payload, null, 2))
+    await writeFile(dataDir, 'user.json', engine.getUserData())
 
     console.log('[engineStore] synced to', _externalDirHandle.name)
   } catch (e) {
@@ -617,10 +641,45 @@ export async function importAllData(jsonStr) {
 export async function setWeight(kg) {
   const engine = await getEngine()
   engine.setWeight(kg)
-  await saveAll(engine)
+  await saveUserData(engine)
 }
 
 export async function getWeight() {
   const engine = await getEngine()
   return engine.getWeight()
+}
+
+// ─── Calibration ───────────────────────────────────────────────
+
+export async function getCalibrationModel() {
+  const engine = await getEngine()
+  return engine.getCalibrationModel()
+}
+
+export async function setCalibrationModel(model) {
+  const engine = await getEngine()
+  engine.setCalibrationModel(model)
+  await saveUserData(engine)
+}
+
+export async function addLabResult(lab) {
+  const engine = await getEngine()
+  engine.addLabResult(lab)
+  await saveUserData(engine)
+}
+
+export async function clearLabResults() {
+  const engine = await getEngine()
+  engine.clearLabResults()
+  await saveUserData(engine)
+}
+
+export async function getLabResults() {
+  const engine = await getEngine()
+  return JSON.parse(JSON.stringify(engine.getLabResults()))
+}
+
+export async function getLabResultCount() {
+  const list = await getLabResults()
+  return list.length
 }

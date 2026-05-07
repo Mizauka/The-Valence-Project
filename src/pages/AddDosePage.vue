@@ -1,126 +1,134 @@
 <template>
   <div class="page add-dose-page">
-    <template v-if="step === 1">
-      <div class="step-header">
-        <h2 class="page-title">选择药物</h2>
-        <p class="step-desc">搜索并选择你要记录的药物</p>
-      </div>
+    <div class="dose-viewport">
+      <div class="dose-track" :style="{ width: panels.trackWidthPercent.value + '%', transform: `translateX(-${panels.offsetPercent.value}%)` }">
 
-      <div class="search-box">
-        <mdui-text-field
-          :value="searchQuery"
-          label="搜索药物"
-          variant="outlined"
-          icon="search"
-          clearable
-          placeholder="输入药物名称..."
-          @input="onSearchInput"
-          @clear="onSearchClear"
-        ></mdui-text-field>
-      </div>
-
-      <mdui-tabs :value="activeSource" @change="onSourceChange" class="source-tabs">
-        <mdui-tab value="all">全部</mdui-tab>
-        <mdui-tab value="hrt">HRT</mdui-tab>
-        <mdui-tab value="journal">Journal</mdui-tab>
-        <mdui-tab value="custom">自定义</mdui-tab>
-      </mdui-tabs>
-
-      <div class="drug-list" v-if="displayDrugs.length > 0">
-        <mdui-card clickable
-          v-for="drug in displayDrugs"
-          :key="drug.drug_id"
-          variant="outlined"
-          class="drug-card"
-          @click="selectDrug(drug)"
-        >
-          <div class="drug-card-content">
-            <div class="drug-card-main">
-              <span class="drug-card-name">{{ drug.name }}</span>
-              <span class="drug-card-model">{{ modelLabel(drug.model_type) }}</span>
-            </div>
-            <div class="drug-card-meta">
-              <span v-if="drug.source === 'hrt'" class="source-tag hrt">HRT</span>
-              <span v-else-if="drug.source === 'journal'" class="source-tag journal">Journal</span>
-              <span v-else class="source-tag custom">自定义</span>
-              <span v-if="drug.parameters.equivalence_factor" class="eq-tag">
-                等效={{ drug.parameters.equivalence_factor }}
-              </span>
-              <span class="hl-tag">t½={{ drug.parameters.half_life }}h</span>
-            </div>
+        <!-- Panel 0: Drug Select -->
+        <div class="dose-panel"><div class="dose-panel-inner">
+          <div class="step-header">
+            <h2 class="page-title">选择药物</h2>
+            <p class="step-desc">搜索并选择你要记录的药物</p>
           </div>
-        </mdui-card>
-        <div v-if="hasMore" class="load-more" @click="loadMore">
-          加载更多 ({{ displayedCount }}/{{ sourceFilteredDrugs.length }})
-        </div>
-      </div>
 
-      <div class="empty-state" v-else>
-        <mdui-icon name="search_off"></mdui-icon>
-        <p>{{ searchQuery ? '未找到匹配药物' : (allDrugs.length === 0 ? '加载中...' : '该分类下暂无药物') }}</p>
-      </div>
-    </template>
+          <div class="search-box">
+            <mdui-text-field
+              :value="searchQuery"
+              label="搜索药物"
+              variant="outlined"
+              icon="search"
+              clearable
+              placeholder="输入药物名称..."
+              @input="onSearchInput"
+              @clear="onSearchClear"
+            ></mdui-text-field>
+          </div>
 
-    <template v-if="step === 2">
-      <div class="step-header">
-        <mdui-button-icon icon="arrow_back" @click="step = 1"></mdui-button-icon>
-        <div>
-          <h2 class="page-title">记录剂量</h2>
-          <p class="step-desc">{{ selectedDrug?.name }}</p>
-        </div>
-      </div>
+          <mdui-tabs :value="activeSource" @change="onSourceChange" class="source-tabs">
+            <mdui-tab value="all">全部</mdui-tab>
+            <mdui-tab value="hrt">HRT</mdui-tab>
+            <mdui-tab value="journal">Journal</mdui-tab>
+            <mdui-tab value="custom">自定义</mdui-tab>
+          </mdui-tabs>
 
-      <mdui-card variant="outlined" class="form-card">
-        <div class="form-content">
-          <div class="selected-drug-banner">
-            <mdui-icon name="medication" class="banner-icon"></mdui-icon>
-            <div class="banner-info">
-              <span class="banner-name">{{ selectedDrug?.name }}</span>
-              <span class="banner-detail">
-                {{ modelLabel(selectedDrug?.model_type) }}
-                <template v-if="selectedDrug?.parameters?.equivalence_factor">
-                  · 等效系数={{ selectedDrug.parameters.equivalence_factor }}
-                </template>
-                · t½={{ selectedDrug?.parameters?.half_life }}h
-              </span>
+          <div class="drug-list" v-if="displayDrugs.length > 0">
+            <mdui-card clickable
+              v-for="drug in displayDrugs"
+              :key="drug.drug_id"
+              variant="outlined"
+              class="drug-card"
+              @click="selectDrug(drug)"
+            >
+              <div class="drug-card-content">
+                <div class="drug-card-main">
+                  <span class="drug-card-name">{{ drug.name }}</span>
+                  <span class="drug-card-model">{{ modelLabel(drug.model_type) }}</span>
+                </div>
+                <div class="drug-card-meta">
+                  <span v-if="drug.source === 'hrt'" class="source-tag hrt">HRT</span>
+                  <span v-else-if="drug.source === 'journal'" class="source-tag journal">Journal</span>
+                  <span v-else class="source-tag custom">自定义</span>
+                  <span v-if="drug.parameters.equivalence_factor" class="eq-tag">
+                    等效={{ drug.parameters.equivalence_factor }}
+                  </span>
+                  <span class="hl-tag">t½={{ drug.parameters.half_life }}h</span>
+                </div>
+              </div>
+            </mdui-card>
+            <div v-if="hasMore" class="load-more" @click="loadMore">
+              加载更多 ({{ displayedCount }}/{{ sourceFilteredDrugs.length }})
             </div>
           </div>
 
-          <mdui-text-field
-            :value="doseAmount"
-            :label="'剂量 (' + currentDoseUnit + ')'"
-            type="number"
-            variant="outlined"
-            @input="onDoseInput"
-          ></mdui-text-field>
+          <div class="empty-state" v-else>
+            <mdui-icon name="search_off"></mdui-icon>
+            <p>{{ searchQuery ? '未找到匹配药物' : (allDrugs.length === 0 ? '加载中...' : '该分类下暂无药物') }}</p>
+          </div>
+        </div></div>
 
-          <mdui-select
-            :value="route"
-            label="给药方式"
-            variant="outlined"
-            @change="onRouteChange"
-          >
-            <mdui-menu-item
-              v-for="r in availableRoutes"
-              :key="r.route"
-              :value="r.route"
-            >{{ routeLabel(r.route) }}</mdui-menu-item>
-          </mdui-select>
+        <!-- Panel 1: Dose Form -->
+        <div class="dose-panel"><div class="dose-panel-inner">
+          <div class="step-header">
+            <mdui-button-icon icon="arrow_back" @click="panels.back()"></mdui-button-icon>
+            <div>
+              <h2 class="page-title">记录剂量</h2>
+              <p class="step-desc">{{ selectedDrug?.name }}</p>
+            </div>
+          </div>
 
-          <mdui-text-field
-            :value="timestamp"
-            label="给药时间"
-            type="datetime-local"
-            variant="outlined"
-            @input="onTimestampInput"
-          ></mdui-text-field>
+          <mdui-card variant="outlined" class="form-card">
+            <div class="form-content">
+              <div class="selected-drug-banner">
+                <mdui-icon name="medication" class="banner-icon"></mdui-icon>
+                <div class="banner-info">
+                  <span class="banner-name">{{ selectedDrug?.name }}</span>
+                  <span class="banner-detail">
+                    {{ modelLabel(selectedDrug?.model_type) }}
+                    <template v-if="selectedDrug?.parameters?.equivalence_factor">
+                      · 等效系数={{ selectedDrug.parameters.equivalence_factor }}
+                    </template>
+                    · t½={{ selectedDrug?.parameters?.half_life }}h
+                  </span>
+                </div>
+              </div>
 
-          <mdui-button variant="filled" full-width @click="saveDose" :disabled="!canSave">
-            确认记录
-          </mdui-button>
-        </div>
-      </mdui-card>
-    </template>
+              <mdui-text-field
+                :value="doseAmount"
+                :label="'剂量 (' + currentDoseUnit + ')'"
+                type="number"
+                variant="outlined"
+                @input="onDoseInput"
+              ></mdui-text-field>
+
+              <mdui-select
+                :value="route"
+                label="给药方式"
+                variant="outlined"
+                @change="onRouteChange"
+              >
+                <mdui-menu-item
+                  v-for="r in availableRoutes"
+                  :key="r.route"
+                  :value="r.route"
+                >{{ routeLabel(r.route) }}</mdui-menu-item>
+              </mdui-select>
+
+              <mdui-text-field
+                :value="timestamp"
+                label="给药时间"
+                type="datetime-local"
+                variant="outlined"
+                @input="onTimestampInput"
+              ></mdui-text-field>
+
+              <mdui-button variant="filled" full-width @click="saveDose" :disabled="!canSave">
+                确认记录
+              </mdui-button>
+            </div>
+          </mdui-card>
+        </div></div>
+
+      </div>
+    </div>
   </div>
 </template>
 
@@ -128,10 +136,11 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import * as store from '../wasm/engineStore'
+import { useSlidingPanels } from '../composables/useSlidingPanels'
 
 const router = useRouter()
+const panels = useSlidingPanels(2)
 
-const step = ref(1)
 const searchQuery = ref('')
 const activeSource = ref('all')
 const allDrugs = ref([])
@@ -244,7 +253,7 @@ async function selectDrug(drug) {
   doseAmount.value = ''
   const routes = drug.routes || [{ route: 'oral', unit: drug.dose_unit || 'mg' }]
   route.value = routes[0]?.route || 'oral'
-  step.value = 2
+  panels.advance(0) // from panel 0 (drug select)
 
   await store.addDrug({
     drug_id: drug.drug_id,
@@ -298,11 +307,19 @@ function modelLabel(modelType) {
   overflow: hidden;
 }
 
+/* ── Sliding panels ── */
+.dose-viewport { flex: 1; overflow: hidden; min-height: 0; }
+.dose-track { display: flex; height: 100%; transition: transform .35s cubic-bezier(.4,0,.2,1); will-change: transform; }
+.dose-panel { flex: 1; min-width: 0; overflow-y: auto; }
+.dose-panel + .dose-panel { border-left: 1px solid var(--mdui-color-outline-variant, rgba(0,0,0,.08)); }
+.dose-panel-inner { padding: 0 4px; display: flex; flex-direction: column; gap: 12px; height: 100%; }
+
 .step-header {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
   flex-shrink: 0;
+  gap: 8px;
 }
 
 .step-header .page-title {
@@ -319,13 +336,11 @@ function modelLabel(modelType) {
 }
 
 .search-box {
-  margin-bottom: 12px;
   flex-shrink: 0;
 }
 
 .source-tabs {
   flex-shrink: 0;
-  margin-bottom: 8px;
 }
 
 .drug-list {
@@ -467,5 +482,11 @@ function modelLabel(modelType) {
   font-size: 12px;
   opacity: 0.7;
   color: var(--mdui-color-on-primary-container);
+}
+
+/* ── mobile: single panel, no divider ── */
+@media (max-width: 767px) {
+  .dose-panel + .dose-panel { border-left: none; }
+  .dose-panel-inner { padding: 0 2px; }
 }
 </style>
