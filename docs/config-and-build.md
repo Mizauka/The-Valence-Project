@@ -51,9 +51,7 @@ wasm-pack build --target web --out-dir ../public/wasm
 |------|------|------|
 | `vue` | ^3.5.32 | 前端框架 |
 | `vue-router` | ^4.5.0 | 路由 |
-| `chart.js` | ^4.4.0 | 图表库 |
-| `chartjs-adapter-date-fns` | ^3.0.0 | Chart.js 日期适配器 |
-| `date-fns` | ^4.1.0 | 日期工具库 |
+| `echarts` | ^6 | 图表库（替代 Chart.js） |
 | `mdui` | ^2.1.4 | Material Design 3 UI 组件库 |
 | `@fontsource/material-icons` | ^5.2.7 | Material Icons 字体 |
 | `@fontsource/material-icons-outlined` | ^5.2.6 | Material Icons Outlined 字体 |

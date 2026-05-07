@@ -46,8 +46,52 @@ pub struct ValenceEngine {
     drugs: HashMap<String, DrugRecord>,
     doses: Vec<DoseRecord>,
     weight_kg: f64,
+    calib_model: String,              // "ratio" | "ou-kalman"
+    lab_results: Vec<calibration::LabResult>,
 }
 ```
+
+---
+
+## 校准数据结构
+
+### calibration::LabResult
+血检/实验室测定结果。
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `time_h` | `f64` | 采样时间（小时） |
+| `conc_value` | `f64` | 浓度值 |
+| `unit` | `String` | 单位（"pg/ml" / "pmol/l"） |
+| `group_id` | `String` | 物质组标识（空 = 适用所有） |
+
+### CalibrationState（JS 导出）
+| 字段 | 说明 |
+|------|------|
+| `model` | 校准模型："ratio" / "ou-kalman" |
+| `lab_results_json` | JSON 序列化的 Vec\<LabResult\> |
+
+### UserData（JS 导出）
+| 字段 | 说明 |
+|------|------|
+| `weight_kg` | 体重 (kg) |
+| `calibration` | JSON 序列化的 CalibrationState |
+
+---
+
+## 校准方法
+
+| 方法 | 说明 |
+|------|------|
+| `setCalibrationModel(model)` | 设置校准模型（"ratio" / "ou-kalman"） |
+| `getCalibrationModel()` | 获取当前校准模型 |
+| `addLabResult(lab)` | 添加一条血检记录 |
+| `clearLabResults()` | 清空所有血检记录 |
+| `getLabResults()` | 获取所有血检记录 |
+| `applyCalibration(sim)` | 对仿真结果应用校准，返回校准后的 SimulationOutput |
+| `getCalibrationBand(sim)` | 返回 {calibrated, ci95_low, ci95_high, ci68_low, ci68_high} 数组 |
+| `getUserData()` | 导出 UserData JSON 字符串 |
+| `loadUserData(json)` | 从 JSON 恢复 UserData（体重 + 校准状态） |
 
 简洁——无硬编码模型实例。
 
@@ -81,8 +125,12 @@ pub struct ValenceEngine {
 ### `simulate_group(items)`
 1. 取代表药物的 `group_name` 和 `display_unit`
 2. 判断是否有口服/注射，选择步长
-3. 计算 Vd：`resolve_group_vd() * weight * 1000`
-4. 逐采样点累加 `route_amount()`
+3. 计算 Vd：`resolve_group_vd() * weight * 1000`（单位：mL）
+4. 逐采样点累加 `route_amount()`（单位：mg）
+5. **单位转换**：`total / vd_ml * unit_factor`，其中 `unit_factor` 由 `display_unit` 决定：
+   - `pg/mL` → ×10⁹
+   - `ng/mL` → ×10⁶
+   - `µg/mL` / `mg/L` → ×10³
 
 ### `route_amount(drug, tau, dose_mg, route, molar_factor) → f64`
 模型分发（纯数据驱动）：

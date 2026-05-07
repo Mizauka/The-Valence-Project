@@ -98,9 +98,9 @@
 
 ### `saveAll(engine)`
 保存所有数据到 OPFS：
-- `custom_drugs.json` — 自定义药物（排除 hrt_/journal_ 前缀）
+- `custom_drugs.json` — 自定义药物
 - `doses.json` — 剂量记录（含 weight 和 events 数组）
-- `weight` — 体重值
+- `user.json` — 用户数据（体重 + 校准模型 + 血检记录）
 
 如果有外部目录句柄，同步调用 `syncToExternalDir()`。
 
@@ -147,6 +147,20 @@
 | `getExternalDirName()` | 获取外部目录名称 |
 | `checkExternalDirPermission()` | 检查外部目录权限 |
 | `requestExternalDirPermission()` | 请求重新授权 |
+| `getCalibrationModel()` / `setCalibrationModel(m)` | 校准模型读写 |
+| `addLabResult(lab)` | 添加血检记录 |
+| `clearLabResults()` | 清空血检记录 |
+| `getLabResults()` | 获取血检记录 |
+
+---
+
+## 持久化文件
+
+| 文件名 | 内容 |
+|--------|------|
+| `custom_drugs.json` | 自定义药物 |
+| `doses.json` | 剂量记录（weight + events 数组） |
+| `user.json` | 用户数据（体重 + 校准状态 JSON） |
 
 ---
 

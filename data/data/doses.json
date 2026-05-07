@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 1,
-    "exportedAt": "2026-05-07T12:14:49.197Z"
+    "exportedAt": "2026-05-07T12:41:56.726Z"
   },
   "weight": 55,
   "events": [
@@ -33,6 +33,16 @@
       "doseMG": 30,
       "extras": {
         "drug_id": "journal_oxazepam"
+      }
+    },
+    {
+      "id": "c552acd8-029f-41e0-8cc8-d658a432bb4d",
+      "route": "oral",
+      "ester": "Estradiol Valerate",
+      "timeH": 493956.68333333335,
+      "doseMG": 4,
+      "extras": {
+        "drug_id": "hrt_ev"
       }
     }
   ]
