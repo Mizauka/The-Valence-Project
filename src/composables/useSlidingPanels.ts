@@ -64,13 +64,14 @@ export function useSlidingPanels(totalPanels: number) {
   /**
    * Advance one step.
    * @param fromPanel  Which panel index triggered this call.
-   *                   Only honoured when it matches the rightmost visible panel,
-   *                   unless step===0 (first transition always allowed).
+   *                   On desktop: only honoured from the rightmost visible panel
+   *                   (or step===0 for the first transition).
+   *                   On mobile: always allowed (single-panel flow).
    */
   function advance(fromPanel?: number) {
     if (step.value >= maxStep.value) return
-    // Allow if fromPanel matches the rightmost, or if we're at step 0
-    if (fromPanel !== undefined && fromPanel !== rightmostPanel.value && step.value !== 0) return
+    // Desktop guard: only rightmost panel (or step 0) can advance
+    if (!isMobile.value && fromPanel !== undefined && fromPanel !== rightmostPanel.value && step.value !== 0) return
     step.value++
   }
 
