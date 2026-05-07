@@ -105,7 +105,7 @@ const editingDose = ref<any>(null); const editingDrug = ref<any>(null)
 const editAmount = ref(''); const editRoute = ref('oral'); const editTimestamp = ref('')
 const editRoutes = computed(() => [{ route: 'oral', unit: 'mg' }])
 const editDoseUnit = computed(() => 'mg')
-const editCanSave = computed(() => parseFloat(editAmount.value) > 0 && editTimestamp.value)
+const editCanSave = computed(() => parseFloat(editAmount.value) > 0 && editTimestamp.value.length > 0)
 
 function formatTimestamp(ts: number) {
   const d = new Date(ts * 1000)

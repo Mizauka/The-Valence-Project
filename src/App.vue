@@ -14,8 +14,11 @@
     </mdui-navigation-rail>
 
     <div class="app-desktop-container">
-      <mdui-top-app-bar scroll-behavior="elevate" scroll-target=".app-scroll-content" class="app-topbar">
+      <mdui-top-app-bar scroll-behavior="shrink" scroll-target=".app-scroll-content" class="app-topbar">
+        <mdui-button-icon icon="menu"></mdui-button-icon>
         <mdui-top-app-bar-title>{{ pageTitle }}</mdui-top-app-bar-title>
+        <div style="flex-grow: 1"></div>
+        <mdui-button-icon icon="more_vert"></mdui-button-icon>
       </mdui-top-app-bar>
       <div class="app-scroll-content">
         <router-view />
@@ -26,8 +29,15 @@
   <!-- Mobile layout: top-app-bar + bottom-app-bar with scroll-target -->
   <template v-else>
     <div class="app-mobile-container">
-      <mdui-top-app-bar scroll-behavior="shrink" scroll-target=".app-scroll-content" class="app-topbar">
-        <mdui-top-app-bar-title>{{ pageTitle }}</mdui-top-app-bar-title>
+      <mdui-top-app-bar variant="medium" scroll-behavior="shrink" scroll-target=".app-scroll-content"
+        class="app-topbar">
+        <mdui-button-icon icon="menu"></mdui-button-icon>
+        <mdui-top-app-bar-title>
+          {{ pageTitle }}
+          <span slot="label-large">{{ pageTitle }}</span>
+        </mdui-top-app-bar-title>
+        <div style="flex-grow: 1"></div>
+        <mdui-button-icon icon="more_vert"></mdui-button-icon>
       </mdui-top-app-bar>
       <mdui-bottom-app-bar class="app-bottom-bar" scroll-behavior="hide" fab-detach scroll-threshold="30"
         scroll-target=".app-scroll-content">

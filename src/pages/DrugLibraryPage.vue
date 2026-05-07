@@ -103,9 +103,9 @@ onMounted(async () => {
   allDrugs.value = await store.getAllDrugsWithSource()
 })
 
-const editCanSave = computed(() => editName.value.trim() && parseFloat(editHL.value) > 0)
+const editCanSave = computed(() => editName.value.trim().length > 0 && parseFloat(editHL.value) > 0)
 
-const canCreateCustom = computed(() => customName.value.trim() && parseFloat(customHL.value) > 0)
+const canCreateCustom = computed(() => customName.value.trim().length > 0 && parseFloat(customHL.value) > 0)
 const sourceFilteredDrugs = computed(() => {
   if (activeSource.value === 'all') return allDrugs.value
   return allDrugs.value.filter((d: Drug) => d.source === activeSource.value)
@@ -138,7 +138,7 @@ async function saveCustomDrug() {
 function enableEdit() {
   if (!detailDrug.value) return
   editingDrug.value = true
-  const p = detailDrug.value.parameters || {}
+  const p: any = detailDrug.value.parameters || {}
   editName.value = detailDrug.value.name || ''
   editHL.value = String(p.half_life || '')
   editVD.value = String(p.volume_of_distribution || p.Vd || '2')

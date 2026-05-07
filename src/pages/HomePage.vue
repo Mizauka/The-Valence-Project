@@ -6,6 +6,8 @@
         <div class="sliding-panel">
           <div class="sliding-panel-inner">
             <div class="header-actions" v-if="hasData">
+              <mdui-button slot="trigger" variant="text" icon="medical_services"><span class="">{{ doseCount
+                  }}</span><span class="">给药记录</span></mdui-button>
               <mdui-dropdown>
                 <mdui-button slot="trigger" variant="filled" icon="download">导出</mdui-button>
                 <mdui-menu>
@@ -13,13 +15,6 @@
                   <mdui-menu-item @click="exportJSON">JSON</mdui-menu-item>
                 </mdui-menu>
               </mdui-dropdown>
-            </div>
-
-            <div class="side-stat" v-if="hasData">
-              <mdui-card variant="elevated" class="dose-stat">
-                <mdui-icon name="event" class="side-icon" />
-                <div><span class="side-num">{{ doseCount }}</span><span class="side-sub">给药记录</span></div>
-              </mdui-card>
             </div>
 
             <div v-if="hasData" ref="chartContainer" class="chart-container"></div>
