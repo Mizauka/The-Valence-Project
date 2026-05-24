@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>跳转中…</title>
+  <script>
+    // GitHub Pages SPA 回退：将原始路径存入 sessionStorage 后重定向到应用入口
+    sessionStorage.setItem('spa-redirect', location.pathname + location.search + location.hash);
+    location.replace('/reValenceGUI/');
+  </script>
+</head>
+<body>正在跳转到应用…</body>
+</html>

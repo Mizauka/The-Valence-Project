@@ -8,27 +8,32 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.DS_Store
 dist
+dist-ssr
+coverage
 *.local
-reference
-.agents
-drug-data-converter
-
-# WASM build artifacts
-wasm-core/target
-wasm-core/pkg
-public/wasm/
-
-# Rust
-wasm-core/Cargo.lock
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+*.tsbuildinfo
+
+.eslintcache
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Vitest
+__screenshots__/
+
+# Vite
+*.timestamp-*-*.mjs

@@ -1,178 +1,298 @@
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
+import { vLit } from "../composables/useLitProps";
+import { useSplitPane } from "../composables/useSplitPane";
+import { useCalibrationForm } from "../composables/useCalibrationForm";
+import history from "../compose/history.vue";
+import calibration from "../compose/calibration.vue";
+import calibrationSettings from "../compose/calibrationSettings.vue";
+import addPage from "./addPage.vue";
+import planPage from "./planPage.vue";
+
+const { width, paneRef, minLeftPaneWidth, minRightPaneWidth, splitProps } =
+  useSplitPane({
+    rightFraction: 0.25,
+    rightMin: 170,
+    initValue: 50,
+  });
+
+// 跟踪 bottom-app-bar 的 hide 属性：有 hide → 隐藏，无 → 显示
+const barVisible = ref(true);
+
+// Calibration form
+const calForm = useCalibrationForm();
+
+onMounted(() => {
+  const bar = document.querySelector("mdui-navigation-bar");
+  if (!bar) return;
+  // 初始状态
+  barVisible.value = !bar.hasAttribute("hide");
+  // 监听 hide 属性变化
+  const observer = new MutationObserver(() => {
+    barVisible.value = !bar.hasAttribute("hide");
+  });
+  observer.observe(bar, { attributes: true, attributeFilter: ["hide"] });
+  onUnmounted(() => observer.disconnect());
+});
+</script>
+
 <template>
-  <div class="sliding-page" :data-step="panels.step">
-    <div class="sliding-viewport">
-      <mdui-button-icon icon="arrow_back" @click="handleBack" />
-
-      <div class="sliding-track"
-        :style="{ width: panels.trackWidthPercent + '%', transform: `translateX(-${panels.offsetPercent}%)` }">
-
-        <!-- Panel 0: Dose List -->
-        <div class="sliding-panel"><div class="sliding-panel-inner">
-          <div v-if="loading" class="loading-state">
-            <mdui-circular-progress></mdui-circular-progress><p>加载中...</p>
-          </div>
-          <div v-else-if="doses.length === 0" class="empty-state">
-            <mdui-icon name="history"></mdui-icon><p>暂无给药记录</p>
-            <mdui-button variant="tonal" @click="goAddDose">记录剂量</mdui-button>
-          </div>
-          <div v-else class="dose-list-custom">
-            <div v-for="group in groupedDoses" :key="group.date" class="date-group">
-              <div class="date-header">{{ group.date }}</div>
-              <mdui-list>
-                <mdui-list-item v-for="dose in group.items" :key="dose.dose_id" class="dose-item-custom">
-                  <div class="dose-row">
-                    <div class="dose-left">
-                      <mdui-icon name="medication" class="dose-icon"></mdui-icon>
-                      <div class="dose-info">
-                        <span class="dose-drug-name">{{ dose.drugName }}</span>
-                        <span class="dose-meta">{{ formatDose(dose) }} · {{ routeLabel(dose.route_of_administration) }} · {{ dose.timeStr }}</span>
-                      </div>
-                    </div>
-                    <div class="dose-actions">
-                      <mdui-button-icon icon="edit" @click.stop="openEdit(dose)"></mdui-button-icon>
-                      <mdui-button-icon icon="delete" @click.stop="confirmDelete(dose)"></mdui-button-icon>
-                    </div>
-                  </div>
-                </mdui-list-item>
-              </mdui-list>
-            </div>
-          </div>
-        </div></div>
-
-        <!-- Panel 1: Edit Dose -->
-        <div class="sliding-panel"><div class="sliding-panel-inner">
-            <template v-if="!panels.showPlaceholder">
-          <div class="step-header">
-            <p class="step-desc">{{ editingDrug?.name || '编辑剂量' }}</p>
-          </div>
-          <DoseForm
-            v-if="editingDrug"
-            :drug="editingDrug"
-            :doseAmount="editAmount"
-            :route="editRoute"
-            :timestamp="editTimestamp"
-            :routes="editRoutes"
-            :currentDoseUnit="editDoseUnit"
-            :canSave="editCanSave"
-            saveLabel="保存修改"
-            @update:doseAmount="v => editAmount = v"
-            @update:route="v => editRoute = v"
-            @update:timestamp="v => editTimestamp = v"
-            @save="saveEdit"
-          />
-          </template>
-          <template v-else>
-            <div class="panel-placeholder">
-              <mdui-icon :name="panels.placeholderIcon"></mdui-icon>
-              <p>{{ panels.placeholderText }}</p>
-            </div>
-          </template>
-        </div></div>
-
+  <m3e-split-pane
+    ref="paneRef"
+    v-lit="splitProps"
+    style="height: 100%"
+    v-if="820 < width"
+  >
+    <div
+      slot="start"
+      style="position: relative; height: 100%; overflow-x: hidden; min-width: 0"
+    >
+      <div
+        :style="{
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          right: '0',
+          bottom: '0',
+          minWidth: minLeftPaneWidth,
+        }"
+      >
+        <div style="padding: 8px">
+          <m3e-search-bar clearable>
+            <m3e-icon name="search" slot="leading"></m3e-icon>
+            <input slot="input" placeholder="Search..." /> </m3e-search-bar
+          ><history />
+        </div>
       </div>
     </div>
+    <div
+      slot="end"
+      style="position: relative; height: 100%; overflow-x: hidden; min-width: 0"
+    >
+      <div
+        :style="{
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          right: '0',
+          bottom: '0',
+          minWidth: minRightPaneWidth,
+        }"
+      >
+        <div style="padding: 8px">
+          <m3e-search-bar clearable>
+            <m3e-icon name="search" slot="leading"></m3e-icon>
+            <input slot="input" placeholder="Search..." />
+          </m3e-search-bar>
+          <calibrationSettings />
+          <calibration />
+        </div>
+      </div>
+      <m3e-fab
+        variant="primary"
+        size="medium"
+        style="position: absolute; right: 16px; bottom: 96px"
+      >
+        <m3e-bottom-sheet-trigger for="calibration-sheet">
+          <m3e-icon name="add"></m3e-icon>
+        </m3e-bottom-sheet-trigger>
+      </m3e-fab>
+    </div>
+  </m3e-split-pane>
+  <div v-else style="width: 100%; overflow: auto; position: relative">
+    <mdui-tabs value="history-panel" placement="top">
+      <mdui-tab value="history-panel">用药记录</mdui-tab>
+      <mdui-tab value="calibration-panel">曲线校准</mdui-tab>
+      <mdui-tab value="plan-panel">用药方案</mdui-tab>
 
-    <mdui-dialog :open="deleteDialogOpen" headline="确认删除" @closed="deleteDialogOpen = false">
-      确定要删除这条给药记录吗？此操作不可撤销。
-      <mdui-button slot="action" variant="text" @click="deleteDialogOpen = false">取消</mdui-button>
-      <mdui-button slot="action" variant="tonal" @click="doDelete">删除</mdui-button>
-    </mdui-dialog>
+      <!-- 用药记录 -->
+      <mdui-tab-panel slot="panel" value="history-panel" style="padding: 8px">
+        <div>
+          <m3e-search-bar clearable style="margin-top: 8px">
+            <m3e-icon name="search" slot="leading"></m3e-icon>
+            <input slot="input" placeholder="Search..." />
+          </m3e-search-bar>
+          <history />
+          <m3e-fab
+            variant="primary"
+            size="medium"
+            :style="{
+              position: 'fixed',
+              right: '16px',
+              bottom: barVisible ? '96px' : '16px',
+              transition: 'bottom 0.3s',
+            }"
+          >
+            <m3e-fab-menu-trigger for="main-fab-menu">
+              <m3e-icon name="add"></m3e-icon>
+            </m3e-fab-menu-trigger>
+          </m3e-fab>
+
+          <m3e-fab-menu id="main-fab-menu" variant="primary">
+            <m3e-fab-menu-item>
+              <m3e-icon slot="icon" name="medication"></m3e-icon>门诊常规方案
+            </m3e-fab-menu-item>
+            <m3e-fab-menu-item
+              ><m3e-icon slot="icon" name="note_add"></m3e-icon>
+              <m3e-bottom-sheet-trigger for="add-sheet">
+                自定义用药
+              </m3e-bottom-sheet-trigger>
+            </m3e-fab-menu-item>
+          </m3e-fab-menu>
+        </div>
+      </mdui-tab-panel>
+
+      <!-- 曲线校准 -->
+      <mdui-tab-panel
+        slot="panel"
+        value="calibration-panel"
+        style="padding: 8px"
+      >
+        <div>
+          <m3e-search-bar clearable style="margin-top: 8px">
+            <m3e-icon name="search" slot="leading"></m3e-icon>
+            <input slot="input" placeholder="Search..." />
+          </m3e-search-bar>
+          <calibrationSettings />
+          <calibration />
+        </div>
+        <!-- 校准 FAB -->
+        <m3e-fab
+          variant="primary"
+          size="medium"
+          :style="{
+            position: 'fixed',
+            right: '16px',
+            bottom: barVisible ? '96px' : '16px',
+            transition: 'bottom 0.3s',
+          }"
+        >
+          <m3e-bottom-sheet-trigger for="calibration-sheet">
+            <m3e-icon name="add"></m3e-icon>
+          </m3e-bottom-sheet-trigger>
+        </m3e-fab>
+      </mdui-tab-panel>
+
+      <!-- 用药方案 -->
+      <mdui-tab-panel slot="panel" value="plan-panel" style="padding: 8px">
+        <div>
+          <planPage />
+        </div>
+        <!-- 方案 FAB -->
+        <m3e-fab
+          variant="primary"
+          size="medium"
+          :style="{
+            position: 'fixed',
+            right: '16px',
+            bottom: barVisible ? '96px' : '16px',
+            transition: 'bottom 0.3s',
+          }"
+        >
+          <m3e-bottom-sheet-trigger for="plan-sheet">
+            <m3e-icon name="add"></m3e-icon>
+          </m3e-bottom-sheet-trigger>
+        </m3e-fab>
+      </mdui-tab-panel>
+    </mdui-tabs>
+
+    <!-- 自定义用药 Bottom Sheet（全屏） -->
+    <m3e-bottom-sheet
+      id="add-sheet"
+      modal
+      v-lit="{ handle: true, detents: ['full'], detent: 0 }"
+      style="--m3e-bottom-sheet-border-radius: 0"
+    >
+      <div style="padding: 16px; height: 100%; overflow: auto">
+        <addPage />
+      </div>
+    </m3e-bottom-sheet>
+
+    <!-- 校准记录 Bottom Sheet -->
+    <m3e-bottom-sheet
+      id="calibration-sheet"
+      modal
+      v-lit="{ handle: true, detents: ['full'], detent: 0 }"
+    >
+      <div style="padding: 16px; overflow: auto; max-height: 80vh;">
+        <h3 style="margin: 0 0 16px 0">添加校准记录</h3>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <m3e-form-field>
+            <label slot="label">采血时间 (小时)</label>
+            <input
+              type="number"
+              step="any"
+              min="0"
+              placeholder="例如 48"
+              :value="calForm.timeH.value"
+              @input="calForm.timeH.value = ($event.target as HTMLInputElement).value"
+            />
+            <span slot="supporting-text">距离第一次用药的小时数</span>
+          </m3e-form-field>
+
+          <m3e-form-field>
+            <label slot="label">实测浓度</label>
+            <input
+              type="number"
+              step="any"
+              min="0"
+              placeholder="例如 150"
+              :value="calForm.concValue.value"
+              @input="calForm.concValue.value = ($event.target as HTMLInputElement).value"
+            />
+          </m3e-form-field>
+
+          <m3e-form-field>
+            <label slot="label">浓度单位</label>
+            <select
+              :value="calForm.unit.value"
+              @change="calForm.unit.value = ($event.target as HTMLSelectElement).value"
+              style="width:100%;padding:8px;border-radius:var(--mdui-shape-corner-small);border:1px solid rgb(var(--mdui-color-outline));background:rgb(var(--mdui-color-surface));color:rgb(var(--mdui-color-on-surface))"
+            >
+              <option value="pg/mL">pg/mL</option>
+              <option value="ng/mL">ng/mL</option>
+              <option value="µg/mL">µg/mL</option>
+              <option value="mg/L">mg/L</option>
+              <option value="pmol/L">pmol/L</option>
+            </select>
+          </m3e-form-field>
+
+          <m3e-form-field>
+            <label slot="label">药物分组 (可选)</label>
+            <input
+              type="text"
+              placeholder="例如 E2, CPA 或留空"
+              :value="calForm.groupId.value"
+              @input="calForm.groupId.value = ($event.target as HTMLInputElement).value"
+            />
+            <span slot="supporting-text">对应模拟结果中的 drug_name，留空则应用于全部</span>
+          </m3e-form-field>
+
+          <m3e-button
+            variant="filled"
+            :disabled="!calForm.canSave.value"
+            @click="calForm.save()"
+            style="width: 100%;"
+          >
+            <m3e-icon slot="icon" name="save"></m3e-icon>保存校准数据
+          </m3e-button>
+        </div>
+      </div>
+    </m3e-bottom-sheet>
+
+    <!-- 用药方案 Bottom Sheet -->
+    <m3e-bottom-sheet
+      id="plan-sheet"
+      modal
+      v-lit="{ handle: true, detents: ['full'], detent: 0 }"
+    >
+      <div style="padding: 16px">
+        <h3 style="margin: 0 0 8px 0">新建用药方案</h3>
+        <addPage />
+      </div>
+    </m3e-bottom-sheet>
+
+    <!-- 底部占位，防止被 FAB / bottom-app-bar 遮挡 -->
+    <div style="height: 160px"></div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import * as store from '../wasm/engineStore'
-import { useSlidingPanels } from '../composables/useSlidingPanels'
-import { formatDose as fmtDose, routeLabel } from '../utils/format'
-import DoseForm from '../components/DoseForm.vue'
-
-function formatDose(dose: any) { return fmtDose(dose.display_amount ?? dose.dose_amount, dose.display_unit || 'mg') }
-
-const router = useRouter()
-const panels = useSlidingPanels(2, { icon: 'edit_note', text: '在左侧选择记录后在此编辑' })
-function handleBack() { if (!panels.back()) router.push({ name: 'home' }) }
-
-onMounted(async () => {
-  loadData()
-})
-
-const doses = ref<any[]>([]); const loading = ref(true)
-const deleteDialogOpen = ref(false); const pendingDelete = ref<any>(null)
-
-const editingDose = ref<any>(null); const editingDrug = ref<any>(null)
-const editAmount = ref(''); const editRoute = ref('oral'); const editTimestamp = ref('')
-const editRoutes = computed(() => [{ route: 'oral', unit: 'mg' }])
-const editDoseUnit = computed(() => 'mg')
-const editCanSave = computed(() => parseFloat(editAmount.value) > 0 && editTimestamp.value.length > 0)
-
-function formatTimestamp(ts: number) {
-  const d = new Date(ts * 1000)
-  return {
-    date: d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }),
-    time: d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }),
-  }
-}
-
-const groupedDoses = computed(() => {
-  const groups = new Map()
-  const sorted = [...doses.value].sort((a, b) => b.timestamp - a.timestamp)
-  for (const dose of sorted) {
-    const { date, time } = formatTimestamp(dose.timestamp)
-    dose.timeStr = time
-    if (!groups.has(date)) groups.set(date, { date, items: [] })
-    groups.get(date).items.push(dose)
-  }
-  return [...groups.values()]
-})
-
-async function loadData() {
-  loading.value = true
-  try { doses.value = await store.getAllDoses() }
-  catch (e) { console.error('[HistoryPage] loadData failed:', e) }
-  finally { loading.value = false }
-}
-
-function confirmDelete(dose: any) { pendingDelete.value = dose; deleteDialogOpen.value = true }
-
-async function doDelete() {
-  if (!pendingDelete.value) return
-  try {
-    await store.removeDose(pendingDelete.value.dose_id)
-    doses.value = doses.value.filter(d => d.dose_id !== pendingDelete.value.dose_id)
-  } catch (e) { console.error('[HistoryPage] delete failed:', e) }
-  deleteDialogOpen.value = false; pendingDelete.value = null
-}
-
-function openEdit(dose: any) {
-  editingDose.value = dose
-  editingDrug.value = { name: dose.drugName, drug_id: dose.drug_id, model_type: 'one_compartment', parameters: {} }
-  const ts = new Date(dose.timestamp * 1000)
-  const local = new Date(ts.getTime() - ts.getTimezoneOffset() * 60000)
-  editAmount.value = String(dose.display_amount ?? dose.dose_amount)
-  editRoute.value = dose.route_of_administration || 'oral'
-  editTimestamp.value = local.toISOString().slice(0, 16)
-  panels.markSelection()
-  panels.advance(0)
-}
-
-async function saveEdit() {
-  if (!editingDose.value || !editAmount.value || !editTimestamp.value) return
-  const amount = parseFloat(editAmount.value)
-  if (isNaN(amount) || amount <= 0) return
-  const newTs = new Date(editTimestamp.value).getTime() / 1000 / 3600
-  await store.removeDose(editingDose.value.dose_id)
-  await store.addDose({
-    dose_id: editingDose.value.dose_id,
-    drug_id: editingDose.value.drug_id,
-    dose_amount: amount,
-    timestamp: newTs,
-    route_of_administration: editRoute.value,
-  })
-  doses.value = await store.getAllDoses()
-  panels.reset()
-}
-
-function goAddDose() { router.push({ name: 'add-dose' }) }
-</script>

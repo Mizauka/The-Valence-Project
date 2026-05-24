@@ -1,137 +1,137 @@
-# Valence 项目文档
+# 药历管理系统前端 (Mizauka)
 
-## 项目概述
+基于 Vue 3 + Material Design 3 的药历管理与浓度曲线追踪系统的前端。
 
-Valence 是一个开源药物管理与血药浓度追踪应用，基于药代动力学（Pharmacokinetics, PK）模型计算并可视化药物在体内的浓度变化曲线。支持多种房室模型（一室、二室、多室），涵盖 HRT（激素替代治疗）药物和 Journal 药物（精神活性物质等）。
+## 技术栈
 
-**技术栈**：
-- **前端**：Vue 3 + Vite + Chart.js + MDUI 2
-- **计算引擎**：Rust → WebAssembly (wasm-pack)
-- **数据持久化**：OPFS（Origin Private File System）+ IndexedDB + File System Access API
+| 类别 | 技术 |
+|------|------|
+| 框架 | Vue 3.5 (Composition API + `<script setup>`) |
+| 语言 | TypeScript 6.0 |
+| 构建 | Vite 8 |
+| UI | m3e (Material 3 Expressive) + mdui v2 |
+| 图标 | Material Symbols + Material Icons |
+| 路由 | Vue Router 5 (History 模式) |
+| 包管理 | pnpm |
 
 ## 项目结构
 
 ```
-The-Valence-Project/
-├── index.html                  # 应用入口 HTML
-├── package.json                # Node.js 依赖与脚本
-├── vite.config.js              # Vite 构建配置
-├── pnpm-lock.yaml              # 依赖锁定文件
-├── .gitignore                  # Git 忽略规则
-├── public/
-│   ├── data/
-│   │   ├── hrt_drugs.json      # HRT 药物参数配置
-│   │   └── journal_drugs.json  # Journal 药物参数配置
-│   ├── favicon.svg             # 网站图标
-│   └── icons.svg               # 图标资源
-├── src/
-│   ├── main.js                 # 应用入口 JS
-│   ├── App.vue                 # 根组件（导航布局）
-│   ├── style.css               # 全局样式
-│   ├── router/
-│   │   └── index.js            # Vue Router 路由配置
-│   ├── wasm/
-│   │   ├── engineStore.js      # WASM 引擎封装与数据持久化
-│   │   └── wasmIntegration.js  # WASM 模块加载器
-│   └── pages/
-│       ├── HomePage.vue        # 首页：图表与浓度曲线
-│       ├── AddDosePage.vue     # 添加给药记录
-│       ├── HistoryPage.vue     # 给药历史记录
-│       ├── DrugLibraryPage.vue # 药物库管理
-│       ├── CalibrationPage.vue # 模型校准
-│       └── SettingsPage.vue    # 设置页面
-├── wasm-core/
-│   ├── Cargo.toml              # Rust 项目配置
-│   └── src/
-│       ├── lib.rs              # WASM 对外接口（ValenceEngine）
-│       └── pk/
-│           ├── mod.rs          # PK 模块入口与常量
-│           ├── one_comp.rs     # 一室模型
-│           ├── two_comp.rs     # 二室模型
-│           └── ester.rs        # Depot 储库模型
-├── .github/workflows/
-│   └── deploy.yml              # GitHub Pages 自动部署
-└── docs/                       # 项目文档
+src/
+├── main.ts                    # 入口：挂载 Vue、注册 mdui/m3e、SPA 回退恢复
+├── App.vue                    # 根布局：m3e-theme + mdui-layout + navrail + drawer
+├── style.css                  # 全局样式：字体、主题动画、圆形揭幕
+├── router/
+│   └── index.ts               # 路由定义（含 GitHub Pages base 适配）
+├── composables/               # 通用逻辑
+│   ├── useTheme.ts            # 主题管理（明暗/种子色/双套令牌预缓存）
+│   ├── useSettings.ts         # 持久化设置（localStorage）
+│   ├── useBreakpoint.ts       # 响应式断点（phone < 640, tablet < 1200, desktop ≥ 1200）
+│   ├── useLitProps.ts         # v-lit 指令（Vue → Lit 属性桥接）
+│   ├── useNavRailMode.ts      # 导航栏扩展/折叠状态
+│   ├── useSplitPane.ts        # 分栏面板配置生成
+│   ├── useParentWidth.ts      # ResizeObserver 宽度追踪
+│   └── routes.ts              # 共享路由元数据（图标、标题）
+├── pages/                     # 页面组件
+│   ├── homePage.vue           # 首页：浓度曲线 + 用药记录
+│   ├── historyPage.vue        # 药历核对：记录列表 + 曲线校准 + 用药方案（移动端 tabs）
+│   ├── libPage.vue            # 物质列表：药物树 + 编辑器
+│   ├── planPage.vue           # 用药方案：方案列表 + 编辑器
+│   ├── addPage.vue            # 添加记录
+│   └── settingsPage.vue       # 设置：主题 / 动画性能
+└── compose/                   # 可复用组件
+    ├── app/                   # 全局布局组件
+    │   ├── navrail.vue        # 左侧导航栏（桌面/平板）
+    │   ├── topappbar.vue      # 顶部应用栏
+    │   └── bottombar.vue      # 底部导航栏（手机）
+    ├── history.vue            # 用药记录列表
+    ├── calibration.vue        # 曲线校准面板
+    ├── chart.vue / charttitle.vue  # 浓度曲线图
+    ├── drugTree.vue / drugEditor.vue  # 物质树 / 编辑器
+    └── ...
 ```
 
-## 构建与运行
+## 页面路由
+
+| 路径 | 名称 | 标题 | 图标 |
+|------|------|------|------|
+| `/` | home | 浓度曲线 | dataset |
+| `/history` | history | 药历核对 | watch_later |
+| `/library` | library | 物质列表 | medication |
+| `/plan` | plan | 用药方案 | clinical_notes |
+| `/add` | add | 添加记录 | add |
+| `/settings` | settings | 设置 | settings |
+
+> `add`、`settings`、`plan` 不在底部/侧边导航栏中显示，通过 FAB 和设置按钮访问。
+
+## 响应式布局
+
+| 断点 | 宽度 | 布局 |
+|------|------|------|
+| Phone | < 640px | 顶部栏 + 底部导航 + 移动端 tabs/FAB |
+| Tablet | 640–1200px | 侧边导航栏 + 分栏面板 |
+| Desktop | ≥ 1200px | 侧边导航栏（可展开）+ 分栏面板 + 右侧设置抽屉 |
+
+## 主题系统
+
+- **明暗模式**：浅色 / 深色 / 跟随系统
+- **主题色**：6 种预设 + 自定义取色器
+- **双套令牌预缓存**：light / dark 两套 mdui 颜色令牌分别抓取并缓存到 `:root`，切换模式时不执行 JS 重计算
+- **圆形揭幕动画**：基于 View Transitions API 的 clip-path 圆形展开
+- **持久化**：主题设置保存到 localStorage
+
+## 开发
+
+```bash
+# 安装依赖
+pnpm install
+
+# 启动开发服务器
+pnpm dev
+
+# 类型检查
+pnpm type-check
+
+# 生产构建
+pnpm build
+
+# 预览生产构建
+pnpm preview
+```
 
 ### 环境要求
 
-- **Node.js** >= 18
-- **pnpm**（或 npm）
-- **Rust**（带 wasm32-unknown-unknown target）
-- **wasm-pack**（`cargo install wasm-pack`）
+- Node.js ≥ 20.19 或 ≥ 22.12
+- pnpm（推荐通过 `corepack enable` 启用）
 
-### 1. 编译 WASM 核心
+## 部署
 
-```bash
-cd wasm-core
-wasm-pack build --target web --out-dir ../public/wasm
-```
+项目通过 GitHub Actions 自动部署到 GitHub Pages：
 
-此命令会：
-1. 编译 Rust 源码为 `.wasm` 二进制
-2. 生成 JS 胶水代码（`wasm_core.js`）
-3. 生成 TypeScript 类型声明（`wasm_core.d.ts`）
+1. 推送代码到 `main` 分支
+2. GitHub Actions 自动执行构建并部署
+3. 在仓库 **Settings → Pages** 中选择 **GitHub Actions** 作为源
 
-产物输出到 `public/wasm/`：
-- `wasm_core_bg.wasm` — WASM 二进制
-- `wasm_core.js` — JS 胶水代码
-- `wasm_core.d.ts` — TypeScript 类型声明
-- `wasm_core_bg.wasm.d.ts` — WASM 二进制类型声明
+### 自定义域名 / 不同仓库名
 
-### 2. 安装前端依赖
+若使用自定义域名或仓库名不是 `reValenceGUI`，需修改以下文件中的 base 路径：
+- `vite.config.ts` 的 `base` 选项
+- `src/router/index.ts` 的 `BASE` 常量
+- `public/404.html` 的 `location.replace` 目标
 
-```bash
-pnpm install
-```
+## 许可证
 
-### 3. 启动开发服务器
+MIT
 
-```bash
+
+### Compile and Hot-Reload for Development
+
+```sh
 pnpm dev
 ```
 
-默认在 `http://localhost:5173` 启动 Vite 开发服务器。
+### Type-Check, Compile and Minify for Production
 
-### 4. 生产构建
-
-```bash
+```sh
 pnpm build
 ```
-
-产物输出到 `dist/` 目录。
-
-### 5. 部署到 GitHub Pages
-
-项目已配置 CI/CD（`.github/workflows/deploy.yml`）：
-
-1. Push 到 GitHub 仓库的 main/master 分支
-2. 仓库 Settings → Pages → Source 选择 **GitHub Actions**
-3. 每次 push 自动构建部署
-
-无需手动操作，GitHub Actions 会自动安装 Rust + Node.js，编译 WASM，构建前端，部署到 Pages。
-
-## 架构概览
-
-### 数据流
-
-```
-用户操作 → Vue 组件 → engineStore.js → ValenceEngine (WASM)
-                 ↓                              ↓
-           OPFS/IndexedDB                 PK 模型计算
-                 ↓                              ↓
-           持久化存储                    SimulationOutput
-                                              ↓
-                                        Chart.js 渲染
-```
-
-### 核心模块
-
-1. **ValenceEngine**（Rust WASM）：药物注册、剂量管理、仿真计算的统一入口
-2. **PK 模块**（Rust）：一室/二室/多室模型的数学实现
-3. **engineStore**（JS）：封装 WASM 调用，管理 OPFS/IndexedDB 持久化
-4. **Vue 页面**：用户交互界面
-
-详细文档请参阅各模块章节。
